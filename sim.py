@@ -50,7 +50,7 @@ class sim:
         self.gettimetable = True
 
         if 'AST' in self.party.keys():
-            self.ast = astmodule(number,astpriority,self.fight,True)
+            self.ast = astmodule(number,astpriority,self.fight,False)
             goodcard = buff('Bole', 15, 0, 1.06, 0, 'pot')
             bigcard = buff('Lady', 15, 0, 1.08, 0, 'pot')
             divination = buff('Divination', 15, 0, 1.06, 180, 'pot')

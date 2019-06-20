@@ -174,7 +174,7 @@ def main():
     gcd = stats.determinegcd(ss)
     abilities = build.genabil(wepdelay,gcd)
 
-    layout = [[sg.Text("BRD Simulator"),sg.Text('',size=(20,1)),sg.Image('graphics/DRK.png',size=(8,1))],
+    layout = [[sg.Text("BRD Simulator"),sg.Text('',size=(20,1))],
 			  [sg.Text("Sim One Stats"), sg.Text(''),sg.Text('',size=(22,1)),sg.Text('Sim Two Stats')],
 			  [sg.Text("Weapon Damage",size=(14,1)), sg.Input(default_text=WD,size=(8,1),key='wd1',do_not_clear=True), sg.Text('',size=(12,1)),sg.Text("Weapon Damage",size=(14,1)), sg.Input(default_text='',size=(8,1),key='wd2',do_not_clear=True)],
 			  [sg.Text("Weapon Delay",size=(14,1)), sg.Input(default_text=wepdelay,size=(8,1),key='del1',do_not_clear=True),sg.Text('',size=(12,1)),sg.Text("Weapon Delay",size=(14,1)), sg.Input(default_text=wepdelay,size=(8,1),key='del2',do_not_clear=True)],
@@ -190,7 +190,7 @@ def main():
 			  [sg.Button('Run Sim',key='sim'),sg.Text('',size=(20,1)),sg.Button('Set Party',key='party'),sg.Button('Set Buff Times',key='buffs')]]
     sim1 =['wd1','del1','dex1','crit1','dh1','det1','sks1']
     sim2 =['wd2','del2','dex2','crit2','dh2','det2','sks2']
-    window = sg.Window("BRD Simulator",icon='graphics\\DRK.png').Layout(layout)
+    window = sg.Window("BRD Simulator",icon='graphics\\BRD.png').Layout(layout)
 
     win2_active = False
     win3_active = False
