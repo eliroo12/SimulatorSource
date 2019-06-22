@@ -149,8 +149,8 @@ def genpbuffs(party, tetherbuff,dncpart):
     embolden.falloff = True
 
     technical = buff('Technical Finish', 15, 10.4, 1.05, 120,'pot')
-    sabercrit = buff('Saber Dance',15,7.8,30,120,'ch')
-    saberdh = buff('Saber Dance',15,7.8,30,120,'dh')
+    sabercrit = buff('Saber Dance CRIT',15,7.8,30,120,'ch')
+    saberdh = buff('Saber Dance DH',15,7.8,30,120,'dh')
     litany = buff("Battle Litany", 20, 3.1, 10, 180,'ch')
     chain = buff("Chain Stratagem", 15, 3.1, 10, 120,'ch')
     chain.activationdelay = .8

@@ -13,8 +13,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bardsim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2550">
-              <caret line="457" selection-start-line="457" selection-end-line="457" />
+            <state relative-caret-position="272">
+              <caret line="16" column="27" lean-forward="true" selection-end-line="1038" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#2401#5528#0" />
@@ -43,12 +43,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BRDgui.py">
+        <entry file="file://$PROJECT_DIR$/blsim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="192" column="58" selection-start-line="192" selection-start-column="58" selection-end-line="192" selection-end-column="58" />
+            <state relative-caret-position="206">
+              <caret line="151" column="36" lean-forward="true" selection-start-line="151" selection-start-column="36" selection-end-line="151" selection-end-column="36" />
               <folding>
-                <element signature="e#0#24#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#290#379#0" />
+                <element signature="e#631#2426#0" />
+                <element signature="e#1786#2222#0" />
+                <element signature="e#2274#2379#0" />
+                <element signature="e#2471#5598#0" />
+                <element signature="e#5639#5691#0" />
+                <element signature="e#7085#7383#0" />
+                <element signature="e#7424#8040#0" />
+                <element signature="e#8079#8499#0" />
+                <element signature="e#8541#8637#0" />
+                <element signature="e#8703#9573#0" />
+                <element signature="e#9633#11081#0" />
+                <element signature="e#12792#13662#0" />
+                <element signature="e#16969#17716#0" />
+                <element signature="e#17833#18592#0" />
+                <element signature="e#18653#19349#0" />
+                <element signature="e#19414#21218#0" />
+                <element signature="e#27620#35487#0" />
+                <element signature="e#36149#42265#0" />
+                <element signature="e#36374#36521#0" />
+                <element signature="e#37181#37812#0" />
+                <element signature="e#38084#38685#0" />
+                <element signature="e#44149#44441#0" />
+                <element signature="e#46138#46315#0" />
+                <element signature="e#44636#44784#0" />
+                <element signature="e#44953#45332#0" />
+                <element signature="e#51855#52110#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BLgui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+              <folding>
                 <element signature="e#3946#4562#0" />
                 <element signature="e#4585#5201#0" />
               </folding>
@@ -57,23 +95,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DNCgui.py">
+        <entry file="file://$PROJECT_DIR$/BRDSim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="167" column="77" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#2274#4352#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BalanceSims.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            <state relative-caret-position="170">
+              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -82,13 +107,63 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BalanceSims.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/barddictionary.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#2927#3965#0" />
+                <element signature="e#4205#5842#0" />
+                <element signature="e#5866#6461#0" />
+                <element signature="e#6483#8180#0" />
+                <element signature="e#8216#8269#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+            <state relative-caret-position="357">
+              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#55873#75132#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ability.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#1858#2120#0" />
+                <element signature="e#2378#2540#0" />
+                <element signature="e#2424#2522#0" />
+                <element signature="e#2583#2604#0" />
+                <element signature="e#2654#2670#0" />
+                <element signature="e#2726#3853#0" />
+                <element signature="e#3926#4028#0" />
+                <element signature="e#4103#4310#0" />
+                <element signature="e#4578#4810#0" />
               </folding>
             </state>
           </provider>
@@ -105,8 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clip</find>
-      <find>Paeon</find>
       <find>Minuet</find>
       <find>Minuet has fallen off.</find>
       <find>Clip</find>
@@ -135,6 +208,8 @@
       <find>print</find>
       <find>DRK</find>
       <find>self.scheduler</find>
+      <find>returncharges</find>
+      <find>You lost a proc</find>
     </findStrings>
     <replaceStrings>
       <replace>self.buffs['Potion']</replace>
@@ -177,14 +252,16 @@
         <option value="$PROJECT_DIR$/venv/BRDSim.py" />
         <option value="$PROJECT_DIR$/BRD_Sim_Log0" />
         <option value="$PROJECT_DIR$/BRDSim.py" />
-        <option value="$PROJECT_DIR$/barddictionary.py" />
-        <option value="$PROJECT_DIR$/ability.py" />
         <option value="$PROJECT_DIR$/dot.py" />
-        <option value="$PROJECT_DIR$/BalanceSims.py" />
         <option value="$PROJECT_DIR$/bardsim.py" />
         <option value="$PROJECT_DIR$/DNCgui.py" />
         <option value="$PROJECT_DIR$/BRDgui.py" />
         <option value="$PROJECT_DIR$/sim.py" />
+        <option value="$PROJECT_DIR$/barddictionary.py" />
+        <option value="$PROJECT_DIR$/ability.py" />
+        <option value="$PROJECT_DIR$/BLgui.py" />
+        <option value="$PROJECT_DIR$/blsim.py" />
+        <option value="$PROJECT_DIR$/BalanceSims.py" />
       </list>
     </option>
   </component>
@@ -241,6 +318,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.BalanceSims">
+    <configuration name="BLgui" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DNCSimv2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BLgui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="BRDSim (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DNCSimv2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -325,34 +423,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bardsim" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="DNCSimv2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bardsim.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.BalanceSims" />
+        <item itemvalue="Python.BLgui" />
         <item itemvalue="Python.BRDgui" />
         <item itemvalue="Python.DNCgui" />
         <item itemvalue="Python.BRDSim (1)" />
-        <item itemvalue="Python.bardsim" />
       </list>
     </recent_temporary>
   </component>
@@ -373,12 +450,12 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3340358" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3340358" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987553" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32987553" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -799,7 +876,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ability.py</url>
-          <line>89</line>
+          <line>96</line>
           <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -819,22 +896,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ability.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ability.py</url>
-          <line>75</line>
+          <line>82</line>
           <option name="timeStamp" value="158" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ability.py</url>
-          <line>82</line>
+          <line>89</line>
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ability.py</url>
-          <line>117</line>
+          <line>124</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -904,7 +976,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ability.py</url>
-          <line>113</line>
+          <line>120</line>
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1016,6 +1088,46 @@
           <url>file://$PROJECT_DIR$/BRDgui.py</url>
           <line>130</line>
           <option name="timeStamp" value="227" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/barddictionary.py</url>
+          <line>210</line>
+          <option name="timeStamp" value="229" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/barddictionary.py</url>
+          <line>253</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/blsim.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/blsim.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ability.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/blsim.py</url>
+          <line>467</line>
+          <option name="timeStamp" value="235" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ability.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="236" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ability.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="237" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1135,17 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/barddictionary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="248" column="30" selection-start-line="248" selection-start-column="30" selection-end-line="248" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <element signature="e#5649#6244#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/buff.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1174,54 +1275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BRDSim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BalanceSims.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ability.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#1708#1970#0" />
-            <element signature="e#2045#2207#0" />
-            <element signature="e#2274#2372#0" />
-            <element signature="e#2433#2454#0" />
-            <element signature="e#2504#2520#0" />
-            <element signature="e#2576#3703#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BRDgui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="192" column="58" selection-start-line="192" selection-start-column="58" selection-end-line="192" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#3946#4562#0" />
-            <element signature="e#4585#5201#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DNCgui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -1244,10 +1297,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#55873#75132#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bardsim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="457" selection-start-line="457" selection-end-line="457" />
+        <state relative-caret-position="272">
+          <caret line="16" column="27" lean-forward="true" selection-end-line="1038" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#2401#5528#0" />
@@ -1274,13 +1338,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sim.py">
+    <entry file="file://$PROJECT_DIR$/BRDSim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        <state relative-caret-position="170">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/barddictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#2927#3965#0" />
+            <element signature="e#4205#5842#0" />
+            <element signature="e#5866#6461#0" />
+            <element signature="e#6483#8180#0" />
+            <element signature="e#8216#8269#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#1858#2120#0" />
+            <element signature="e#2378#2540#0" />
+            <element signature="e#2424#2522#0" />
+            <element signature="e#2583#2604#0" />
+            <element signature="e#2654#2670#0" />
+            <element signature="e#2726#3853#0" />
+            <element signature="e#3926#4028#0" />
+            <element signature="e#4103#4310#0" />
+            <element signature="e#4578#4810#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BRDgui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="187" column="4" lean-forward="true" selection-start-line="187" selection-start-column="4" selection-end-line="187" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#3946#4562#0" />
+            <element signature="e#4585#5201#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BLgui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding>
+            <element signature="e#3946#4562#0" />
+            <element signature="e#4585#5201#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blsim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="151" column="36" lean-forward="true" selection-start-line="151" selection-start-column="36" selection-end-line="151" selection-end-column="36" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#55873#75132#0" />
+            <element signature="e#290#379#0" />
+            <element signature="e#631#2426#0" />
+            <element signature="e#1786#2222#0" />
+            <element signature="e#2274#2379#0" />
+            <element signature="e#2471#5598#0" />
+            <element signature="e#5639#5691#0" />
+            <element signature="e#7085#7383#0" />
+            <element signature="e#7424#8040#0" />
+            <element signature="e#8079#8499#0" />
+            <element signature="e#8541#8637#0" />
+            <element signature="e#8703#9573#0" />
+            <element signature="e#9633#11081#0" />
+            <element signature="e#12792#13662#0" />
+            <element signature="e#16969#17716#0" />
+            <element signature="e#17833#18592#0" />
+            <element signature="e#18653#19349#0" />
+            <element signature="e#19414#21218#0" />
+            <element signature="e#27620#35487#0" />
+            <element signature="e#36149#42265#0" />
+            <element signature="e#36374#36521#0" />
+            <element signature="e#37181#37812#0" />
+            <element signature="e#38084#38685#0" />
+            <element signature="e#44149#44441#0" />
+            <element signature="e#46138#46315#0" />
+            <element signature="e#44636#44784#0" />
+            <element signature="e#44953#45332#0" />
+            <element signature="e#51855#52110#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BalanceSims.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>

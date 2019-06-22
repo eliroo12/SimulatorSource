@@ -50,10 +50,17 @@ class ability:
 
         pot = round(pot,4)
         string = string+' - '+str(pot)+ ' damage'
-        self.nextuse = round(time + self.cooldown,2)
+        self.putonCD(time)
         self.totalpotency = self.totalpotency + pot
         self.totaluse = self.totaluse + 1
         return [pot, string]
+
+    def returncharges(self,time):
+        if not self.charged:
+            print('Incorrect Charged Ability')
+            return 0
+        else:
+            return math.trunc(self.charges - (self.nextuse - time) / self.cooldown)
 
     #puts ability on CD
     def putonCD(self,time):
@@ -125,4 +132,10 @@ class ability:
         return self.getpotency(time,cdhstats,potmod,stats,combo)
 
     def resetcd(self,time):
-        self.nextuse = time
+        if not self.charged:
+            self.nextuse = time
+        else:
+            if self.nextuse - self.cooldown < time:
+                self.nextuse = time
+            else:
+                self.nextuse = self.nextuse - self.cooldown
