@@ -6,12 +6,12 @@ from job import job
 def genabil(wepdelay, GCDrecast):
 
     autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 100, 0, 0)
-    cascade = ability('Cascade', 'GCD', 'ST', GCDrecast, 250, 0,  0)
-    fountain = ability('Fountain', 'GCD', 'ST', GCDrecast, 100, 0, 300)
-    reversecascade = ability('Reverse Cascade', 'GCD', 'ST', GCDrecast, 350, 0, 0)
-    fountainfall = ability('Fountainfall', 'GCD', 'ST', GCDrecast, 400, 0, 0)
+    cascade = ability('Cascade', 'GCD', 'ST', GCDrecast, 200, 0,  0)
+    fountain = ability('Fountain', 'GCD', 'ST', GCDrecast, 100, 0, 250)
+    reversecascade = ability('Reverse Cascade', 'GCD', 'ST', GCDrecast, 300, 0, 0)
+    fountainfall = ability('Fountainfall', 'GCD', 'ST', GCDrecast, 350, 0, 0)
 
-    windmill = ability('Windmill', 'GCD', 'AE', GCDrecast, 250, 0,  0)
+    windmill = ability('Windmill', 'GCD', 'AE', GCDrecast, 150, 0,  0)
     bladeshower = ability('Bladeshower', 'GCD', 'AE', GCDrecast, 100, 0, 200)
     risingwindmill = ability('Rising Windmill', 'GCD', 'AE', GCDrecast, 250, 0, 0)
     bloodshower = ability('Bloodshower', 'GCD', 'AE', GCDrecast, 300, 0, 0)
@@ -20,8 +20,8 @@ def genabil(wepdelay, GCDrecast):
     fandance2 = ability('Fan Dance II', 'OGCD', 'AE', 1, 100, 0, 0)
     fandance3 = ability('Fan Dance III', 'OGCD', 'AE', 1, 200, 0, 0)
 
-    devilment = ability('Devilment', 'GCD', 'AE', GCDrecast, 600, 0, 0)
-    devilment.cost = 50
+    saberdance = ability('Saber Dance', 'GCD', 'AE', GCDrecast, 600, 0, 0)
+    saberdance.cost = 50
 
     technicalstep = ability('Technical Step', 'GCD', 'ST', 120, 0, 0, 0)
     standardstep = ability('Standard Step', 'GCD', 'ST', 30, 0, 0, 0)
@@ -29,7 +29,7 @@ def genabil(wepdelay, GCDrecast):
     technicalfinish = ability('Technical Finish', 'GCD', 'AE', 1, 1500, 0, 0)
     standardfinish = ability('Standard Finish', 'GCD', 'AE', 1, 1000, 0, 0)
 
-    saberdance = ability('Saber Dance', 'OGCD', 'ST', 120, 0, 0,  0)
+    devilment = ability('Devilment', 'OGCD', 'ST', 120, 0, 0,  0)
     flourish = ability('Flourish', 'OGCD', 'ST', 60, 0, 0, 0)
     improv = ability('Improvisation', 'OGCD', 'ST', 180, 0, 0, 0)
 
@@ -84,26 +84,26 @@ def genast():
     return [abildict, buffdict, deck]
 
 def genjobs():
-    nin = job('NIN', 'DPS', True, 2.4, .7, .15, True)
-    drg = job('DRG', 'DPS', True, 2.4, .7, .15, False)
-    mnk = job('MNK', 'DPS', False, 2.4, .7, .15, False)
-    sam = job('SAM', 'DPS', False, 2.4, .7, .15, False)
+    nin = job('NIN', 'DPS', True, 2.4, .7, .20, True)
+    drg = job('DRG', 'DPS', True, 2.4, .7, .20, False)
+    mnk = job('MNK', 'DPS', False, 2.4, .7, .20, False)
+    sam = job('SAM', 'DPS', False, 2.4, .7, .20, False)
 
-    brd = job('BRD', 'DPS', False, 2.4, 0, .15, False)
-    mch = job('MCH', 'DPS', False, 2.4, 0, .15, False)
+    brd = job('BRD', 'DPS', False, 2.4, 0, .20, False)
+    mch = job('MCH', 'DPS', False, 2.4, 0, .20, False)
 
-    rdm = job('RDM', 'DPS', True, 2.4, 0, .15, False)
-    smn = job('SMN', 'DPS', False, 2.4, 0, .15, False)
-    blm = job('BLM', 'DPS', False, 2.4, 0, .15, False)
+    rdm = job('RDM', 'DPS', True, 2.4, 0, .20, False)
+    smn = job('SMN', 'DPS', False, 2.4, 0, .20, False)
+    blm = job('BLM', 'DPS', False, 2.4, 0, .20, False)
 
-    sch = job('SCH', 'HEAL', True, 2.4, 0, .15, False)
-    ast = job('AST', 'HEAL', True, 2.4, 0, .15, False)
-    whm = job('WHM', 'HEAL', False, 2.4, 0, .15, False)
+    sch = job('SCH', 'HEAL', True, 2.4, 0, .20, False)
+    ast = job('AST', 'HEAL', True, 2.4, 0, .20, False)
+    whm = job('WHM', 'HEAL', False, 2.4, 0, .20, False)
 
-    gnb = job('GNB', 'TANK', True, 2.4, 0, .15, False)
-    war = job('WAR', 'TANK', True, 2.4, 0, .15, False)
-    drk = job('DRK', 'TANK', False, 2.4, 0, .15, False)
-    pld = job('PLD', 'TANK', False, 2.4, 0, .15, False)
+    gnb = job('GNB', 'TANK', True, 2.4, 0, .20, False)
+    war = job('WAR', 'TANK', True, 2.4, 0, .20, False)
+    drk = job('DRK', 'TANK', False, 2.4, 0, .20, False)
+    pld = job('PLD', 'TANK', False, 2.4, 0, .20, False)
 
 
     table = [nin,drg,mnk,sam,brd,mch,rdm,smn,blm,sch,ast,whm,gnb,war,drk,pld]
@@ -176,21 +176,21 @@ def genpbuffs(party, tetherbuff):
 
 def genbuffs():
 
-    flourishcascade = buff('Flourishing Cascade', 15, 0, 0, 0,'None')
-    flourishfountain = buff('Flourishing Fountain', 15, 0, 0, 0,'None')
-    flourishwindmill = buff('Flourishing Windmill', 15, 0, 0, 0,'None')
-    flourishbloodshower = buff('Flourishing Bladeshower', 15, 0, 0, 0,'None')
-    flourishfan = buff('Flourishing Fan', 15, 0, 0, 0,'None')
+    flourishcascade = buff('Flourishing Cascade', 20, 0, 0, 0,'None')
+    flourishfountain = buff('Flourishing Fountain', 20, 0, 0, 0,'None')
+    flourishwindmill = buff('Flourishing Windmill', 20, 0, 0, 0,'None')
+    flourishbloodshower = buff('Flourishing Bladeshower', 20, 0, 0, 0,'None')
+    flourishfan = buff('Flourishing Fan', 20, 0, 0, 0,'None')
 
     potionbuff = buff('Potion', 30, 0, .1, 0,'None')
 
-    saber = buff('Saber Dance', 15, 0, 30, 0,'cdh')
-    technical = buff('Technical Finish', 15, 0, 1.05, 0,'pot')
+    devil = buff('Devilment', 20, 0, 20, 0,'cdh')
+    technical = buff('Technical Finish', 20, 0, 1.05, 0,'pot')
     combo = buff('Combo', 15, 0, 0, 0,'None')
     improvbuff = buff('Improvisation', 15, 0, 3, 0,'None')
 
     table = [flourishcascade,flourishfountain,flourishwindmill,flourishbloodshower,flourishfan,
-             potionbuff,saber,technical,combo,improvbuff]
+             potionbuff,devil,technical,combo,improvbuff]
 
     dict = {}
     for i in table:

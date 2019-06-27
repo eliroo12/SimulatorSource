@@ -8,7 +8,7 @@ def genabil(wepdelay, GCDrecast):
 
     autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 100, 0, 0)
     burst = ability('Burst Shot','GCD','ST',GCDrecast,230,0,0)
-    ra = ability('Refulgent Arrow', 'GCD', 'ST', GCDrecast, 360, 0, 0)
+    ra = ability('Refulgent Arrow', 'GCD', 'ST', GCDrecast, 340, 0, 0)
     ij = ability('Iron Jaws', 'GCD', 'ST', GCDrecast, 100, 0, 0)
     cb = ability('Caustic Bite', 'GCD', 'ST', GCDrecast, 150, 0, 0)
     sb = ability('Stormbite', 'GCD', 'ST', GCDrecast, 100, 0, 0)

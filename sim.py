@@ -178,7 +178,7 @@ class sim:
             self.feathers = self.feathers + 1
 
     def buildesprit(self, rate):
-            if (random.randint(1, 10001) > 10000 * .85):
+            if (random.randint(1, 10001) > 10000 * .80):
                 if self.esprit >= 100:
                     self.espritcap = self.espritcap + 1
                     if self.createlog:
@@ -289,7 +289,7 @@ class sim:
         gcd = 0
         feathersused = 0
         flourishedfans = 0
-        useddevilments = 0
+        saberdancess = 0
 
         self.abilities['Fan Dance I'].nextuse = 1
         self.abilities['Fan Dance III'].nextuse = 1
@@ -318,8 +318,8 @@ class sim:
                 stillinopener = False  # To avoid complications)
                 if self.abilities['Technical Step'].nextuse < delayend:
                     self.abilities['Technical Step'].nextuse = round(delayend + 1.5 + self.gcd * 2, 2)
-                if self.abilities['Saber Dance'].nextuse < delayend:
-                    self.abilities['Saber Dance'].nextuse = round(delayend + self.gcd, 2)
+                if self.abilities['Devilment'].nextuse < delayend:
+                    self.abilities['Devilment'].nextuse = round(delayend + self.gcd, 2)
 
             elif self.clock == delayend:
                 if self.buffs['Improvisation'].getactive(self.clock):
@@ -351,7 +351,7 @@ class sim:
             det = self.stats[6]
             sks = self.stats[7]
 
-            saberhold = False
+            devilhold = False
             
             # Activate potion value if its available
             if self.buffs['Potion'].available:
@@ -453,11 +453,11 @@ class sim:
                 if self.createlog:
                     logging.info(string)
 
-            if self.buffs['Saber Dance'].getactive(self.clock):
-                critrate = round(critrate + self.buffs['Saber Dance'].getpotency(self.clock), 2)
-                direct = round(direct + self.buffs['Saber Dance'].getpotency(self.clock), 2)
-            elif self.buffs['Saber Dance'].active:
-                string = self.buffs['Saber Dance'].dropbuff(self.clock)
+            if self.buffs['Devilment'].getactive(self.clock):
+                critrate = round(critrate + self.buffs['Devilment'].getpotency(self.clock), 2)
+                direct = round(direct + self.buffs['Devilment'].getpotency(self.clock), 2)
+            elif self.buffs['Devilment'].active:
+                string = self.buffs['Devilment'].dropbuff(self.clock)
                 if self.createlog:
                     logging.info(string)
 
@@ -480,7 +480,7 @@ class sim:
             if 'NIN' in self.party.keys() and self.pbuffs['Trick Attack'].getactive(self.clock):
                 buffwindow = True
                 lastbuffwindow = self.clock
-            elif self.buffs['Saber Dance'].getactive(self.clock):
+            elif self.buffs['Devilment'].getactive(self.clock):
                 buffwindow = True
                 lastbuffwindow = self.clock
             elif self.buffs['Potion'].getactive(self.clock):
@@ -532,10 +532,10 @@ class sim:
             if 'NIN' in self.party.keys() and self.pbuffs['Trick Attack'].starttime - self.clock < 15:
                 foundnextbuffwindow = True
                 nextbuffwindow = self.pbuffs['Trick Attack'].starttime
-            elif self.abilities['Saber Dance'].nextuse - self.clock < 15:
+            elif self.abilities['Devilment'].nextuse - self.clock < 15:
                 foundnextbuffwindow = True
-                if self.abilities['Saber Dance'].nextuse < nextbuffwindow:
-                    nextbuffwindow = self.abilities['Saber Dance'].nextuse
+                if self.abilities['Devilment'].nextuse < nextbuffwindow:
+                    nextbuffwindow = self.abilities['Devilment'].nextuse
             elif 'DRG' in self.party.keys() and 'BRD' in self.party.keys() and self.pbuffs['Battle Voice'].starttime - self.clock < 15:
                 foundnextbuffwindow = True
                 if self.pbuffs['Battle Voice'].starttime < nextbuffwindow:
@@ -614,14 +614,14 @@ class sim:
                     elif self.action[posinopen].name == 'Standard Finish':
                         self.buildpotency(self.abilities['Standard Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
                         nextgcd = round(self.clock + 1.5, 2)
-                    elif self.action[posinopen].name == 'Saber Dance':
+                    elif self.action[posinopen].name == 'Devilment':
                         if self.createlog:
-                            logging.info(str(self.clock) + ' : You use Saber Dance!')
+                            logging.info(str(self.clock) + ' : You use Devilment!')
                         if not technicalfirst:
                             saberfirst = True
-                        self.buffs['Saber Dance'].activate(self.clock)
-                        self.schedule.addtime(self.buffs['Saber Dance'].activation)
-                        self.abilities['Saber Dance'].putonCD(self.clock)
+                        self.buffs['Devilment'].activate(self.clock)
+                        self.schedule.addtime(self.buffs['Devilment'].activation)
+                        self.abilities['Devilment'].putonCD(self.clock)
                     elif self.action[posinopen].name == 'Flourish':
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use Flourish!')
@@ -649,12 +649,12 @@ class sim:
                         nextgcd = round(self.clock + self.gcd, 2)
                     elif currentaction.name == 'AutoGCD' or currentaction.name == 'ReverseProc':
                         # Auto GCD in the self.action
-                        # If technical is active and Esprit > 80 - Use Devilment
+                        # If technical is active and Esprit > 80 - Use Saber Dance
                         # If we are to lose any procs do them in the following order Fountfall > Cascade > self.abilities['Bloodshower'] > windmill
-                        # If we are in a buffwindo and esprit is great than or equal to 50 then use Devilment
+                        # If we are in a buffwindo and esprit is great than or equal to 50 then use Saber Dance
                         # If we are in a combo and self.buffs['Flourishing Fountain'] is not active and our combo will drop - Use Fountain
                         # Use Flourishes in this order : Fountainfall >  Reverse Cascade > Blood > Rising
-                        # If esprit is 90 or above use Devilment
+                        # If esprit is 90 or above use Saber Dance
                         # If combo use Fountain
                         # Else use Cascade
                         proccount = self.countprocs()
@@ -662,9 +662,9 @@ class sim:
                         nextgcd = round(self.clock + self.gcd, 2)
                         if self.buffs['Technical Finish'].getactive(
                                 self.clock) and self.esprit > 80:  # If we Technical is out and we have 90+ Esprit, Go now
-                            self.buildpotency(self.abilities['Devilment'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            useddevilments = useddevilments + 1
-                            self.esprit = self.esprit - self.abilities['Devilment'].cost
+                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                             gcd = gcd + 1
                         elif self.buffs['Flourishing Fountain'].getactive(self.clock) and self.buffs['Flourishing Fountain'].closetodrop(self.clock,
                                                                                                 procgcd):  # Check to see if Flourish Fountain is close to dropping
@@ -698,11 +698,11 @@ class sim:
                             string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
-                        elif buffwindow and self.esprit >= 50:  # I want to use self.abilities['Devilment'] in the buff window
-                            self.buildpotency(self.abilities['Devilment'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            useddevilments = useddevilments + 1
+                        elif buffwindow and self.esprit >= 50:  # I want to use self.abilities['Saber Dance'] in the buff window
+                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
                             gcd = gcd + 1
-                            self.esprit = self.esprit - self.abilities['Devilment'].cost
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                         elif self.buffs['Combo'].getactive(self.clock) and not self.buffs['Flourishing Fountain'].getactive(self.clock) and self.buffs['Combo'].closetodrop(
                                 self.clock,
                                 self.gcd):  # First We check to see if we are in combo and don't have Flourished Fountain
@@ -740,10 +740,10 @@ class sim:
                             if self.createlog:
                                 logging.info(string)
                         elif self.esprit > 80:
-                            self.buildpotency(self.abilities['Devilment'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            useddevilments = useddevilments + 1
+                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
                             gcd = gcd + 1
-                            self.esprit = self.esprit - self.abilities['Devilment'].cost
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                         elif self.buffs['Combo'].getactive(self.clock):  # If we are in combo we are doing self.abilities['Fountain'] here
                             self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
@@ -923,9 +923,9 @@ class sim:
             else:
                 # GCD Priority List - Update this
                 # First we check if we are dancing and finish the dance
-                # We check the status on technical, If we used Saber first in our opener we also check to see if Saber Dance is up. We also check to make there is no boss jump/delay in the 22 seconds Then we use Technical
+                # We check the status on technical, If we used Saber first in our opener we also check to see if Devilment is up. We also check to make there is no boss jump/delay in the 22 seconds Then we use Technical
                 # Check if Standard Step is up and there is no boss jump/delay in 5 seconds - If so use it
-                # If we have 50 Espri. improv is up and the boss is jumping within the next GCD we want to dump Esprit into Devilment
+                # If we have 50 Espri. improv is up and the boss is jumping within the next GCD we want to dump Esprit into Saber Dance
                 # next we check if 2 dances are coming and one is next GCD and if we have self.buffs['Flourishing Fountain'] - Use Flourish Fountain
                 # next we check if 2 dances are coming and one is next GCD and if we have self.buffs['Flourishing Cascade'] - Use Flourish Cascade
                 # If we have self.abilities['Flourish'] self.abilities['Fountain'] and we will lose a the proc next GCD - Use Fountainfall
@@ -933,8 +933,8 @@ class sim:
                 # next we check if we are in combo and the combo is about to drop and we don't have Flourish Fountain - Use Fountain
                 # If Cascade self.abilities['Flourish'] is up and we will lose any self.abilities['Flourish'] proc if we don't use one - Use Reverse Cascade
                 # If Bladeshower self.abilities['Flourish'] is up and we will lose any self.abilities['Flourish'] proc if we don't use one - Use Bloodshower
-                # If we are in a buffwindow and esprit equal or greater than 50 - Use Devilment
-                # If we either we are not in a buffwindow in 15 seconds and your esprit is 90 or we are in a buffwindow in 15 seconds and esprit is at 100 - Use Devilment
+                # If we are in a buffwindow and esprit equal or greater than 50 - Use Saber Dance
+                # If we either we are not in a buffwindow in 15 seconds and your esprit is 90 or we are in a buffwindow in 15 seconds and esprit is at 100 - Use Saber Dance
                 # If Windmill self.abilities['Flourish'] up and we will lose any self.abilities['Flourish'] proc if we don't use one - Use Rising Windmill
                 # If we are in a buffwindow and self.buffs['Flourishing Fountain'] is up - Use Fountainfall
                 # If we are in a buffwindow and self.buffs['Flourishing Cascade'] is up - Use Reverse Cascade
@@ -973,7 +973,7 @@ class sim:
                                 nextgcd = round(self.clock + 1.5, 2)
                                 nextaction = round(self.clock + 1.5, 2)
                     elif self.abilities['Technical Step'].available(self.clock) and (
-                            (saberfirst and self.buffs['Saber Dance'].getactive(self.clock)) or technicalfirst) and delaystart - self.clock > 22:
+                            (saberfirst and self.buffs['Devilment'].getactive(self.clock)) or technicalfirst) and delaystart - self.clock > 22:
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You begin Technical Step')
                         nextgcd = round(self.clock + 1.5, 2)
@@ -997,10 +997,10 @@ class sim:
                         nextaction = round(self.clock + self.abilitydelay, 2)
                         if self.esprit > 40 and delayend - delaystart > 20 and delaystart < self.clock + self.gcd and self.abilities['Improvisation'].available(
                                 self.clock):
-                            self.buildpotency(self.abilities['Devilment'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            useddevilments = useddevilments + 1
+                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
                             gcd = gcd + 1
-                            self.esprit = self.esprit - self.abilities['Devilment'].cost
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                             self.buildesprit(self.rate)
                         elif (dancenumber >= 1 and self.buffs['Flourishing Fountain'].getactive(
                                 self.clock) and actualnextdance <= nextgcd) or (self.buffs['Flourishing Fountain'].getactive(
@@ -1074,17 +1074,17 @@ class sim:
                             string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
-                        elif buffwindow and self.esprit >= 50:  # I want to use self.abilities['Devilment'] in the buff window
-                            self.buildpotency(self.abilities['Devilment'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            useddevilments = useddevilments + 1
+                        elif buffwindow and self.esprit >= 50:  # I want to use self.abilities['Saber Dance'] in the buff window
+                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
                             gcd = gcd + 1
-                            self.esprit = self.esprit - self.abilities['Devilment'].cost
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                             self.buildesprit(self.rate)
                         elif (not foundnextbuffwindow and self.esprit > 80) or (foundnextbuffwindow and self.esprit == 100):
-                            self.buildpotency(self.abilities['Devilment'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            useddevilments = useddevilments + 1
+                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
                             gcd = gcd + 1
-                            self.esprit = self.esprit - self.abilities['Devilment'].cost
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                             self.buildesprit(self.rate)
                         elif self.buffs['Flourishing Windmill'].getactive(self.clock) and self.buffs['Flourishing Windmill'].closetodrop(self.clock,
                                                                                                 procgcd):  # Check if Windmill is close to fall
@@ -1179,11 +1179,11 @@ class sim:
                 elif nextaction == self.clock:
                     # oGCD Priority list
                     # Ignore oGCDs if dancing
-                    # If saber dance is ready, and technical is the next GCD or we opened with Technical first and we are in the second oGCD slot - Use Saber
+                    # If Devilment is ready, and technical is the next GCD or we opened with Technical first and we are in the second oGCD slot - Use Saber
                     # If Saber is ready and technical is the next GCD or we opened with Technical first and our next GCD is greater than 1.5 away, close the ogcd slot to ensure saber gets second slot
-                    # if saber dance is ready, our opener used Saber First and self.abilities['Technical Step'] is the next gcd and nextgcd is 1.7 away, wait. To ensure second oGCD slot
+                    # if Devilment is ready, our opener used Saber First and self.abilities['Technical Step'] is the next gcd and nextgcd is 1.7 away, wait. To ensure second oGCD slot
                     # if self.abilities['Flourish'] is available, we have 0 self.abilities['Flourish'] procs, and technical dance isn't less than 4* our Current GCD seconds away and we aren't dancing twice in the next 15, and we aren't in a buff window with 50 or more Esprit - use self.abilities['Flourish']
-                    # if our potion is ready and the next saber dance is less than 15 seconds away - use potion
+                    # if our potion is ready and the next Devilment is less than 15 seconds away - use potion
                     # if we have a flourished fan and are double dancing in the next 15 seconds or self.abilities['Flourish'] is up, use Fan Dance III
                     # if we have a flourished fan and the fan is close to dropping, use Fan Dance III
                     # If we have a flourished fan and the next buff window is more than 13.5 seconds away, use Fan Dance III
@@ -1194,34 +1194,31 @@ class sim:
                     abilityused = False
                     if technicaldancing or standarddancing:
                         abilityused = False
-                    elif self.abilities['Saber Dance'].available(self.clock) and not saberfirst:
+                    elif self.abilities['Devilment'].available(self.clock) and not saberfirst:
                         if self.createlog:
-                            logging.info(str(self.clock) + " : You use Saber Dance!")
-                        self.buffs['Saber Dance'].activate(self.clock)
-                        self.schedule.addtime(self.buffs['Saber Dance'].activation)
-                        self.abilities['Saber Dance'].putonCD(self.clock)
+                            logging.info(str(self.clock) + " : You use Devilment!")
+                        self.buffs['Devilment'].activate(self.clock)
+                        self.schedule.addtime(self.buffs['Devilment'].activation)
+                        self.abilities['Devilment'].putonCD(self.clock)
                         abilityused = True
-                        saberhold = False
-                    elif self.abilities['Saber Dance'].available(self.clock) and round(nextgcd - self.abilitydelay,2) <= self.clock and self.abilities['Technical Step'].nextuse <= nextgcd:
+                        devilhold = False
+                    elif self.abilities['Devilment'].available(self.clock) and round(nextgcd - self.abilitydelay,2) <= self.clock and self.abilities['Technical Step'].nextuse <= nextgcd:
                         if self.createlog:
-                            logging.info(str(self.clock) + " : You use Saber Dance!")
-                        self.buffs['Saber Dance'].activate(self.clock)
-                        self.schedule.addtime(self.buffs['Saber Dance'].activation)
-                        self.abilities['Saber Dance'].putonCD(self.clock)
+                            logging.info(str(self.clock) + " : You use Devilment!")
+                        self.buffs['Devilment'].activate(self.clock)
+                        self.schedule.addtime(self.buffs['Devilment'].activation)
+                        self.abilities['Devilment'].putonCD(self.clock)
                         abilityused = True
-                        saberhold = False
+                        devilhold = False
                         nextaction = round(self.abilities['Technical Step'].nextuse, 2)
-                    elif saberfirst and self.abilities['Saber Dance'].available(round(nextgcd-self.abilitydelay,2)) and  self.abilities['Technical Step'].nextuse <= nextgcd: # Wait for Second oGCD window for Saber dance
+                    elif saberfirst and self.abilities['Devilment'].available(round(nextgcd-self.abilitydelay,2)) and  self.abilities['Technical Step'].nextuse <= nextgcd: # Wait for Second oGCD window for Devilment
                         abilityused = False
-                        saberhold = True
+                        devilhold = True
                         nextaction = round(nextgcd - self.abilitydelay, 2)
-                    elif self.abilities['Saber Dance'].available(round(self.clock+self.abilitydelay,2)) and technicalhold and self.abilities['Technical Step'] == nextgcd:
+                    elif self.abilities['Devilment'].available(round(self.clock+self.abilitydelay,2)) and technicalhold and self.abilities['Technical Step'] == nextgcd:
                         nextaction = round(nextgcd - 1, 2)
                     elif self.abilities['Flourish'].available(self.clock) and (self.countprocs() == 0) and not (
-                    self.buffs['Flourishing Fan'].getactive(self.clock)) and not (
-                            nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),
-                                                                   2) > nextdance) and dancenumber < 2 and not (
-                            buffwindow and self.esprit >= 50):
+                    self.buffs['Flourishing Fan'].getactive(self.clock)) and not (nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),2) > nextdance) and dancenumber < 2 and not (buffwindow and self.esprit >= 50):
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use Flourish!')
                         self.buffs['Flourishing Cascade'].activate(self.clock)
@@ -1233,7 +1230,7 @@ class sim:
                         self.abilities['Flourish'].putonCD(self.clock)
                         abilityused = True
                     elif self.potion and self.abilities['Potion'].available(self.clock) and (nextgcd - nextaction) > 1.5 and (
-                            self.abilities['Saber Dance'].getrecast(self.clock) < 15):
+                            self.abilities['Devilment'].getrecast(self.clock) < 15):
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use a potion!')
                         self.buffs['Potion'].activate(self.clock)
@@ -1298,20 +1295,20 @@ class sim:
                             self.schedule.addtime(self.buffs['Flourishing Fan'].activation)
                     if abilityused:  # Process new action time
                         nextaction = round(self.clock + self.abilitydelay, 2)
-                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Saber Dance'].available(nextgcd):
+                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Devilment'].available(nextgcd):
                             nextaction = round(nextgcd, 2)  # I want to avoid clipping
-                    elif not saberhold:
-                        if not (technicaldancing or standarddancing) and saberfirst and technicalhold and self.abilities['Saber Dance'].nextuse < nextgcd:
-                            nextaction = round(self.abilities['Saber Dance'].nextuse,2)
+                    elif not devilhold:
+                        if not (technicaldancing or standarddancing) and saberfirst and technicalhold and self.abilities['Devilment'].nextuse < nextgcd:
+                            nextaction = round(self.abilities['Devilment'].nextuse,2)
                         elif not (technicaldancing or standarddancing) and self.abilities['Flourish'].nextuse < nextgcd - self.abilitydelay and (self.countprocs() == 0) and not (self.buffs['Flourishing Fan'].getactive(self.clock)) and not (nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),2) > nextdance) and dancenumber < 2 and not (buffwindow and self.esprit >= 50):
                             nextaction = round(self.abilities['Flourish'].nextuse,2)
-                        elif not (technicaldancing or standarddancing) and self.abilities['Potion'].nextuse < nextgcd - 1.5 and self.abilities['Saber Dance'].getrecast(self.clock) < 15:
+                        elif not (technicaldancing or standarddancing) and self.abilities['Potion'].nextuse < nextgcd - 1.5 and self.abilities['Devilment'].getrecast(self.clock) < 15:
                             nextaction = round(self.abilities['Potion'].nextuse,2)
                         elif not (technicaldancing or standarddancing) and buffwindow and self.feathers > 0 and self.abilities['Fan Dance I'].nextuse <= round(nextgcd - self.abilitydelay,2) and not (self.buffs['Flourishing Fan'].getactive(self.clock) or self.buffs['Flourishing Fan'].activation > self.clock):
                             nextaction = round(self.abilities['Fan Dance I'].nextuse,2)
                         else:
                             nextaction = round(nextgcd, 2)
-                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Saber Dance'].available(nextgcd):
+                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Devilment'].available(nextgcd):
                             nextaction = round(nextgcd, 2)  # I want to avoid clipping
                         # Define the times we will want to act next
                         # 1. When FD1 is back up and we will not CLIP
@@ -1324,7 +1321,7 @@ class sim:
                 # make sure I'm not dancing
                 # make sure its a technical hold
                 # check if the delay start time - its next use is greater than 22 before enforcing the hold
-                # Make sure I have enough time to saber dance? How do I check that
+                # Make sure I have enough time to Devilment? How do I check that
             if self.gettimetable and self.clock == self.viewtime:
                 if self.clock > 0:
                     self.timetable.append(self.potency/self.clock)
@@ -1356,14 +1353,14 @@ class sim:
             logging.info("GCDs Used: " + str(gcd))
             logging.info("Feathers used: " + str(feathersused))
             logging.info("Flourished Fans: " + str(flourishedfans))
-            logging.info("Devilments Used: " + str(useddevilments))
+            logging.info("Saber Dances Used: " + str(saberdancess))
             logging.info('Combos Dropped: ' + str(self.combodrops))
             logging.info('Flourish Procs Dropped : ' + str(self.procdrop))
             logging.info('Feathers Dropped : ' + str(self.feathersdropped))
             logging.info('Esprit Cap : ' + str(self.espritcap))
 
         #print(gcd)
-        totalesprit = useddevilments * 50 + self.esprit
+        totalesprit = saberdancess * 50 + self.esprit
         return round(self.potency/self.length, 4)
 
 

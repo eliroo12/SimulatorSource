@@ -658,6 +658,9 @@ class sim:
                         self.dots['Caustic Bite'].activate(self.clock,CDHStats,potmod,DMGStats)
                         self.schedule.addtime(self.dots['Stormbite'].activation)
                         self.schedule.addtime(self.dots['Caustic Bite'].activation)
+                        if self.checkproc(.35):
+                            self.buffs['SS Ready'].activate(self.clock)
+                            self.schedule.addtime(self.buffs['SS Ready'].activation)
                     elif currentaction.name == 'Potion':
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use a Potion!')
@@ -772,6 +775,9 @@ class sim:
                             self.schedule.addtime(self.dots['Stormbite'].activation)
                             nextgcd = round(self.clock + self.gcd, 2)
                             nextaction = round(self.clock + self.abilitydelay, 2)
+                            if self.checkproc(.35):
+                                self.buffs['SS Ready'].activate(self.clock)
+                                self.schedule.addtime(self.buffs['SS Ready'].activation)
                     elif self.dots['Caustic Bite'].getactive(self.clock) and self.dots['Stormbite'].getactive(self.clock) and (self.dots['Caustic Bite'].closetodrop(self.clock,self.gcd) or self.dots['Stormbite'].closetodrop(self.clock,self.gcd)):
                         self.buildpotency(self.abilities['Iron Jaws'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         self.dots['Caustic Bite'].activate(self.clock,CDHStats,potmod,DMGStats)
@@ -780,6 +786,9 @@ class sim:
                         self.schedule.addtime(self.dots['Stormbite'].activation)
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
+                        if self.checkproc(.35):
+                            self.buffs['SS Ready'].activate(self.clock)
+                            self.schedule.addtime(self.buffs['SS Ready'].activation)
                     elif not self.dots['Stormbite'].getactive(self.clock):
                         self.buildpotency(self.abilities['Stormbite'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         self.dots['Stormbite'].activate(self.clock, CDHStats, potmod, DMGStats)
