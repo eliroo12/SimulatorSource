@@ -36,7 +36,11 @@ class sim:
         self.damagestats = [self.stats[0],self.stats[1],self.stats[2],self.stats[6],self.stats[7]]
         self.autotime = self.stats[1]
         self.abilitydelay = .7
+
         self.precastpotion = False
+        self.prepullpottime = 0
+        self.precastraging = False
+        self.prepullragingtime = 0
 
         self.rep = 0
         self.soulvoice = 0
@@ -85,6 +89,15 @@ class sim:
                     nextgcd = round(clock + self.gcd, 2)
                     nextaction = round(clock + self.abilitydelay, 2)
                     clock = round(clock + self.abilitydelay, 2)
+                elif i.split()[0] == 'AutoGCDIJ':
+                    if nextgcd > clock:
+                        clock = round(nextgcd, 2)
+                    if nextaction > clock:
+                        clock = round(nextaction, 2)
+                    actiontable.append(action(19, 'AutoGCDIJ', clock))
+                    nextgcd = round(clock + self.gcd, 2)
+                    nextaction = round(clock + self.abilitydelay, 2)
+                    clock = round(clock + self.abilitydelay, 2)
                 elif i.split()[0] == 'AutoOGCD':
                     limit = int(i.split()[1])
                     counter = 0
@@ -100,6 +113,10 @@ class sim:
                     clock = round(clock + 1.5, 2)
                 elif i.split()[0] == 'PotionPre':
                     self.precastpotion = True
+                    self.prepullpottime = round(0 - float(i.split()[1]), 2)
+                elif i.split()[0] == 'PreRaging':
+                    self.precastraging = True
+                    self.prepullragingtime = round(0 - float(i.split()[1]), 2)
                 elif i.split()[0] == 'AutoPP':
                     limit = int(i.split()[1])
                     counter = 0
@@ -130,7 +147,6 @@ class sim:
                                 clock = round(clock + self.abilitydelay, 2)
                         identify = identify + 1
             self.action = actiontable
-
 
     def checkproc(self,rate):
         return (random.randint(1, 10001) > 10000 * (1-rate))
@@ -212,6 +228,10 @@ class sim:
         self.potency = self.potency + pot[0]
 
     def songlogic(self,songname, nexttick, delaystart):
+        # Song logic
+        # Minuet - If its available and Ballad isn't active or ballad will end before the next tick
+        #Ballad - If its available and minuet isnpt active or it will fall before the next tick
+        #Paeon - If its available and Ballad and Minuet aren't active or will fall before the next tick
         if songname == 'Minuet':
             if self.abilities['Minuet'].available(self.clock) and (not self.buffs['Ballad'].getactive(self.clock) or self.buffs['Ballad'].endtime < nexttick):
                 return True
@@ -229,6 +249,12 @@ class sim:
                 return False
 
     def ealogic(self, nexttick, future, nextgcd):
+        #Ea Logic
+        #If EA is available
+        # If we are in minuet and have 3 rep don't go
+        # If we are in ballad and Bloodletter is available don't go
+        # If we are in ballad and we don't have time to use the BL proc before next tick, don't go
+
         if not future:
             if self.abilities['Empyreal Arrow'].available(self.clock):
                 if self.buffs['Minuet'].getactive(self.clock) and self.rep > 2:
@@ -257,6 +283,9 @@ class sim:
                     return True
 
     def cliplogic(self, nexttick):
+        #Clip logic
+        # If minuet is up and will drop off within the next gcd and we have more rep than 0 and next tick - .7 is greater than minuets end time - clip
+        # if we are in ballad and bl is available and the next tick is within 1.5 seconds, clip
         if self.buffs['Minuet'].getactive(self.clock) and self.buffs['Minuet'].closetodrop(self.clock,self.gcd) and self.rep > 0 and nexttick - self.abilitydelay > self.buffs['Minuet'].endtime:
             return True
         elif self.buffs['Ballad'].getactive(self.clock) and self.abilities['Bloodletter'].available(self.clock) and nexttick - self.clock < 1.5:
@@ -272,11 +301,16 @@ class sim:
         return prod
 
     def snaplogic(self, potmod):
+        #Snap logic
+        # if the mod on the current dot is great than our current mod don't snap
+        # if raging strikes isn't up, don't snap
+        # else if our dot time is less than 10 and RS is close to drop, snap
+        # if no conditions are met don't snap
         if self.modprod(self.dots['Stormbite'].potmod) > self.modprod(potmod):
             return False
         if not self.buffs['Raging Strikes'].getactive(self.clock):
             return False
-        if self.buffs['Raging Strikes'].closetodrop(self.clock, self.gcd) and self.dots['Stormbite'].endtime - self.clock < 20:
+        if self.buffs['Raging Strikes'].closetodrop(self.clock, self.gcd) and self.dots['Stormbite'].endtime - self.clock < 10:
             return True
         return False
         ##if self.dots['Stormbite'].endtime - self.clock > 15:
@@ -366,10 +400,26 @@ class sim:
         oldsv = 0
 
         if self.precastpotion:
-            self.buffs['Potion'].activate(self.clock)
-            self.abilities['Potion'].putonCD(self.clock)
-            self.schedule.addtime(self.buffs['Potion'].activation)
+            self.buffs['Potion'].activate(self.prepullpottime)
+            self.abilities['Potion'].putonCD(self.prepullpottime)
+            if self.buffs['Potion'].activation > 0:
+                self.schedule.addtime(self.buffs['Potion'].activation)
+            else:
+                string = self.buffs['Potion'].switchon(self.buffs['Potion'].activation)
+                self.schedule.addtime(self.buffs['Potion'].endtime)
+                if self.createlog:
+                    logging.info(string)
 
+        if self.precastraging:
+            self.buffs['Raging Strikes'].activate(self.prepullragingtime)
+            self.abilities['Raging Strikes'].putonCD(self.prepullragingtime)
+            if self.buffs['Raging Strikes'].activation > 0:
+                self.schedule.addtime(self.buffs['Potion'].activation)
+            else:
+                string = self.buffs['Raging Strikes'].switchon(self.buffs['Raging Strikes'].activation)
+                self.schedule.addtime(self.buffs['Raging Strikes'].endtime)
+                if self.createlog:
+                    logging.info(string)
         #### Sim Start ###
         delaystart = round(self.fight[delayedpos][0], 2)
         delayend = round(self.fight[delayedpos][1], 2)
@@ -429,8 +479,8 @@ class sim:
                     if self.createlog:
                         logging.info(string)
                 if self.buffs['Potion'].getactive(self.clock):
-                    if dex * self.buffs['Potion'].potency > 225:
-                        dex = dex + 225
+                    if dex * self.buffs['Potion'].potency > 310:
+                        dex = dex + 310
                     else:
                         dex = dex + (dex * self.buffs['Potion'].potency)
                 elif self.buffs['Potion'].active:
@@ -625,7 +675,6 @@ class sim:
 
 
 
-            # Let's push the next GCD to technical or standard if its within range
             # Handle Opener if available
             # ---------------------------------------------------------- MAIN SIM---------------------------------------------------------------------------------------------
             if stillinopener:
@@ -661,6 +710,25 @@ class sim:
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
+                    elif currentaction.name == 'Refulgent Arrow':
+                        self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                        if self.buffs['Barrage'].getactive(self.clock):
+                            self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,True))
+                            self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,True))
+                            string = self.buffs['Barrage'].dropbuff(self.clock)
+                            if self.createlog:
+                                logging.info(string)
+                        string = self.buffs['SS Ready'].dropbuff(self.clock)
+                        if self.createlog:
+                            logging.info(string)
+                    elif currentaction.name == 'Barrage':
+                        if self.createlog:
+                            logging.info(str(self.clock)+" : You use Barrage")
+                        self.abilities['Barrage'].putonCD(self.clock)
+                        self.buffs['SS Ready'].activate(self.clock)
+                        self.schedule.addtime(self.buffs['SS Ready'].activation)
+                        self.buffs['Barrage'].activate(self.clock)
+                        self.schedule.addtime(self.buffs['Barrage'].activation)
                     elif currentaction.name == 'Potion':
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use a Potion!')
@@ -673,13 +741,15 @@ class sim:
                             self.buffs['Raging Strikes'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Raging Strikes'].activation)
                     elif currentaction.name == 'Battle Voice':
+                        if self.createlog:
+                            logging.info(str(self.clock)+" : You use Battle Voice")
                         if self.abilities['Battle Voice'].available(self.clock):
                             self.abilities['Battle Voice'].putonCD(self.clock)
                             self.buffs['Battle Voice'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Battle Voice'].activation)
                     elif currentaction.name == 'Minuet':
                         if self.abilities['Minuet'].available(self.clock):
-                            self.buildpotency(self.abilities['Minuet'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                            self.buildpotency(self.abilities['Minuet'].getpotency(self.clock, CDHStats, automod, DMGStats, True))
                             self.abilities['Minuet'].putonCD(self.clock)
                             self.buffs['Minuet'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Minuet'].activation)
@@ -691,7 +761,48 @@ class sim:
                         # If Not use Burst
                         if self.buffs['SS Ready'].getactive(self.clock):
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                            if self.buffs['Barrage'].getactive(self.clock):
+                                self.buildpotency(
+                                    self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                                 True))
+                                self.buildpotency(
+                                    self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                                 True))
+                                string = self.buffs['Barrage'].dropbuff(self.clock)
+                                if self.createlog:
+                                    logging.info(string)
                             self.buffs['SS Ready'].dropbuff(self.clock)
+                        else:
+                            self.buildpotency(self.abilities['Burst Shot'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                            if self.checkproc(.35):
+                                self.buffs['SS Ready'].activate(self.clock)
+                                self.schedule.addtime(self.buffs['SS Ready'].activation)
+                    elif currentaction.name == 'AutoGCDIJ':
+                        # Auto GCD in the self.action
+                        # If RA is procced use it
+                        # If Not use Burst
+                        if self.buffs['SS Ready'].getactive(self.clock):
+                            self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                            if self.buffs['Barrage'].getactive(self.clock):
+                                self.buildpotency(
+                                    self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                                 True))
+                                self.buildpotency(
+                                    self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                                 True))
+                                string = self.buffs['Barrage'].dropbuff(self.clock)
+                                if self.createlog:
+                                    logging.info(string)
+                            self.buffs['SS Ready'].dropbuff(self.clock)
+                        elif not self.abilities['Barrage'].available(self.clock) and not self.dots['Caustic Bite'].endtime == self.dots['Stormbite'].endtime:
+                            self.buildpotency(self.abilities['Iron Jaws'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                            self.dots['Stormbite'].activate(self.clock, CDHStats, potmod, DMGStats)
+                            self.dots['Caustic Bite'].activate(self.clock, CDHStats, potmod, DMGStats)
+                            self.schedule.addtime(self.dots['Stormbite'].activation)
+                            self.schedule.addtime(self.dots['Caustic Bite'].activation)
+                            if self.checkproc(.35):
+                                self.buffs['SS Ready'].activate(self.clock)
+                                self.schedule.addtime(self.buffs['SS Ready'].activation)
                         else:
                             self.buildpotency(self.abilities['Burst Shot'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                             if self.checkproc(.35):
@@ -700,7 +811,19 @@ class sim:
                     elif currentaction.name == 'AutoOGCD':
                         # AutoOGCD in the self.action
                         # For now passing until I see a need
-                       pass
+                        if not self.buffs['SS Ready'].getactive(self.clock) and self.abilities['Barrage'].available(self.clock):
+                            if self.createlog:
+                                logging.info(str(self.clock) + " : You use Barrage")
+                            self.abilities['Barrage'].putonCD(self.clock)
+                            self.buffs['SS Ready'].activate(self.clock)
+                            self.schedule.addtime(self.buffs['SS Ready'].activation)
+                            self.buffs['Barrage'].activate(self.clock)
+                            self.schedule.addtime(self.buffs['Barrage'].activation)
+                        elif self.buffs['Minuet'].getactive(self.clock) and self.rep > 2 and self.abilities['Pitch Perfect'].available(self.clock):
+                                self.buildpotency(self.abilities['Pitch Perfect'].pitchpotency(self.clock, CDHStats, potmod,DMGStats, True, self.rep))
+                                self.rep = 0
+                        elif self.abilities['Bloodletter'].available(self.clock):
+                                self.buildpotency(self.abilities['Bloodletter'].getpotency(self.clock, CDHStats, potmod, DMGStats,True))
                     elif currentaction.name == 'AutoPP':
                         # Will just PP at 3 stacks.
                         if self.buffs['Minuet'].getactive(self.clock) and self.rep > 2:
@@ -720,15 +843,7 @@ class sim:
                         foundlastaction = False
                         while (not foundlastGCD):
                             currentaction = self.action[posinopen - 1]
-                            if currentaction.name.split()[0] == 'Technical' or currentaction.name.split()[
-                                0] == 'Standard':
-                                if not foundlastaction:
-                                    foundlastaction = True
-                                    nextaction = round(self.clock + self.abilitydelay, 2)
-                                if currentaction.name.split()[1] == 'Finish':
-                                    foundlastGCD = True
-                                    nextgcd = round(self.clock + 1.5, 2)
-                            elif currentaction.name == 'AutoGCD' or self.abilities[currentaction.name].abiltype == 'GCD':
+                            if currentaction.name == 'AutoGCD' or currentaction.name == 'AutoGCDIJ' or self.abilities[currentaction.name].abiltype == 'GCD':
                                 if not foundlastaction:
                                     foundlastaction = True
                                     nextaction = round(self.clock + self.abilitydelay, 2)
@@ -742,19 +857,25 @@ class sim:
                         stillinopener = False
             else:
                 # GCD Priority List - Update this
+                # # If Soul Voice is 95 or above > Use Apex Arrow
                 # If Barrage is active > Use Refulgent
+                # If Both dots are active and we pass the snap logic(See below) we use Iron Jaws
                 # If both dots are active and If dots expire on or before next GCD > Iron Jaws
                 # If Storm isn't up > Stormbite
                 # If Caustic isn't up > Caustic bite
                 # If refulgent expires within the next GCD > Refulgent
-                # If Future Snapshotting logic here > Snapshot
-                # If Soul Voice is 95 or (buff window logic here) > Use Apex Arrow
-                # Use Refulgent
-                # Use Barrage
+                # If Soul Voice is 95 or above > Use Apex Arrow
+                # Use Refulgent If SS is up
+                # Use Burst Shot
 
                 if nextgcd == self.clock:
                     clip = False
-                    if self.buffs['Barrage'].getactive(self.clock) and self.buffs['SS Ready'].getactive(self.clock):
+                    if self.soulvoice > 100 and not (self.dots['Caustic Bite'].closetodrop(self.clock,self.gcd) or self.dots['Stormbite'].closetodrop(self.clock,self.gcd)):
+                        self.buildpotency(self.abilities['Apex Arrow'].apexpotency(self.clock, CDHStats, potmod, DMGStats, True,self.soulvoice))
+                        self.soulvoice = 0
+                        nextgcd = round(self.clock + self.gcd, 2)
+                        nextaction = round(self.clock + self.abilitydelay, 2)
+                    elif self.buffs['Barrage'].getactive(self.clock) and self.buffs['SS Ready'].getactive(self.clock):
                         i = 0
                         while i < 3:
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
@@ -814,7 +935,7 @@ class sim:
                             logging.info(string)
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
-                    elif self.soulvoice > 90:
+                    elif self.soulvoice > 95:
                         self.buildpotency(self.abilities['Apex Arrow'].apexpotency(self.clock, CDHStats, potmod, DMGStats, True,self.soulvoice))
                         self.soulvoice = 0
                         nextgcd = round(self.clock + self.gcd, 2)
@@ -838,16 +959,18 @@ class sim:
                     #             # If anything changes, post an updated
                 elif nextaction == self.clock:
                     # oGCD Priority list
+                    # If we think its ok to clip in minuet (About to fall off with REP) use PP
+                    # If we think its ok to clip in ballad (Dot tick soon and BL is up) use BL
                     # If we are in ballad, bloodletter is available and nextick is within 1.4s we use Bloodletter
                     # If we are in minuet and we have rep and Minuet falls with the next gcd - Use PP
+                    #If we are in minuet and we have 3 rep use PP
                     # If minuet is available, we are not in ballad or if we are in ballad but it will fall before next tick - Use Minuet
                     # If ballad is available, we are not in minuet or if we are in minuet but it will fall before next tick - Use Ballad
                     # if paeon is available, If no songs are active, use Paeon if ballad or minuet are active but will fall off before next tick, use Paeon
-                    # if Raging strikes is available and we are 1.5s away from a GCD, use it
+                    # if Raging strikes is available and we are 1.5s away from a GCD and we are no in Paeon, use it
                     # if BV is available, use it
                     # if EA is available, use it
                     # if barrage is available and SS isn't ready, use it
-                    # if we are in Minuet and rep is at 3, use PP
                     # If bloodletter is available, use it
                     # if SW is available, use it
                     abilityused = False
@@ -882,18 +1005,18 @@ class sim:
                         nextaction = round(self.clock + self.abilitydelay, 2)
                         abilityused = True
                     elif not clip and self.songlogic('Minuet',nexttick,delaystart):
-                        self.buildpotency(self.abilities['Minuet'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                        self.buildpotency(self.abilities['Minuet'].getpotency(self.clock, CDHStats, automod, DMGStats, True))
                         self.abilities['Minuet'].putonCD(self.clock)
                         self.buffs['Minuet'].activate(self.clock)
                         abilityused = True
                         self.schedule.addtime(self.buffs['Minuet'].activation)
                     elif not clip and self.songlogic('Ballad',nexttick,delaystart):
-                        self.buildpotency(self.abilities['Ballad'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                        self.buildpotency(self.abilities['Ballad'].getpotency(self.clock, CDHStats, automod, DMGStats, True))
                         self.buffs['Ballad'].activate(self.clock)
                         self.schedule.addtime(self.buffs['Ballad'].activation)
                         abilityused = True
                     elif not clip and self.songlogic('Paeon',nexttick,delaystart):
-                        self.buildpotency(self.abilities['Paeon'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                        self.buildpotency(self.abilities['Paeon'].getpotency(self.clock, CDHStats, automod, DMGStats, True))
                         self.buffs['Paeon'].activate(self.clock)
                         self.schedule.addtime(self.buffs['Paeon'].activation)
                         abilityused = True

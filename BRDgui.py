@@ -164,30 +164,63 @@ def main():
     pbuffs = build.genpbuffs(party,tether,dncpart)
     buffs = build.genbuffs()
     dots = build.gendots()
-    dex = 3662
-    WD = 114
-    det = 1462
-    ss = 1283
-    crit = 1967+1360
-    dh = 1806+560
+    dex = 3727
+    WD = 117
+    det = 1939
+    ss = 636
+    crit = 2596
+    dh = 2781
     wepdelay = 3.04
     gcd = stats.determinegcd(ss)
     abilities = build.genabil(wepdelay,gcd)
 
-    layout = [[sg.Text("BRD Simulator"),sg.Text('',size=(20,1))],
-			  [sg.Text("Sim One Stats"), sg.Text(''),sg.Text('',size=(22,1)),sg.Text('Sim Two Stats')],
-			  [sg.Text("Weapon Damage",size=(14,1)), sg.Input(default_text=WD,size=(8,1),key='wd1',do_not_clear=True), sg.Text('',size=(12,1)),sg.Text("Weapon Damage",size=(14,1)), sg.Input(default_text='',size=(8,1),key='wd2',do_not_clear=True)],
-			  [sg.Text("Weapon Delay",size=(14,1)), sg.Input(default_text=wepdelay,size=(8,1),key='del1',do_not_clear=True),sg.Text('',size=(12,1)),sg.Text("Weapon Delay",size=(14,1)), sg.Input(default_text=wepdelay,size=(8,1),key='del2',do_not_clear=True)],
-			  [sg.Text("Dexterity",size=(14,1)), sg.Input(default_text=dex,size=(8,1),key='dex1',do_not_clear=True),sg.Text('',size=(12,1)),sg.Text("Dexterity",size=(14,1)), sg.Input(size=(8,1),key='dex2',do_not_clear=True)],
-			  [sg.Text("Critical Hit Rate",size=(14,1)), sg.Input(default_text=crit,size=(8,1),key='crit1',do_not_clear=True),sg.Text('',size=(12,1),key='crate1'),sg.Text("Critical Hit Rate",size=(14,1)), sg.Input(default_text='3347',size=(8,1),key='crit2',do_not_clear=True),sg.Text('',key='crate2',size=(12,1))],
-			  [sg.Text("Direct Hit",size=(14,1)), sg.Input(default_text=dh,size=(8,1),key='dh1',do_not_clear=True),sg.Text('',size=(12,1),key='direct1'),sg.Text("Direct Hit",size=(14,1)), sg.Input(default_text='2046',size=(8,1),key='dh2',do_not_clear=True),sg.Text('',key='direct2',size=(10,1))],
-			  [sg.Text("Determination",size=(14,1)), sg.Input(default_text=det,size=(8,1),key='det1',do_not_clear=True),sg.Text('',size=(12,1),key='deter1'),sg.Text("Determination",size=(14,1)), sg.Input(default_text='1462',size=(8,1),key='det2',do_not_clear=True),sg.Text('',key='deter2',size=(10,1))],
-			  [sg.Text("Skill Speed",size=(14,1)), sg.Input(default_text=ss,size=(8,1),key='sks1',do_not_clear=True),sg.Text('',size=(12,1),key='skill1'),sg.Text("Skill Speed",size=(14,1)), sg.Input(default_text='1283',size=(8,1),key='sks2',do_not_clear=True),sg.Text('',key='skill2',size=(10,1))],
-			  [sg.Text("Opener", size=(14,1)), sg.InputCombo(openlist, key='open1'), sg.Text('',size=(7,1)), sg.Text("Opener", size=(14,1)), sg.InputCombo(openlist, key='open2')],
-			  [sg.Text("Fight", size=(14,1),tooltip='Determine fight breaks, if any'), sg.InputCombo(fightlist,key='fights'), sg.Text('',size=(10,1)),sg.Checkbox('Create Logs', size=(10,1),key='logs')],
-			  [sg.Text("Length of Fight",tooltip='How long is the fight', size=(16,1)),sg.Input(default_text='300',size=(8,1),key='length'), sg.Text('',size=(9,1)),sg.Checkbox('Party Modifier', size=(10,1),key='partymod')],
-			  [sg.Text("Run How many Times",tooltip='The Higher number, the longer and more accurate the sim is', size=(16,1)),sg.Input(default_text='200',size=(7,1),key='runtime'), sg.Text('',size=(10,1)),sg.Checkbox('Use Potion',tooltip='Will Still use if specified in opener', size=(8,1),key='potion')],
-			  [sg.Button('Run Sim',key='sim'),sg.Text('',size=(20,1)),sg.Button('Set Party',key='party'),sg.Button('Set Buff Times',key='buffs')]]
+    layout = [[sg.Text("DNC Simulator"), sg.Text('', size=(20, 1))],
+              [sg.Text("Sim One Stats"), sg.Text(''), sg.Text('', size=(22, 1)), sg.Text('Sim Two Stats')],
+              [sg.Text("Weapon Damage", size=(14, 1)),
+               sg.Input(default_text=WD, size=(8, 1), key='wd1', do_not_clear=True), sg.Text('', size=(12, 1)),
+               sg.Text("Weapon Damage", size=(14, 1)),
+               sg.Input(default_text='', size=(8, 1), key='wd2', do_not_clear=True)],
+              [sg.Text("Weapon Delay", size=(14, 1)),
+               sg.Input(default_text=wepdelay, size=(8, 1), key='del1', do_not_clear=True), sg.Text('', size=(12, 1)),
+               sg.Text("Weapon Delay", size=(14, 1)),
+               sg.Input(default_text=wepdelay, size=(8, 1), key='del2', do_not_clear=True)],
+              [sg.Text("Dexterity", size=(14, 1)),
+               sg.Input(default_text=dex, size=(8, 1), key='dex1', do_not_clear=True), sg.Text('', size=(12, 1)),
+               sg.Text("Dexterity", size=(14, 1)), sg.Input(size=(8, 1), key='dex2', do_not_clear=True)],
+              [sg.Text("Critical Hit Rate", size=(14, 1)),
+               sg.Input(default_text=crit, size=(8, 1), key='crit1', do_not_clear=True),
+               sg.Text('', size=(12, 1), key='crate1'), sg.Text("Critical Hit Rate", size=(14, 1)),
+               sg.Input(default_text=crit, size=(8, 1), key='crit2', do_not_clear=True),
+               sg.Text('', key='crate2', size=(12, 1))],
+              [sg.Text("Direct Hit", size=(14, 1)),
+               sg.Input(default_text=dh, size=(8, 1), key='dh1', do_not_clear=True),
+               sg.Text('', size=(12, 1), key='direct1'), sg.Text("Direct Hit", size=(14, 1)),
+               sg.Input(default_text=dh, size=(8, 1), key='dh2', do_not_clear=True),
+               sg.Text('', key='direct2', size=(10, 1))],
+              [sg.Text("Determination", size=(14, 1)),
+               sg.Input(default_text=det, size=(8, 1), key='det1', do_not_clear=True),
+               sg.Text('', size=(12, 1), key='deter1'), sg.Text("Determination", size=(14, 1)),
+               sg.Input(default_text=det, size=(8, 1), key='det2', do_not_clear=True),
+               sg.Text('', key='deter2', size=(10, 1))],
+              [sg.Text("Skill Speed", size=(14, 1)),
+               sg.Input(default_text=ss, size=(8, 1), key='sks1', do_not_clear=True),
+               sg.Text('', size=(12, 1), key='skill1'), sg.Text("Skill Speed", size=(14, 1)),
+               sg.Input(default_text=ss, size=(8, 1), key='sks2', do_not_clear=True),
+               sg.Text('', key='skill2', size=(10, 1))],
+              [sg.Text("Opener", size=(14, 1)), sg.InputCombo(openlist, key='open1'), sg.Text('', size=(7, 1)),
+               sg.Text("Opener", size=(14, 1)), sg.InputCombo(openlist, key='open2')],
+              [sg.Text("Fight", size=(14, 1), tooltip='Determine fight breaks, if any'),
+               sg.InputCombo(fightlist, key='fights'), sg.Text('', size=(10, 1)),
+               sg.Checkbox('Create Logs', size=(10, 1), key='logs')],
+              [sg.Text("Length of Fight", tooltip='How long is the fight', size=(16, 1)),
+               sg.Input(default_text='300', size=(8, 1), key='length'), sg.Text('', size=(9, 1)),
+               sg.Checkbox('Party Modifier', size=(10, 1), key='partymod')],
+              [sg.Text("Run How many Times", tooltip='The Higher number, the longer and more accurate the sim is',
+                       size=(16, 1)), sg.Input(default_text='200', size=(7, 1), key='runtime'),
+               sg.Text('', size=(10, 1)),
+               sg.Checkbox('Use Potion', tooltip='Will Still use if specified in opener', size=(8, 1), key='potion')],
+              [sg.Button('Run Sim', key='sim'), sg.Text('', size=(20, 1)), sg.Button('Set Party', key='party'),
+               sg.Button('Set Buff Times', key='buffs')]]
     sim1 =['wd1','del1','dex1','crit1','dh1','det1','sks1']
     sim2 =['wd2','del2','dex2','crit2','dh2','det2','sks2']
     window = sg.Window("BRD Simulator",icon='graphics\\BRD.png').Layout(layout)

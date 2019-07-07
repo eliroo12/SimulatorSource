@@ -59,7 +59,7 @@ class dot:
         else:
             dexstat = dex
 
-        Damage = math.floor(pot * ((WD + math.floor(340 * JobMod / 1000)) * (wepdelay / 3)) * (100 + math.floor((dexstat - 340) * 1000 / 2000)) / 100)
+        Damage = math.floor(pot * ((WD + math.floor(340 * JobMod / 1000)) * (wepdelay / 3)) * (100 + math.floor((dexstat - 340) * 165 / 340)) / 100)
         Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 340) / 3300)) / 1000)
         Damage = math.floor(Damage * (1000 + math.floor(130 * (ss - 380) / 3300)) / 1000)
         Damage = math.floor(Damage * (1000 + math.floor(100 * (380 - 380) / 3300)) / 1000 / 100)

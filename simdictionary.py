@@ -31,7 +31,7 @@ def genabil(wepdelay, GCDrecast):
 
     devilment = ability('Devilment', 'OGCD', 'ST', 120, 0, 0,  0)
     flourish = ability('Flourish', 'OGCD', 'ST', 60, 0, 0, 0)
-    improv = ability('Improvisation', 'OGCD', 'ST', 180, 0, 0, 0)
+    improv = ability('Improvisation', 'OGCD', 'ST', 120, 0, 0, 0)
 
     potion = ability('Potion', 'OGCD', 'ST', 270, 0, 0, 0)
 
@@ -84,26 +84,26 @@ def genast():
     return [abildict, buffdict, deck]
 
 def genjobs():
-    nin = job('NIN', 'DPS', True, 2.4, .7, .20, True)
-    drg = job('DRG', 'DPS', True, 2.4, .7, .20, False)
-    mnk = job('MNK', 'DPS', False, 2.4, .7, .20, False)
-    sam = job('SAM', 'DPS', False, 2.4, .7, .20, False)
+    nin = job('NIN', 'DPS', True, 2.4, .7, .2, True)
+    drg = job('DRG', 'DPS', True, 2.4, .7, .2, False)
+    mnk = job('MNK', 'DPS', False, 2.4, .7, .2, False)
+    sam = job('SAM', 'DPS', False, 2.4, .7, .2, False)
 
-    brd = job('BRD', 'DPS', False, 2.4, 0, .20, False)
-    mch = job('MCH', 'DPS', False, 2.4, 0, .20, False)
+    brd = job('BRD', 'DPS', False, 2.4, 0, .2, False)
+    mch = job('MCH', 'DPS', False, 2.4, 0, .2, False)
 
-    rdm = job('RDM', 'DPS', True, 2.4, 0, .20, False)
-    smn = job('SMN', 'DPS', False, 2.4, 0, .20, False)
-    blm = job('BLM', 'DPS', False, 2.4, 0, .20, False)
+    rdm = job('RDM', 'DPS', True, 2.4, 0, .2, False)
+    smn = job('SMN', 'DPS', False, 2.4, 0, .2, False)
+    blm = job('BLM', 'DPS', False, 2.4, 0, .2, False)
 
-    sch = job('SCH', 'HEAL', True, 2.4, 0, .20, False)
-    ast = job('AST', 'HEAL', True, 2.4, 0, .20, False)
-    whm = job('WHM', 'HEAL', False, 2.4, 0, .20, False)
+    sch = job('SCH', 'HEAL', True, 2.4, 0, .2, False)
+    ast = job('AST', 'HEAL', True, 2.4, 0, .2, False)
+    whm = job('WHM', 'HEAL', False, 2.4, 0, .2, False)
 
-    gnb = job('GNB', 'TANK', True, 2.4, 0, .20, False)
-    war = job('WAR', 'TANK', True, 2.4, 0, .20, False)
-    drk = job('DRK', 'TANK', False, 2.4, 0, .20, False)
-    pld = job('PLD', 'TANK', False, 2.4, 0, .20, False)
+    gnb = job('GNB', 'TANK', True, 2.4, 0, .2, False)
+    war = job('WAR', 'TANK', True, 2.4, 0, .2, False)
+    drk = job('DRK', 'TANK', False, 2.4, 0, .2, False)
+    pld = job('PLD', 'TANK', False, 2.4, 0, .2, False)
 
 
     table = [nin,drg,mnk,sam,brd,mch,rdm,smn,blm,sch,ast,whm,gnb,war,drk,pld]
@@ -203,7 +203,7 @@ def settings():
     with open('settings.txt', 'r') as f:
         for line in f:
             type = line.split(':')
-            if type[0].lower() == 'opener':
+            if type[0].lower() == 'dncopener':
                 try:
                     type2 = type[1].split(';')
                     key = type2[0]

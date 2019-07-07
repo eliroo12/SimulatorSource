@@ -16,7 +16,7 @@ def genabil(wepdelay, GCDrecast):
 
     bl = ability('Bloodletter', 'oGCD', 'ST', 15, 150, 0, 0)
     pp = ability('Pitch Perfect', 'GCD', 'ST', 3, 100, 0, 0)
-    sw = ability('Sidewinder', 'GCD', 'ST', 60, 260, 0, 0)
+    sw = ability('Sidewinder', 'oGCD', 'ST', 60, 260, 0, 0)
     ea = ability('Empyreal Arrow', 'oGCD', 'ST', 15, 230, 0, 0)
 
     wm = ability('Minuet', 'oGCD', 'ST', 80, 100, 0, 0)
@@ -214,7 +214,7 @@ def settings():
     with open('settings.txt', 'r') as f:
         for line in f:
             type = line.split(':')
-            if type[0].lower() == 'opener':
+            if type[0].lower() == 'brdopener':
                 try:
                     type2 = type[1].split(';')
                     key = type2[0]
@@ -247,9 +247,9 @@ def settings():
         openstrings.append(i)
     for i in fight.keys():
         fightstrings.append(i)
-    tempopeners = {}
-    tempopeners['Standard'] = ['PotionPre','Stormbite','Bloodletter','Raging Strikes','Caustic Bite','Minuet','Empyreal Arrow','AutoPP 1','AutoGCD','Battle Voice','AutoPP 1', 'AutoGCD','AutoPP 2','Iron Jaws']
-    return [tempopeners,['Standard'],fight,fightstrings]
+    #tempopeners = {}
+    #tempopeners['Standard'] = ['PotionPre','Stormbite','Bloodletter','Raging Strikes','Caustic Bite','Minuet','Empyreal Arrow','AutoPP 1','AutoGCD','Battle Voice','AutoPP 1', 'AutoGCD','AutoPP 2','Iron Jaws']
+    return [openers,openstrings,fight,fightstrings]
 
 def setpmod(abilities, val):
 
