@@ -1227,10 +1227,12 @@ class sim:
                                 self.schedule.addtime(self.buffs['Flourishing Cascade'].activation)
 
                     if technicalhold and self.abilities['Technical Step'].nextuse < round(nextgcd + self.gcd, 2) and not (self.abilities['Technical Step'].nextuse == nextgcd) and not standarddancing  and delaystart - self.abilities['Technical Step'].nextuse > 22:  #
-                        nextgcd = round(self.abilities['Technical Step'].nextuse, 2)
+                        if not nextgcd > round(self.abilities['Technical Step'].nextuse, 2):
+                            nextgcd = round(self.abilities['Technical Step'].nextuse, 2)
 
                     elif standardhold and self.abilities['Standard Step'].nextuse < round(nextgcd + self.gcd, 2) and (self.abilities['Technical Step'].nextuse - nextgcd) > (6.5 + self.gcd) and not technicaldancing and not round(self.abilities['Standard Step'].nextuse, 2) == nextgcd  and delaystart - self.abilities['Standard Step'].nextuse > 5.2:
-                        nextgcd = round(self.abilities['Standard Step'].nextuse, 2)
+                        if not nextgcd > round(self.abilities['Standard Step'].nextuse, 2):
+                            nextgcd = round(self.abilities['Standard Step'].nextuse, 2)
                     #             # If anything changes, post an updated
                 elif nextaction == self.clock:
                     # oGCD Priority list
