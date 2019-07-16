@@ -178,12 +178,12 @@ def main():
     party = build.genparty(jobs)
     pbuffs = build.genpbuffs(party,tether)
     buffs = build.genbuffs()
-    dex = 3727
+    dex = 3807
     WD = 117
-    det = 1939
-    ss = 636
-    crit = 2596
-    dh = 2781
+    det = 1607
+    ss = 810
+    crit = 2701
+    dh = 2907
     wepdelay = 3.12
     gcd = stats.determinegcd(ss)
     abilities = build.genabil(wepdelay,gcd)

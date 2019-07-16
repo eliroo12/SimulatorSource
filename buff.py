@@ -89,10 +89,7 @@ class buff:
     # literally just exists for Divination
 
     def specialactivate(self, time, check):
-        if check:
-            self.potency = 1.06
-        else:
-            self.potency = 1.03
+        self.potency = round(check/100 + 1,2)
         self.ready = True
         self.activation = time + self.activationdelay
         return str(time) + ": Buff / Debuff Up : " + self.name

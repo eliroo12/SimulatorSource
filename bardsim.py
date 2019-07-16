@@ -374,6 +374,7 @@ class sim:
         delaystart = 0
         delayend = 0
         buffdelay = 0
+        gcd = 0
 
         buffwindow = True
         buffwindowend = 0
@@ -494,11 +495,14 @@ class sim:
                 block = self.ast.sim(self.clock)
                 self.astime = block[0]
                 astkey = block[1]
-                if astkey == 'Divination 6':
-                    self.astbuffs['Divination'].specialactivate(self.clock, True)
+                if astkey == '6':
+                    self.astbuffs['Divination'].specialactivate(self.clock, 6)
                     self.schedule.addtime(self.astbuffs['Divination'].activation)
-                elif astkey == 'Divination 3':
-                    self.astbuffs['Divination'].specialactivate(self.clock, False)
+                elif astkey == '4':
+                    self.astbuffs['Divination'].specialactivate(self.clock, 4)
+                    self.schedule.addtime(self.astbuffs['Divination'].activation)
+                elif astkey == '2':
+                    self.astbuffs['Divination'].specialactivate(self.clock, 2)
                     self.schedule.addtime(self.astbuffs['Divination'].activation)
                 elif not astkey == 'None':
                     self.astbuffs[astkey].activate(self.clock)
@@ -691,6 +695,7 @@ class sim:
                         self.buildpotency(self.abilities['Caustic Bite'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         self.dots['Caustic Bite'].activate(self.clock,CDHStats,potmod,DMGStats)
                         self.schedule.addtime(self.dots['Caustic Bite'].activation)
+                        gcd = gcd + 1
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
@@ -698,6 +703,7 @@ class sim:
                         self.buildpotency(self.abilities['Stormbite'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         self.dots['Stormbite'].activate(self.clock,CDHStats,potmod,DMGStats)
                         self.schedule.addtime(self.dots['Stormbite'].activation)
+                        gcd = gcd + 1
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
@@ -707,15 +713,18 @@ class sim:
                         self.dots['Caustic Bite'].activate(self.clock,CDHStats,potmod,DMGStats)
                         self.schedule.addtime(self.dots['Stormbite'].activation)
                         self.schedule.addtime(self.dots['Caustic Bite'].activation)
+                        gcd = gcd + 1
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
                     elif currentaction.name == 'Refulgent Arrow':
                         self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         if self.buffs['Barrage'].getactive(self.clock):
+                            #gcd = gcd + 2
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,True))
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,True))
                             string = self.buffs['Barrage'].dropbuff(self.clock)
+                            gcd = gcd + 1
                             if self.createlog:
                                 logging.info(string)
                         string = self.buffs['SS Ready'].dropbuff(self.clock)
@@ -759,9 +768,11 @@ class sim:
                         # Auto GCD in the self.action
                         # If RA is procced use it
                         # If Not use Burst
+                        gcd = gcd + 1
                         if self.buffs['SS Ready'].getactive(self.clock):
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                             if self.buffs['Barrage'].getactive(self.clock):
+                                #gcd = gcd + 2
                                 self.buildpotency(
                                     self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,
                                                                                  True))
@@ -781,9 +792,11 @@ class sim:
                         # Auto GCD in the self.action
                         # If RA is procced use it
                         # If Not use Burst
+                        gcd = gcd + 1
                         if self.buffs['SS Ready'].getactive(self.clock):
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                             if self.buffs['Barrage'].getactive(self.clock):
+                                #gcd = gcd + 2
                                 self.buildpotency(
                                     self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats,
                                                                                  True))
@@ -877,7 +890,9 @@ class sim:
                         nextaction = round(self.clock + self.abilitydelay, 2)
                     elif self.buffs['Barrage'].getactive(self.clock) and self.buffs['SS Ready'].getactive(self.clock):
                         i = 0
+                        gcd = gcd + 1
                         while i < 3:
+                            #gcd = gcd + 1
                             self.buildpotency(self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                             i = i + 1
                         string = self.buffs['Barrage'].dropbuff(self.clock)
@@ -894,6 +909,7 @@ class sim:
                             self.dots['Stormbite'].activate(self.clock, CDHStats, potmod, DMGStats)
                             self.schedule.addtime(self.dots['Caustic Bite'].activation)
                             self.schedule.addtime(self.dots['Stormbite'].activation)
+                            gcd = gcd + 1
                             nextgcd = round(self.clock + self.gcd, 2)
                             nextaction = round(self.clock + self.abilitydelay, 2)
                             if self.checkproc(.35):
@@ -905,6 +921,7 @@ class sim:
                         self.dots['Stormbite'].activate(self.clock,CDHStats,potmod,DMGStats)
                         self.schedule.addtime(self.dots['Caustic Bite'].activation)
                         self.schedule.addtime(self.dots['Stormbite'].activation)
+                        gcd = gcd + 1
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
                         if self.checkproc(.35):
@@ -914,6 +931,7 @@ class sim:
                         self.buildpotency(self.abilities['Stormbite'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         self.dots['Stormbite'].activate(self.clock, CDHStats, potmod, DMGStats)
                         self.schedule.addtime(self.dots['Stormbite'].activation)
+                        gcd = gcd + 1
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
@@ -923,6 +941,7 @@ class sim:
                         self.buildpotency(self.abilities['Caustic Bite'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         self.dots['Caustic Bite'].activate(self.clock, CDHStats, potmod, DMGStats)
                         self.schedule.addtime(self.dots['Caustic Bite'].activation)
+                        gcd = gcd + 1
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
@@ -933,17 +952,20 @@ class sim:
                         string = self.buffs['SS Ready'].dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
+                        gcd = gcd + 1
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
                     elif self.soulvoice > 95:
                         self.buildpotency(self.abilities['Apex Arrow'].apexpotency(self.clock, CDHStats, potmod, DMGStats, True,self.soulvoice))
                         self.soulvoice = 0
+                        gcd = gcd + 1
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
                     elif self.buffs['SS Ready'].getactive(self.clock):
                         self.buildpotency(
                             self.abilities['Refulgent Arrow'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
                         string = self.buffs['SS Ready'].dropbuff(self.clock)
+                        gcd = gcd + 1
                         if self.createlog:
                             logging.info(string)
                         nextgcd = round(self.clock + self.gcd, 2)
@@ -951,6 +973,7 @@ class sim:
                     else:
                         self.buildpotency(
                             self.abilities['Burst Shot'].getpotency(self.clock, CDHStats, potmod, DMGStats, True))
+                        gcd = gcd + 1
                         if self.checkproc(.35):
                             self.buffs['SS Ready'].activate(self.clock)
                             self.schedule.addtime(self.buffs['SS Ready'].activation)
@@ -1150,7 +1173,7 @@ class sim:
             logging.info("Potency per Second : " + str(self.potency / self.clock))
             #logging.info("Repetoire: " + str(self.feathers))
             logging.info("Soul Voice Remaining: " + str(self.soulvoice))
-            #logging.info("GCDs Used: " + str(gcd))
+            logging.info("GCDs Used: " + str(self.clock/gcd))
             #logging.info("Feathers used: " + str(feathersused))
             #logging.info("Flourished Fans: " + str(flourishedfans))
             #logging.info("Devilments Used: " + str(useddevilments))

@@ -136,16 +136,16 @@ def genpbuffs(party, tetherbuff):
     divination = buff('Divination', 15, 0, 1.06, 180,'pot')
     trick = buff('Trick Attack', 10, 9.82, 1.1, 60,'pot')
     trick.activationdelay = .8
-    tether = buff("Dragon Sight", 20, 1.4, 1.05, 120,'pot')
-    devotion = buff("Devotion", 15, 15.0, 1.05, 180,'pot')
-    brotherhood = buff("Brotherhood", 14, 10.5, 1.05, 90,'pot')
-    embolden = buff("Embolden", 20, 10, 1.1, 120,'pot')
+    tether = buff("Dragon Sight", 20, 3.1, 1.05, 120,'pot')
+    devotion = buff("Devotion", 15, 6.5, 1.05, 180,'pot')
+    brotherhood = buff("Brotherhood", 14, 8, 1.05, 90,'pot')
+    embolden = buff("Embolden", 20, 12.3, 1.1, 120,'pot')
     embolden.falloff = True
 
-    battlevoice = buff('Battle Voice', 20, 3.1, 20, 180,'dh')
+    battlevoice = buff('Battle Voice', 20, 3.4, 20, 180,'dh')
 
-    litany = buff("Battle Litany", 20, 3.1, 10, 180,'ch')
-    chain = buff("Chain Stratagem", 15, 3.1, 10, 120,'ch')
+    litany = buff("Battle Litany", 20, 1.9, 10, 180,'ch')
+    chain = buff("Chain Stratagem", 15, 9.4, 10, 120,'ch')
     chain.activationdelay = .8
     buffs = []
     for i in party.keys():

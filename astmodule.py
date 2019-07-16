@@ -124,7 +124,12 @@ class astmodule:
             logging.info(str(self.clock)+' : AST : Redrew '+self.card.name)
 
     def allseals(self):
-        return self.Lunar and self.Solar and self.Celestial
+        if self.Lunar and self.Solar and self.Celestial:
+            return 6
+        elif (self.Lunar and self.Solar) or (self.Lunar and self.Celestial) or (self.Solar and self.Celestial):
+            return 4
+        else:
+            return 2
 
     def resetseals(self):
         self.Lunar = False
@@ -245,15 +250,9 @@ class astmodule:
                     self.buffs['Divination'].specialactivate(self.clock, self.allseals())
                     self.schedule.addtime(self.buffs['Divination'].activation)
                     self.abilities['Divination'].putonCD(self.clock)
-                    if self.allseals():
-                        key = 'Divination 6'
-                    else:
-                        key = 'Divination 3'
+                    key = str(self.allseals())
                     if self.createlog:
-                        if self.allseals():
-                            logging.info(str(self.clock)+' : AST : 6% Divination')
-                        else:
-                            logging.info(str(self.clock) + ' : AST : 3% Divination')
+                        logging.info(str(self.clock)+' : AST : '+key+' Divination')
                     self.resetseals()
                     self.posinopen = self.posinopen + 1
                     self.nextaction = round(self.clock + .7, 2)
@@ -319,11 +318,9 @@ class astmodule:
                 elif self.abilities['Divination'].available(self.clock) and self.countseal() > 2 and self.delaystart - self.clock > 20:
                     self.buffs['Divination'].specialactivate(self.clock, self.allseals())
                     self.abilities['Divination'].putonCD(self.clock)
+                    key = str(self.allseals())
                     if self.createlog:
-                        if self.allseals():
-                            logging.info(str(self.clock)+' : AST : 6% Divination')
-                        else:
-                            logging.info(str(self.clock) + ' : AST : 3% Divination')
+                        logging.info(str(self.clock) + ' : AST : ' + key + ' Divination')
                     self.resetseals()
                     self.nextaction = round(self.clock + .7, 2)
                 elif self.inplay and self.checkseal() and self.abilities['Redraw'].available(self.clock):
@@ -339,7 +336,7 @@ class astmodule:
                     self.nextaction = round(self.clock + .7, 2)
                     self.abilities['Draw'].putonCD(self.clock)
                     self.inplay = True
-                elif self.inplay and not self.priority and self.abilities['Divination'].getrecast(self.clock) < 20 and not self.allseals():
+                elif self.inplay and not self.priority and self.abilities['Divination'].getrecast(self.clock) < 20 and not self.allseals() == 6:
                     if self.card.buff:
                         if not self.buffs['Not My Card'].getactive(self.clock) or self.buffs['Bole'].getactive(self.clock) or self.buffs['Lady'].getactive(self.clock):
                             self.buffs['Not My Card'].activate(self.clock)
@@ -373,7 +370,7 @@ class astmodule:
                         logging.info(str(self.clock)+' : AST : Played Card on a melee')
                     self.card = self.dummy
                     self.minor = False
-                elif self.inplay and not self.minor and (not self.abilities['Redraw'].available(self.clock) or self.allseals()):
+                elif self.inplay and not self.minor and (not self.abilities['Redraw'].available(self.clock) or self.allseals() == 6):
                     self.minor = True
                     if self.createlog:
                         logging.info(str(self.clock)+' : AST : Use Minor Arcana')

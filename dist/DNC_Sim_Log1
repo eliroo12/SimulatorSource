@@ -1,20 +1,22 @@
 -1.0: Buff / Debuff Up : Potion
-0 : You use Standard Finish!@ - 76606.0425 damage
-0 : Potency: 76606.0 [1.2, 1.05] || Feathers: 0 || Esprit: 0 || Crit Rate: 18.4 || DH Rate: 40.0
-0.7 : Potency: 76606.0 [1.2, 1.05] || Feathers: 0 || Esprit: 10 || Crit Rate: 18.4 || DH Rate: 40.0
-1 : You use Auto Attack@ - 4456.25 damage
-1 : Potency: 81062.3 [1.2, 1.05] || Feathers: 0 || Esprit: 10 || Crit Rate: 18.4 || DH Rate: 40.0
+0 : You use Standard Finish - 38764 damage
+0 : Potency: 38764 [1.2, 1.05] || Feathers: 0 || Esprit: 0 || Crit Rate: 18.4 || DH Rate: 40.0
+0.7 : You use Devilment!
+0.7 : Potency: 38764 [1.2, 1.05] || Feathers: 0 || Esprit: 10 || Crit Rate: 18.4 || DH Rate: 40.0
+1 : You use Auto Attack - 3531 damage
+1 : Potency: 42295 [1.2, 1.05] || Feathers: 0 || Esprit: 10 || Crit Rate: 18.4 || DH Rate: 40.0
+1.2: Buff / Debuff Up : Devilment
 1.5 : You begin Technical Step
-3.6: Buff / Debuff Up : Battle Litany
-3.9: Buff / Debuff Up : Chain Stratagem
-4.12 : You use Auto Attack! - 5203.328 damage
-4.12 : Potency: 86265.6 [1.2, 1.05] || Feathers: 0 || Esprit: 10 || Crit Rate: 38.4 || DH Rate: 40.0
-5.5 : Potency: 86265.6 [1.2, 1.05] || Feathers: 0 || Esprit: 20 || Crit Rate: 38.4 || DH Rate: 40.0
+2.4: Buff / Debuff Up : Battle Litany
+3.1 : Potency: 42295 [1.2, 1.05] || Feathers: 0 || Esprit: 20 || Crit Rate: 48.4 || DH Rate: 60.0
+4.12 : You use Auto Attack! - 5522.4 damage
+4.12 : Potency: 47817.4 [1.2, 1.05] || Feathers: 0 || Esprit: 20 || Crit Rate: 48.4 || DH Rate: 60.0
+5.5 : Potency: 47817.4 [1.2, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
 6.7: Buff / Debuff Up : Bole
-7.0 : You use Technical Finish@ - 76260.0 damage
-7.0 : Potency: 162525.6 [1.2, 1.05, 1.06] || Feathers: 0 || Esprit: 20 || Crit Rate: 38.4 || DH Rate: 40.0
-7.24 : You use Auto Attack - 3742 damage
-7.24 : Potency: 166267.6 [1.2, 1.05, 1.06] || Feathers: 0 || Esprit: 20 || Crit Rate: 38.4 || DH Rate: 40.0
+7.0 : You use Technical Finish@ - 75472.5 damage
+7.0 : Potency: 123289.9 [1.2, 1.05, 1.06] || Feathers: 0 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+7.24 : You use Auto Attack! - 5457.972 damage
+7.24 : Potency: 128747.9 [1.2, 1.05, 1.06] || Feathers: 0 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
 7.5: Buff / Debuff Up : Technical Finish
 7.7 : You use Flourish!
 8.2: Buff / Debuff Up : Flourishing Cascade
@@ -22,69 +24,750 @@
 8.2: Buff / Debuff Up : Flourishing Windmill
 8.2: Buff / Debuff Up : Flourishing Bladeshower
 8.2: Buff / Debuff Up : Flourishing Fan
-8.4 : You use Devilment!
-8.9: Buff / Debuff Up : Devilment
-9.1 : You use Rising Windmill!@ - 21100.17 damage
-9.1 : Flourishing Windmill has fallen off.
-9.1 : Potency: 187367.8 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 58.4 || DH Rate: 60.0
-9.6 : Potency: 187367.8 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 58.4 || DH Rate: 60.0
-10.36 : You use Auto Attack!@ - 7090.915 damage
-10.36 : Potency: 194458.7 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 58.4 || DH Rate: 60.0
-10.5: Buff / Debuff Up : Embolden
+8.5 : You use Rising Windmill!@ - 21734.8625 damage
+8.5 : Flourishing Windmill has fallen off.
+8.5 : Potency: 150482.7 [1.2, 1.05, 1.06, 1.05] || Feathers: 1 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+10.2: Buff / Debuff Up : Chain Stratagem
+10.36 : You use Auto Attack! - 5729.49 damage
+10.36 : Potency: 156212.2 [1.2, 1.05, 1.06, 1.05] || Feathers: 1 || Esprit: 30 || Crit Rate: 58.4 || DH Rate: 60.0
 10.62: Buff / Debuff Up : Trick Attack
-11.57 : You use Bloodshower!@ - 30331.015 damage
-11.57 : Flourishing Bladeshower has fallen off.
+10.97 : You use Bloodshower! - 22951.708 damage
+10.97 : Flourishing Bladeshower has fallen off.
 Finished with self.action, commencing Sim
-11.57 : Potency: 224789.7 [1.2, 1.05, 1.06, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 58.4 || DH Rate: 60.0
-12.27 : You use Fan Dance III!@ - 20214.285 damage
-12.27 : Flourishing Fan has fallen off.
-12.27 : Potency: 245004.0 [1.2, 1.05, 1.06, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 58.4 || DH Rate: 60.0
+10.97 : Potency: 179163.9 [1.2, 1.05, 1.06, 1.1, 1.05] || Feathers: 2 || Esprit: 30 || Crit Rate: 58.4 || DH Rate: 60.0
+11.67 : You use Fan Dance III! - 14554.592 damage
+11.67 : Flourishing Fan has fallen off.
+11.67 : Potency: 193718.5 [1.2, 1.05, 1.06, 1.1, 1.05] || Feathers: 2 || Esprit: 30 || Crit Rate: 58.4 || DH Rate: 60.0
+12 : Potency: 193718.5 [1.2, 1.05, 1.06, 1.1, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 58.4 || DH Rate: 60.0
 12.3: Buff / Debuff Up : Divination
-12.7 : Potency: 245004.0 [1.2, 1.05, 1.06, 1.03, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 58.4 || DH Rate: 60.0
-13.48 : You use Auto Attack!@ - 9478.2025 damage
-13.48 : Potency: 254482.2 [1.2, 1.05, 1.06, 1.03, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 58.4 || DH Rate: 60.0
-14.04 : You use Fountainfall!@ - 37922.3975 damage
-14.04 : Flourishing Fountain has fallen off.
-14.04 : Potency: 292404.6 [1.2, 1.05, 1.06, 1.03, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 58.4 || DH Rate: 60.0
-14.4 : Potency: 292404.6 [1.2, 1.05, 1.06, 1.03, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 80 || Crit Rate: 58.4 || DH Rate: 60.0
-14.74 : You use Fan Dance I - 7996 damage
-14.74 : Potency: 300400.6 [1.2, 1.05, 1.06, 1.03, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 58.4 || DH Rate: 60.0
-16.51 : You use Saber Dance - 32320 damage
-16.51 : Potency: 332720.6 [1.2, 1.05, 1.06, 1.03, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 58.4 || DH Rate: 60.0
-16.6 : You use Auto Attack!@ - 9215.505 damage
-16.6 : Potency: 341936.1 [1.2, 1.05, 1.06, 1.03, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 58.4 || DH Rate: 60.0
-16.8 : Potency: 341936.1 [1.2, 1.05, 1.06, 1.03, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 58.4 || DH Rate: 60.0
-18.91 : Chain Stratagem has fallen off.
-18.98 : You begin Standard Step
-19.2 : Potency: 341936.1 [1.2, 1.05, 1.06, 1.03, 1.1, 1.06, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 48.4 || DH Rate: 60.0
-19.72 : You use Auto Attack@ - 6013.75 damage
-19.72 : Potency: 347949.9 [1.2, 1.05, 1.06, 1.03, 1.1, 1.06, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 48.4 || DH Rate: 60.0
-19.9 : Potency: 347949.9 [1.2, 1.05, 1.06, 1.03, 1.1, 1.06, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 48.4 || DH Rate: 60.0
-20.48 : You use a Step
+12.37 : You use Fan Dance I@ - 9723.75 damage
+12.37 : Potency: 203442.3 [1.2, 1.05, 1.06, 1.04, 1.1, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 58.4 || DH Rate: 60.0
+12.8: Buff / Debuff Up : Embolden
+13.44 : You use Fountainfall! - 29146.0 damage
+13.44 : Flourishing Fountain has fallen off.
+13.44 : Potency: 232588.3 [1.2, 1.05, 1.06, 1.04, 1.1, 1.1, 1.05] || Feathers: 2 || Esprit: 50 || Crit Rate: 58.4 || DH Rate: 60.0
+13.48 : You use Auto Attack!@ - 9288.37 damage
+13.48 : Potency: 241876.6 [1.2, 1.05, 1.06, 1.04, 1.1, 1.1, 1.05] || Feathers: 2 || Esprit: 50 || Crit Rate: 58.4 || DH Rate: 60.0
+14.14 : You use Fan Dance I@ - 10172.5 damage
+14.14 : Potency: 252049.1 [1.2, 1.05, 1.06, 1.04, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 58.4 || DH Rate: 60.0
+14.4 : Potency: 252049.1 [1.2, 1.05, 1.06, 1.04, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 58.4 || DH Rate: 60.0
+14.64: Buff / Debuff Up : Flourishing Fan
+14.84 : You use Fan Dance III! - 16136.146 damage
+14.84 : Flourishing Fan has fallen off.
+14.84 : Potency: 268185.3 [1.2, 1.05, 1.06, 1.04, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 58.4 || DH Rate: 60.0
+15.91 : You begin Standard Step
+16.6 : You use Auto Attack@ - 6300.0 damage
+16.6 : Potency: 274485.3 [1.2, 1.05, 1.06, 1.04, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 58.4 || DH Rate: 60.0
+16.8: You cannot build more Esprit
+16.8 : Potency: 274485.3 [1.2, 1.05, 1.06, 1.04, 1.1, 1.08, 1.05] || Feathers: 1 || Esprit: 100 || Crit Rate: 58.4 || DH Rate: 60.0
+17.41 : You use a Step
+18.41 : You use a Step
+19.2: You cannot build more Esprit
+19.2: You cannot build more Esprit
+19.2: You cannot build more Esprit
+19.41 : You use Standard Finish! - 82601.298 damage
+19.41 : Potency: 357086.6 [1.2, 1.05, 1.06, 1.04, 1.1, 1.08, 1.05] || Feathers: 1 || Esprit: 100 || Crit Rate: 58.4 || DH Rate: 60.0
+19.72 : You use Auto Attack! - 7077.876 damage
+19.72 : Potency: 364164.5 [1.2, 1.05, 1.06, 1.04, 1.1, 1.08, 1.05] || Feathers: 1 || Esprit: 100 || Crit Rate: 58.4 || DH Rate: 60.0
+19.9: You cannot build more Esprit
+20.11 : You use Fan Dance I - 8154 damage
+20.11 : Potency: 372318.5 [1.2, 1.05, 1.06, 1.04, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 100 || Crit Rate: 58.4 || DH Rate: 60.0
 20.63 : Trick Attack has fallen off.
-21.48 : You use a Step
+20.91 : You use Saber Dance! - 45559.8 damage
+20.91 : Potency: 417878.3 [1.2, 1.05, 1.06, 1.04, 1.06, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 58.4 || DH Rate: 60.0
+21.21 : Devilment has fallen off.
+21.6 : Potency: 417878.3 [1.2, 1.05, 1.06, 1.04, 1.06, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 38.4 || DH Rate: 40.0
 21.71 : Bole has fallen off.
-22.3 : Potency: 347949.9 [1.2, 1.05, 1.03, 1.06, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
-22.48 : You use Standard Finish@ - 58947.5 damage
-22.48 : Potency: 406897.4 [1.2, 1.05, 1.03, 1.06, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
-22.84 : You use Auto Attack! - 6030.154 damage
-22.84 : Potency: 412927.5 [1.2, 1.05, 1.03, 1.04, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
-23.61 : Battle Litany has fallen off.
-23.98 : You use Saber Dance - 27226 damage
-23.98 : Potency: 440153.5 [1.2, 1.05, 1.03, 1.04, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 38.4 || DH Rate: 60.0
-24 : Potency: 440153.5 [1.2, 1.05, 1.03, 1.04, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 38.4 || DH Rate: 60.0
-24.7 : Potency: 440153.5 [1.2, 1.05, 1.03, 1.04, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 38.4 || DH Rate: 60.0
+22.41 : Battle Litany has fallen off.
+22.84 : You use Auto Attack@ - 4756.25 damage
+22.84 : Potency: 422634.5 [1.2, 1.05, 1.04, 1.06, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 28.4 || DH Rate: 40.0
+23.38 : You use Saber Dance@ - 33993.75 damage
+23.38 : Potency: 456628.3 [1.2, 1.05, 1.04, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 28.4 || DH Rate: 40.0
+24 : Potency: 456628.3 [1.2, 1.05, 1.04, 1.06, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 28.4 || DH Rate: 40.0
+25.21 : Chain Stratagem has fallen off.
+25.85 : You use Reverse Cascade - 13070 damage
+25.85 : Flourishing Cascade has fallen off.
+25.85 : Potency: 469698.3 [1.2, 1.05, 1.04, 1.04, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+25.96 : You use Auto Attack - 3891 damage
+25.96 : Potency: 473589.3 [1.2, 1.05, 1.04, 1.04, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+26.4 : Potency: 473589.3 [1.2, 1.05, 1.04, 1.04, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+27.1 : Potency: 473589.3 [1.2, 1.05, 1.04, 1.04, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+27.31 : Divination has fallen off.
+27.51 : Technical Finish has fallen off.
+28.32 : You use Saber Dance - 24188 damage
+28.32 : Potency: 497777.3 [1.2, 1.05, 1.04] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+29.01 : Potion has fallen off.
+29.08 : You use Auto Attack! - 4783.012 damage
+29.08 : Potency: 502560.3 [1.2, 1.05, 1.02] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+30.79 : You use Cascade@ - 9276.25 damage
+30.79 : Potency: 511836.5 [1.2, 1.05, 1.02] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+31.29: Buff / Debuff Up : Flourishing Cascade
+31.29: Buff / Debuff Up : Combo
+32.2 : You use Auto Attack - 3118 damage
+32.2 : Potency: 514954.5 [1.2, 1.05, 1.02] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+32.81 : Embolden has fallen off.
+33.26 : You use Reverse Cascade - 11022 damage
+33.26 : Flourishing Cascade has fallen off.
+33.26 : Potency: 525976.5 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+34.3 : Potency: 525976.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+35.32 : You use Auto Attack - 3184 damage
+35.32 : Potency: 529160.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+35.73 : You use Fountain@ - 11255.0 damage
+35.73 : Combo has fallen off.
+35.73 : Potency: 540415.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+38.2 : You use Cascade - 7567 damage
+38.2 : Potency: 547982.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+38.44 : You use Auto Attack - 3216 damage
+38.44 : Potency: 551198.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+38.7: Buff / Debuff Up : Combo
+40.67 : You use Fountain@ - 11027.5 damage
+40.67 : Combo has fallen off.
+40.67 : Potency: 562226.0 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+41.5 : Potency: 562226.0 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+41.56 : You use Auto Attack - 3089 damage
+41.56 : Potency: 565315.0 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+43.14 : You use Cascade@ - 9095.0 damage
+43.14 : Potency: 574410.0 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+43.64: Buff / Debuff Up : Combo
+44.68 : You use Auto Attack@ - 3821.25 damage
+44.68 : Potency: 578231.3 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+45.91 : You begin Standard Step
+46.3 : Potency: 578231.3 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+47.41 : You use a Step
+47.8 : You use Auto Attack - 3312 damage
+47.8 : Potency: 581543.3 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+48.41 : You use a Step
+48.7 : Potency: 581543.3 [1.2, 1.05] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+49.41 : You use Standard Finish - 34928 damage
+49.41 : Potency: 616471.3 [1.2, 1.05] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+50.91 : You use Saber Dance - 20737 damage
+50.91 : Potency: 637208.3 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+50.92 : You use Auto Attack@ - 3781.25 damage
+50.92 : Potency: 640989.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+53.38 : You use Fountain - 9368 damage
+53.38 : Combo has fallen off.
+53.38 : Potency: 650357.5 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+53.5 : Potency: 650357.5 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+53.88: Buff / Debuff Up : Flourishing Fountain
+54.04 : You use Auto Attack - 3280 damage
+54.04 : Potency: 653637.5 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+55.85 : You use Fountainfall@ - 16552.5 damage
+55.85 : Flourishing Fountain has fallen off.
+55.85 : Potency: 670190.0 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+57.16 : You use Auto Attack@ - 3821.25 damage
+57.16 : Potency: 674011.3 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+58.32 : You use Cascade - 7276 damage
+58.32 : Potency: 681287.3 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+58.82: Buff / Debuff Up : Combo
+60.28 : You use Auto Attack@ - 3861.25 damage
+60.28 : Potency: 685148.5 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+60.7 : Potency: 685148.5 [1.2, 1.05] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+60.79 : You use Fountain - 8822 damage
+60.79 : Combo has fallen off.
+60.79 : Potency: 693970.5 [1.2, 1.05] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+61.29: Buff / Debuff Up : Flourishing Fountain
+63.26 : You use Saber Dance@ - 27831.25 damage
+63.26 : Potency: 721801.8 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+63.4 : You use Auto Attack@ - 4060.0 damage
+63.4 : Potency: 725861.8 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+65.73 : You use Fountainfall - 13242 damage
+65.73 : Flourishing Fountain has fallen off.
+65.73 : Potency: 739103.8 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+66.52 : You use Auto Attack - 3216 damage
+66.52 : Potency: 742319.8 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+68.2 : You use Cascade - 7058 damage
+68.2 : Potency: 749377.8 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+68.7: Buff / Debuff Up : Flourishing Cascade
+68.7: Buff / Debuff Up : Combo
+69.64 : You use Auto Attack@ - 3781.25 damage
+69.64 : Potency: 753159.0 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+70.62: Buff / Debuff Up : Trick Attack
+70.67 : You use Saber Dance@ - 29113.75 damage
+70.67 : Potency: 782272.8 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 20 || Crit Rate: 18.4 || DH Rate: 40.0
+71.37 : You use Fan Dance I@ - 7427.5 damage
+71.37 : Potency: 789700.3 [1.2, 1.05, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 18.4 || DH Rate: 40.0
+71.87: Buff / Debuff Up : Flourishing Fan
+72.07 : You use Fan Dance III@ - 9602.5 damage
+72.07 : Flourishing Fan has fallen off.
+72.07 : Potency: 799302.8 [1.2, 1.05, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 18.4 || DH Rate: 40.0
+72.76 : You use Auto Attack - 3608 damage
+72.76 : Potency: 802910.8 [1.2, 1.05, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 18.4 || DH Rate: 40.0
+73.14 : You use Reverse Cascade!@ - 23479.7875 damage
+73.14 : Flourishing Cascade has fallen off.
+73.14 : Potency: 826390.6 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+73.84 : You use Flourish!
+74.34: Buff / Debuff Up : Flourishing Cascade
+74.34: Buff / Debuff Up : Flourishing Fountain
+74.34: Buff / Debuff Up : Flourishing Windmill
+74.34: Buff / Debuff Up : Flourishing Bladeshower
+74.34: Buff / Debuff Up : Flourishing Fan
+74.54 : You use Fan Dance III - 7603 damage
+74.54 : Flourishing Fan has fallen off.
+74.54 : Potency: 833993.6 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+75.88 : You use Auto Attack - 3327 damage
+75.88 : Potency: 837320.6 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+75.91 : You begin Standard Step
+77.41 : You use a Step
+78.41 : You use a Step
+79 : You use Auto Attack - 3362 damage
+79 : Potency: 840682.6 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+79.41 : You use Standard Finish - 38420 damage
+79.41 : Potency: 879102.6 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+80.11 : You use Fan Dance I@ - 7652.5 damage
+80.11 : Potency: 886755.1 [1.2, 1.05, 1.1] || Feathers: 0 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+80.61: Buff / Debuff Up : Flourishing Fan
+80.63 : Trick Attack has fallen off.
+80.91 : You use Rising Windmill - 8822 damage
+80.91 : Flourishing Windmill has fallen off.
+80.91 : Potency: 895577.1 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+82.12 : You use Auto Attack - 3184 damage
+82.12 : Potency: 898761.1 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+83.38 : You use Bloodshower - 11241 damage
+83.38 : Flourishing Bladeshower has fallen off.
+83.38 : Potency: 910002.1 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+83.71 : You lost a combo
+83.71 : Combo has fallen off.
+85.24 : You use Auto Attack - 3120 damage
+85.24 : Potency: 913122.1 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+85.85 : You use Reverse Cascade!@ - 20298.655 damage
+85.85 : Flourishing Cascade has fallen off.
+85.85 : Potency: 933420.7 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+88.32 : You use Fountainfall@ - 15756.25 damage
+88.32 : Flourishing Fountain has fallen off.
+88.32 : Potency: 949177.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+88.36 : You use Auto Attack - 3248 damage
+88.36 : Potency: 952425.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+90.79 : You use Cascade - 7130 damage
+90.79 : Potency: 959555.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+91.29: Buff / Debuff Up : Flourishing Cascade
+91.29: Buff / Debuff Up : Combo
+91.48 : You use Auto Attack - 3248 damage
+91.48 : Potency: 962803.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+91.49 : You use Fan Dance III@ - 8822.5 damage
+91.49 : Flourishing Fan has fallen off.
+91.49 : Potency: 971625.5 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+91.9 : Potency: 971625.5 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+93.26 : You use Reverse Cascade - 11350 damage
+93.26 : Flourishing Cascade has fallen off.
+93.26 : Potency: 982975.5 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+93.96 : You use Fan Dance I - 5511 damage
+93.96 : Potency: 988486.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+94.46: Buff / Debuff Up : Flourishing Fan
+94.6 : You use Auto Attack - 3120 damage
+94.6 : Potency: 991606.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+94.66 : You use Fan Dance III - 7203 damage
+94.66 : Flourishing Fan has fallen off.
+94.66 : Potency: 998809.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+95.73 : You use Fountain - 9004 damage
+95.73 : Combo has fallen off.
+95.73 : Potency: 1007813.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+96.23: Buff / Debuff Up : Flourishing Fountain
+97.72 : You use Auto Attack - 3216 damage
+97.72 : Potency: 1011029.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+98.2 : You use Fountainfall - 12987 damage
+98.2 : Flourishing Fountain has fallen off.
+98.2 : Potency: 1024016.5 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+98.9 : You use Fan Dance I - 5620 damage
+98.9 : Potency: 1029636.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+99.1 : Potency: 1029636.5 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+100.67 : You use Cascade@ - 9095.0 damage
+100.67 : Potency: 1038731.5 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+100.84 : You use Auto Attack@ - 4060.0 damage
+100.84 : Potency: 1042791.5 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+101.17: Buff / Debuff Up : Flourishing Cascade
+101.17: Buff / Debuff Up : Combo
+103.14 : You use Reverse Cascade@ - 12958.75 damage
+103.14 : Flourishing Cascade has fallen off.
+103.14 : Potency: 1055750.2 [1.2, 1.05] || Feathers: 4 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+103.84 : You use Fan Dance I - 5238 damage
+103.84 : Potency: 1060988.2 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+103.9 : Potency: 1060988.2 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+103.96 : You use Auto Attack!@ - 5982.6 damage
+103.96 : Potency: 1066970.8 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+105.91 : You begin Standard Step
+107.08 : You use Auto Attack - 3248 damage
+107.08 : Potency: 1070218.8 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+107.41 : You use a Step
+108.41 : You use a Step
+108.7 : Potency: 1070218.8 [1.2, 1.05] || Feathers: 3 || Esprit: 90 || Crit Rate: 18.4 || DH Rate: 40.0
+109.41 : You use Standard Finish@ - 44113.75 damage
+109.41 : Potency: 1114332.6 [1.2, 1.05] || Feathers: 3 || Esprit: 90 || Crit Rate: 18.4 || DH Rate: 40.0
+110.2 : You use Auto Attack - 3216 damage
+110.2 : Potency: 1117548.6 [1.2, 1.05] || Feathers: 3 || Esprit: 90 || Crit Rate: 18.4 || DH Rate: 40.0
+110.91 : You use Saber Dance - 22702 damage
+110.91 : Potency: 1140250.6 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+113.32 : You use Auto Attack - 3280 damage
+113.32 : Potency: 1143530.6 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+113.38 : You use Fountain - 9459 damage
+113.38 : Combo has fallen off.
+113.38 : Potency: 1152989.6 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+113.88: Buff / Debuff Up : Flourishing Fountain
+115.85 : You use Fountainfall - 12478 damage
+115.85 : Flourishing Fountain has fallen off.
+115.85 : Potency: 1165467.6 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+116.44 : You use Auto Attack - 3184 damage
+116.44 : Potency: 1168651.6 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+118.32 : You use Cascade - 7276 damage
+118.32 : Potency: 1175927.6 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+118.82: Buff / Debuff Up : Flourishing Cascade
+118.82: Buff / Debuff Up : Combo
+119.56 : You use Auto Attack!@ - 6043.96 damage
+119.56 : Potency: 1181971.5 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+120.79 : You use Reverse Cascade@ - 14187.5 damage
+120.79 : Flourishing Cascade has fallen off.
+120.79 : Potency: 1196159.0 [1.2, 1.05] || Feathers: 4 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+122.56 : You use Devilment!
+122.68 : You use Auto Attack@ - 4020.0 damage
+122.68 : Potency: 1200179.0 [1.2, 1.05] || Feathers: 4 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+123.06: Buff / Debuff Up : Devilment
+123.1 : Potency: 1200179.0 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+123.26 : You begin Technical Step
+124.76 : You use a Step
+125.76 : You use a Step
+125.8 : You use Auto Attack!@ - 6350.76 damage
+125.8 : Potency: 1206529.8 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+126.76 : You use a Step
+127.76 : You use a Step
+128.76 : You use Technical Finish! - 84554.08 damage
+128.76 : Potency: 1291083.9 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+128.92 : You use Auto Attack@ - 4060.0 damage
+128.92 : Potency: 1295143.9 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+129.26: Buff / Debuff Up : Technical Finish
+129.46 : You use Fan Dance I@ - 7376.25 damage
+129.46 : Potency: 1302520.1 [1.2, 1.05, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+130.2: Buff / Debuff Up : Chain Stratagem
+130.26 : You use Saber Dance@ - 29508.75 damage
+130.26 : Potency: 1332028.9 [1.2, 1.05, 1.05] || Feathers: 3 || Esprit: 10 || Crit Rate: 48.4 || DH Rate: 60.0
+130.62: Buff / Debuff Up : Trick Attack
+130.96 : You use Fan Dance I@ - 8113.75 damage
+130.96 : Potency: 1340142.6 [1.2, 1.05, 1.1, 1.05] || Feathers: 2 || Esprit: 10 || Crit Rate: 48.4 || DH Rate: 60.0
+131.46: Buff / Debuff Up : Flourishing Fan
+131.66 : You use Fan Dance III@ - 10923.75 damage
+131.66 : Flourishing Fan has fallen off.
+131.66 : Potency: 1351066.4 [1.2, 1.05, 1.1, 1.05] || Feathers: 2 || Esprit: 10 || Crit Rate: 48.4 || DH Rate: 60.0
+132 : Potency: 1351066.4 [1.2, 1.05, 1.1, 1.05] || Feathers: 2 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+132.04 : You use Auto Attack! - 5640.518 damage
+132.04 : Potency: 1356706.9 [1.2, 1.05, 1.1, 1.05] || Feathers: 2 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+132.73 : You use Fountain@ - 13655.0 damage
+132.73 : Combo has fallen off.
+132.73 : Potency: 1370361.9 [1.2, 1.05, 1.1, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+132.8: Buff / Debuff Up : Embolden
+133.43 : You use Fan Dance I@ - 8837.5 damage
+133.43 : Potency: 1379199.4 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+133.93: Buff / Debuff Up : Flourishing Fan
+134.13 : You use Fan Dance III!@ - 16837.5675 damage
+134.13 : Flourishing Fan has fallen off.
+134.13 : Potency: 1396037.0 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+134.4 : Potency: 1396037.0 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
+134.83 : You use Fan Dance I - 6792 damage
+134.83 : Potency: 1402829.0 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
+135.16 : You use Auto Attack! - 6203.496 damage
+135.16 : Potency: 1409032.5 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
+135.91 : You begin Standard Step
+136.8 : Potency: 1409032.5 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 48.4 || DH Rate: 60.0
+137.41 : You use a Step
+138.28 : You use Auto Attack!@ - 7763.9575 damage
+138.28 : Potency: 1416796.4 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 48.4 || DH Rate: 60.0
+138.41 : You use a Step
+139.2 : Potency: 1416796.4 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 90 || Crit Rate: 48.4 || DH Rate: 60.0
+139.41 : You use Standard Finish - 43113 damage
+139.41 : Potency: 1459909.4 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 90 || Crit Rate: 48.4 || DH Rate: 60.0
+140.63 : Trick Attack has fallen off.
+140.91 : You use Saber Dance!@ - 44255.9 damage
+140.91 : Potency: 1504165.3 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+141.4 : You use Auto Attack!@ - 6860.815 damage
+141.4 : Potency: 1511026.1 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+141.6 : Potency: 1511026.1 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 48.4 || DH Rate: 60.0
+142.3 : Potency: 1511026.1 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 48.4 || DH Rate: 60.0
+143.07 : Devilment has fallen off.
+143.38 : You use Cascade!@ - 15213.445 damage
+143.38 : Potency: 1526239.6 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 28.4 || DH Rate: 40.0
+143.88: Buff / Debuff Up : Flourishing Cascade
+143.88: Buff / Debuff Up : Combo
+144.52 : You use Auto Attack@ - 4606.25 damage
+144.52 : Potency: 1530845.8 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 28.4 || DH Rate: 40.0
+144.7 : Potency: 1530845.8 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 28.4 || DH Rate: 40.0
+145.21 : Chain Stratagem has fallen off.
+145.85 : You use Reverse Cascade - 12035 damage
+145.85 : Flourishing Cascade has fallen off.
+145.85 : Potency: 1542880.8 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+146.4 : Potency: 1542880.8 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+146.55 : You use Flourish!
+147.05: Buff / Debuff Up : Flourishing Cascade
+147.05: Buff / Debuff Up : Flourishing Fountain
+147.05: Buff / Debuff Up : Flourishing Windmill
+147.05: Buff / Debuff Up : Flourishing Bladeshower
+147.05: Buff / Debuff Up : Flourishing Fan
+147.64 : You use Auto Attack - 3511 damage
+147.64 : Potency: 1546391.8 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+148.32 : You use Saber Dance - 24312 damage
+148.32 : Potency: 1570703.8 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+148.8 : Potency: 1570703.8 [1.2, 1.05, 1.02, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+149.27 : Technical Finish has fallen off.
+150.76 : You use Auto Attack! - 4931.81 damage
+150.76 : Potency: 1575635.6 [1.2, 1.05, 1.02] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+150.79 : You use Rising Windmill - 9091 damage
+150.79 : Flourishing Windmill has fallen off.
+150.79 : Potency: 1584726.6 [1.2, 1.05, 1.02] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+151.49 : You use Fan Dance III - 7494 damage
+151.49 : Flourishing Fan has fallen off.
+151.49 : Potency: 1592220.6 [1.2, 1.05, 1.02] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+152.81 : Embolden has fallen off.
+153.26 : You use Bloodshower@ - 12958.75 damage
+153.26 : Flourishing Bladeshower has fallen off.
+153.26 : Potency: 1605179.4 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+153.88 : You use Auto Attack!@ - 5800.4375 damage
+153.88 : Potency: 1610979.8 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+155.73 : You use Reverse Cascade!@ - 19878.7225 damage
+155.73 : Flourishing Cascade has fallen off.
+155.73 : Potency: 1630858.5 [1.2, 1.05] || Feathers: 2 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+157 : You use Auto Attack - 3280 damage
+157 : Potency: 1634138.5 [1.2, 1.05] || Feathers: 2 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+158.2 : You use Fountainfall - 12096 damage
+158.2 : Flourishing Fountain has fallen off.
+158.2 : Potency: 1646234.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+158.89 : You lost a combo
+158.89 : Combo has fallen off.
+160.12 : You use Auto Attack@ - 4140.0 damage
+160.12 : Potency: 1650374.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+160.67 : You use Cascade@ - 9185.0 damage
+160.67 : Potency: 1659559.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+161.17: Buff / Debuff Up : Flourishing Cascade
+161.17: Buff / Debuff Up : Combo
+163.14 : You use Reverse Cascade - 11022 damage
+163.14 : Flourishing Cascade has fallen off.
+163.14 : Potency: 1670581.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+163.24 : You use Auto Attack - 3120 damage
+163.24 : Potency: 1673701.5 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+165.91 : You begin Standard Step
+166.36 : You use Auto Attack@ - 3821.25 damage
+166.36 : Potency: 1677522.8 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+167.41 : You use a Step
+168.41 : You use a Step
+169.41 : You use Standard Finish - 36383 damage
+169.41 : Potency: 1713905.8 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+169.48 : You use Auto Attack! - 5031.52 damage
+169.48 : Potency: 1718937.3 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+170.91 : You use Fountain - 9186 damage
+170.91 : Combo has fallen off.
+170.91 : Potency: 1728123.3 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+171.41: Buff / Debuff Up : Flourishing Fountain
+172.6 : You use Auto Attack@ - 4140.0 damage
+172.6 : Potency: 1732263.3 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+173.38 : You use Fountainfall@ - 15120.0 damage
+173.38 : Flourishing Fountain has fallen off.
+173.38 : Potency: 1747383.3 [1.2, 1.05] || Feathers: 4 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+174.08 : You use Fan Dance I - 5456 damage
+174.08 : Potency: 1752839.3 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+175.72 : You use Auto Attack - 3248 damage
+175.72 : Potency: 1756087.3 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+175.85 : You use Cascade - 7276 damage
+175.85 : Potency: 1763363.3 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+176.35: Buff / Debuff Up : Combo
+178.32 : You use Fountain@ - 11482.5 damage
+178.32 : Combo has fallen off.
+178.32 : Potency: 1774845.8 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+178.82: Buff / Debuff Up : Flourishing Fountain
+178.84 : You use Auto Attack - 3025 damage
+178.84 : Potency: 1777870.8 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+180.79 : You use Saber Dance@ - 25921.25 damage
+180.79 : Potency: 1803792.1 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+181.96 : You use Auto Attack - 3184 damage
+181.96 : Potency: 1806976.1 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+182.4: Buff / Debuff Up : Battle Litany
+183.26 : You use Fountainfall! - 18751.616 damage
+183.26 : Flourishing Fountain has fallen off.
+183.26 : Potency: 1825727.7 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 28.4 || DH Rate: 40.0
+185.08 : You use Auto Attack - 3025 damage
+185.08 : Potency: 1828752.7 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 28.4 || DH Rate: 40.0
+185.73 : You use Cascade - 7203 damage
+185.73 : Potency: 1835955.7 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 28.4 || DH Rate: 40.0
+186.23: Buff / Debuff Up : Flourishing Cascade
+186.23: Buff / Debuff Up : Combo
+188.2 : You use Auto Attack@ - 3861.25 damage
+188.2 : You use Reverse Cascade@ - 13368.75 damage
+188.2 : Flourishing Cascade has fallen off.
+188.2 : Potency: 1853185.7 [1.2, 1.05] || Feathers: 4 || Esprit: 60 || Crit Rate: 28.4 || DH Rate: 40.0
+188.9 : You use Fan Dance I - 5347 damage
+188.9 : Potency: 1858532.7 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 28.4 || DH Rate: 40.0
+190.62: Buff / Debuff Up : Trick Attack
+190.67 : You use Saber Dance - 24972 damage
+190.67 : Potency: 1883504.7 [1.2, 1.05, 1.1] || Feathers: 3 || Esprit: 10 || Crit Rate: 28.4 || DH Rate: 40.0
+191.32 : You use Auto Attack! - 5534.672 damage
+191.32 : Potency: 1889039.3 [1.2, 1.05, 1.1] || Feathers: 3 || Esprit: 10 || Crit Rate: 28.4 || DH Rate: 40.0
+191.37 : You use Fan Dance I - 6182 damage
+191.37 : Potency: 1895221.3 [1.2, 1.05, 1.1] || Feathers: 2 || Esprit: 10 || Crit Rate: 28.4 || DH Rate: 40.0
+192.37 : You use Fan Dance I - 5701 damage
+192.37 : Potency: 1900922.3 [1.2, 1.05, 1.1] || Feathers: 1 || Esprit: 10 || Crit Rate: 28.4 || DH Rate: 40.0
+193: Buff / Debuff Up : Divination
+193.14 : You use Fountain - 10604 damage
+193.14 : Combo has fallen off.
+193.14 : Potency: 1911526.3 [1.2, 1.05, 1.06, 1.1] || Feathers: 1 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+193.64: Buff / Debuff Up : Flourishing Fountain
+193.84 : You use Fan Dance I!@ - 12076.415 damage
+193.84 : Potency: 1923602.8 [1.2, 1.05, 1.06, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+194.44 : You use Auto Attack@ - 4685.0 damage
+194.44 : Potency: 1928287.8 [1.2, 1.05, 1.06, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+195.91 : You begin Standard Step
+197.41 : You use a Step
+197.56 : You use Auto Attack@ - 4501.25 damage
+197.56 : Potency: 1932789.0 [1.2, 1.05, 1.06, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+198.41 : You use a Step
+199.41 : You use Standard Finish@ - 51966.25 damage
+199.41 : Potency: 1984755.3 [1.2, 1.05, 1.06, 1.1] || Feathers: 0 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+200.63 : Trick Attack has fallen off.
+200.68 : You use Auto Attack!@ - 6212.7 damage
+200.68 : Potency: 1990968.0 [1.2, 1.05, 1.06] || Feathers: 0 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+200.91 : You use Fountainfall!@ - 25619.7175 damage
+200.91 : Flourishing Fountain has fallen off.
+200.91 : Potency: 2016587.7 [1.2, 1.05, 1.06] || Feathers: 1 || Esprit: 20 || Crit Rate: 28.4 || DH Rate: 40.0
+202.41 : Battle Litany has fallen off.
+203.38 : You use Cascade@ - 9157.5 damage
+203.38 : Potency: 2025745.2 [1.2, 1.05, 1.06] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+203.8 : You use Auto Attack - 3206 damage
+203.8 : Potency: 2028951.2 [1.2, 1.05, 1.06] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+203.88: Buff / Debuff Up : Flourishing Cascade
+203.88: Buff / Debuff Up : Combo
+205.85 : You use Reverse Cascade@ - 14170.0 damage
+205.85 : Flourishing Cascade has fallen off.
+205.85 : Potency: 2043121.2 [1.2, 1.05, 1.06] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+206.55 : You use Flourish!
+206.92 : You use Auto Attack - 3476 damage
+206.92 : Potency: 2046597.2 [1.2, 1.05, 1.06] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+207.05: Buff / Debuff Up : Flourishing Cascade
+207.05: Buff / Debuff Up : Flourishing Fountain
+207.05: Buff / Debuff Up : Flourishing Windmill
+207.05: Buff / Debuff Up : Flourishing Bladeshower
+207.05: Buff / Debuff Up : Flourishing Fan
+208.01 : Divination has fallen off.
+208.32 : You use Rising Windmill - 9368 damage
+208.32 : Flourishing Windmill has fallen off.
+208.32 : Potency: 2055965.2 [1.2, 1.05] || Feathers: 1 || Esprit: 30 || Crit Rate: 18.4 || DH Rate: 40.0
+209.5 : Potency: 2055965.2 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+210.04 : You use Auto Attack! - 4933.344 damage
+210.04 : Potency: 2060898.5 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+210.79 : You use Bloodshower - 10913 damage
+210.79 : Flourishing Bladeshower has fallen off.
+210.79 : Potency: 2071811.5 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+211.49 : You use Fan Dance III! - 11494.262 damage
+211.49 : Flourishing Fan has fallen off.
+211.49 : Potency: 2083305.8 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+213.16 : You use Auto Attack - 3216 damage
+213.16 : Potency: 2086521.8 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+213.26 : You use Reverse Cascade! - 17243.694 damage
+213.26 : Flourishing Cascade has fallen off.
+213.26 : Potency: 2103765.5 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+215.73 : You use Fountainfall@ - 15438.75 damage
+215.73 : Flourishing Fountain has fallen off.
+215.73 : Potency: 2119204.2 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+216.28 : You use Auto Attack - 3120 damage
+216.28 : Potency: 2122324.2 [1.2, 1.05] || Feathers: 1 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+216.7 : Potency: 2122324.2 [1.2, 1.05] || Feathers: 1 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+218.2 : You use Fountain@ - 11823.75 damage
+218.2 : Combo has fallen off.
+218.2 : Potency: 2134148.0 [1.2, 1.05] || Feathers: 1 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+218.7: Buff / Debuff Up : Flourishing Fountain
+219.1 : Potency: 2134148.0 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+219.4 : You use Auto Attack - 3057 damage
+219.4 : Potency: 2137205.0 [1.2, 1.05] || Feathers: 1 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+220.67 : You use Fountainfall - 12987 damage
+220.67 : Flourishing Fountain has fallen off.
+220.67 : Potency: 2150192.0 [1.2, 1.05] || Feathers: 2 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+221.5 : Potency: 2150192.0 [1.2, 1.05] || Feathers: 2 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+222.52 : You use Auto Attack - 3184 damage
+222.52 : Potency: 2153376.0 [1.2, 1.05] || Feathers: 2 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+223.14 : You use Saber Dance@ - 26193.75 damage
+223.14 : Potency: 2179569.7 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+225.64 : You use Auto Attack - 3216 damage
+225.64 : Potency: 2182785.7 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+225.91 : You begin Standard Step
+227.41 : You use a Step
+228.41 : You use a Step
+228.76 : You use Auto Attack - 3216 damage
+228.76 : Potency: 2186001.7 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+229.41 : You use Standard Finish! - 56928.274 damage
+229.41 : Potency: 2242930.0 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+230.91 : You use Cascade! - 11494.262 damage
+230.91 : Potency: 2254424.3 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+231.41: Buff / Debuff Up : Combo
+231.88 : You use Auto Attack@ - 3980.0 damage
+231.88 : Potency: 2258404.3 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+233.38 : You use Fountain - 8731 damage
+233.38 : Combo has fallen off.
+233.38 : Potency: 2267135.3 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+235 : You use Auto Attack - 3216 damage
+235 : Potency: 2270351.3 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+235.85 : You use Cascade@ - 8912.5 damage
+235.85 : Potency: 2279263.8 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+236.35: Buff / Debuff Up : Flourishing Cascade
+236.35: Buff / Debuff Up : Combo
+238.12 : You use Auto Attack@ - 3861.25 damage
+238.12 : Potency: 2283125.0 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+238.32 : You use Reverse Cascade - 10804 damage
+238.32 : Flourishing Cascade has fallen off.
+238.32 : Potency: 2293929.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+240.79 : You use Fountain - 9095 damage
+240.79 : Combo has fallen off.
+240.79 : Potency: 2303024.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+241.24 : You use Auto Attack - 3152 damage
+241.24 : Potency: 2306176.0 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+242.56 : You use Devilment!
+243.06: Buff / Debuff Up : Devilment
+243.1 : Potency: 2306176.0 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 38.4 || DH Rate: 60.0
+243.26 : You begin Technical Step
+244.36 : You use Auto Attack@ - 3900.0 damage
+244.36 : Potency: 2310076.0 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 38.4 || DH Rate: 60.0
+244.76 : You use a Step
+245.76 : You use a Step
+246.76 : You use a Step
+247.48 : You use Auto Attack!@ - 6350.76 damage
+247.48 : Potency: 2316426.8 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 38.4 || DH Rate: 60.0
+247.76 : You use a Step
+247.9 : Potency: 2316426.8 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+248.76 : You use Technical Finish! - 79530.23 damage
+248.76 : Potency: 2395957.0 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+249.26: Buff / Debuff Up : Technical Finish
+249.46 : You use Fan Dance I! - 8964.696 damage
+249.46 : Potency: 2404921.7 [1.2, 1.05, 1.05] || Feathers: 2 || Esprit: 60 || Crit Rate: 38.4 || DH Rate: 60.0
+249.6 : Potency: 2404921.7 [1.2, 1.05, 1.05] || Feathers: 2 || Esprit: 70 || Crit Rate: 38.4 || DH Rate: 60.0
+250.2: Buff / Debuff Up : Chain Stratagem
+250.26 : You use Saber Dance!@ - 43509.9925 damage
+250.26 : Potency: 2448431.7 [1.2, 1.05, 1.05] || Feathers: 2 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+250.6 : You use Auto Attack!@ - 6153.2575 damage
+250.6 : Potency: 2454585.0 [1.2, 1.05, 1.05] || Feathers: 2 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+250.62: Buff / Debuff Up : Trick Attack
+250.96 : You use Fan Dance I@ - 7956.25 damage
+250.96 : Potency: 2462541.2 [1.2, 1.05, 1.1, 1.05] || Feathers: 1 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+251.96 : You use Fan Dance I!@ - 12325.69 damage
+251.96 : Potency: 2474866.9 [1.2, 1.05, 1.1, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+252.46: Buff / Debuff Up : Flourishing Fan
+252.7 : Potency: 2474866.9 [1.2, 1.05, 1.1, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+252.73 : You use Cascade!@ - 15629.5425 damage
+252.73 : Potency: 2490496.4 [1.2, 1.05, 1.1, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+252.8: Buff / Debuff Up : Embolden
+253.23: Buff / Debuff Up : Combo
+253.43 : You use Fan Dance III@ - 11783.75 damage
+253.43 : Flourishing Fan has fallen off.
+253.43 : Potency: 2502280.2 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+253.72 : You use Auto Attack! - 5892.094 damage
+253.72 : Potency: 2508172.3 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+254.4 : Potency: 2508172.3 [1.2, 1.05, 1.1, 1.1, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
+255.91 : You begin Standard Step
+256.84 : You use Auto Attack!@ - 7919.275 damage
+256.84 : Potency: 2516091.6 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 48.4 || DH Rate: 60.0
+257.41 : You use a Step
+258.41 : You use a Step
+259.2 : Potency: 2516091.6 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 48.4 || DH Rate: 60.0
+259.41 : You use Standard Finish - 47197 damage
+259.41 : Potency: 2563288.6 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 48.4 || DH Rate: 60.0
+259.96 : You use Auto Attack@ - 4763.75 damage
+259.96 : Potency: 2568052.3 [1.2, 1.05, 1.1, 1.08, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 48.4 || DH Rate: 60.0
+260.63 : Trick Attack has fallen off.
+260.91 : You use Saber Dance! - 36150.244 damage
+260.91 : Potency: 2604202.5 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 30 || Crit Rate: 48.4 || DH Rate: 60.0
+262.3 : Potency: 2604202.5 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 48.4 || DH Rate: 60.0
+263.07 : Devilment has fallen off.
+263.08 : You use Auto Attack! - 5488.652 damage
+263.08 : Potency: 2609691.2 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 28.4 || DH Rate: 40.0
+263.38 : You use Fountain - 10223 damage
+263.38 : Combo has fallen off.
+263.38 : Potency: 2619914.2 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 50 || Crit Rate: 28.4 || DH Rate: 40.0
+264 : Potency: 2619914.2 [1.2, 1.05, 1.06, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 28.4 || DH Rate: 40.0
+265.21 : Chain Stratagem has fallen off.
+265.85 : You use Cascade - 8023 damage
+265.85 : Potency: 2627937.2 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+266.2 : You use Auto Attack - 3476 damage
+266.2 : Potency: 2631413.2 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+266.35: Buff / Debuff Up : Combo
+266.4 : Potency: 2631413.2 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+266.55 : You use Flourish!
+267.05: Buff / Debuff Up : Flourishing Cascade
+267.05: Buff / Debuff Up : Flourishing Fountain
+267.05: Buff / Debuff Up : Flourishing Windmill
+267.05: Buff / Debuff Up : Flourishing Bladeshower
+267.05: Buff / Debuff Up : Flourishing Fan
+267.1 : Potency: 2631413.2 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 90 || Crit Rate: 18.4 || DH Rate: 40.0
+268.32 : You use Saber Dance!@ - 43876.235 damage
+268.32 : Potency: 2675289.4 [1.2, 1.05, 1.04, 1.05] || Feathers: 0 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+268.8 : Potency: 2675289.4 [1.2, 1.05, 1.02, 1.05] || Feathers: 0 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+269.27 : Technical Finish has fallen off.
+269.32 : You use Auto Attack - 3247 damage
+269.32 : Potency: 2678536.4 [1.2, 1.05, 1.02] || Feathers: 0 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+269.5 : Potency: 2678536.4 [1.2, 1.05, 1.02] || Feathers: 0 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+270.79 : You use Rising Windmill - 9462 damage
+270.79 : Flourishing Windmill has fallen off.
+270.79 : Potency: 2687998.4 [1.2, 1.05, 1.02] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+271.49 : You use Fan Dance III - 7272 damage
+271.49 : Flourishing Fan has fallen off.
+271.49 : Potency: 2695270.4 [1.2, 1.05, 1.02] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+272.44 : You use Auto Attack!@ - 6040.125 damage
+272.44 : Potency: 2701310.6 [1.2, 1.05, 1.02] || Feathers: 1 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+272.81 : Embolden has fallen off.
+273.26 : You use Bloodshower@ - 13641.25 damage
+273.26 : Flourishing Bladeshower has fallen off.
+273.26 : Potency: 2714951.8 [1.2, 1.05] || Feathers: 2 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+275.56 : You use Auto Attack - 3280 damage
+275.56 : Potency: 2718231.8 [1.2, 1.05] || Feathers: 2 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+275.73 : You use Saber Dance - 22046 damage
+275.73 : Potency: 2740277.8 [1.2, 1.05] || Feathers: 2 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
+276.7 : Potency: 2740277.8 [1.2, 1.05] || Feathers: 2 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+278.2 : You use Reverse Cascade - 10695 damage
+278.2 : Flourishing Cascade has fallen off.
+278.2 : Potency: 2750972.8 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+278.68 : You use Auto Attack! - 4835.168 damage
+278.68 : Potency: 2755808.0 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+279.1 : Potency: 2755808.0 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+280.67 : You use Fountainfall - 12224 damage
+280.67 : Flourishing Fountain has fallen off.
+280.67 : Potency: 2768032.0 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+281.36 : You lost a combo
+281.36 : Combo has fallen off.
+281.8 : You use Auto Attack - 3184 damage
+281.8 : Potency: 2771216.0 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+283.14 : You use Cascade - 7203 damage
+283.14 : Potency: 2778419.0 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+283.64: Buff / Debuff Up : Combo
+284.92 : You use Auto Attack!@ - 6105.32 damage
+284.92 : Potency: 2784524.3 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+285.91 : You begin Standard Step
+286.3 : Potency: 2784524.3 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+287.41 : You use a Step
+288.04 : You use Auto Attack@ - 3980.0 damage
+288.04 : Potency: 2788504.3 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+288.41 : You use a Step
+288.7 : Potency: 2788504.3 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+289.41 : You use Standard Finish - 35655 damage
+289.41 : Potency: 2824159.3 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+290.91 : You use Saber Dance - 20737 damage
+290.91 : Potency: 2844896.3 [1.2, 1.05] || Feathers: 3 || Esprit: 50 || Crit Rate: 18.4 || DH Rate: 40.0
+291.1 : Potency: 2844896.3 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+291.16 : You use Auto Attack - 3312 damage
+291.16 : Potency: 2848208.3 [1.2, 1.05] || Feathers: 3 || Esprit: 60 || Crit Rate: 18.4 || DH Rate: 40.0
+293.38 : You use Fountain - 8822 damage
+293.38 : Combo has fallen off.
+293.38 : Potency: 2857030.3 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+294.28 : You use Auto Attack - 3248 damage
+294.28 : Potency: 2860278.3 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+295.85 : You use Cascade! - 11271.832 damage
+295.85 : Potency: 2871550.1 [1.2, 1.05] || Feathers: 3 || Esprit: 70 || Crit Rate: 18.4 || DH Rate: 40.0
+295.9 : Potency: 2871550.1 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+296.35: Buff / Debuff Up : Combo
+297.4 : You use Auto Attack - 3184 damage
+297.4 : Potency: 2874734.1 [1.2, 1.05] || Feathers: 3 || Esprit: 80 || Crit Rate: 18.4 || DH Rate: 40.0
+298.3 : Potency: 2874734.1 [1.2, 1.05] || Feathers: 3 || Esprit: 90 || Crit Rate: 18.4 || DH Rate: 40.0
+298.32 : You use Saber Dance@ - 27831.25 damage
+298.32 : Potency: 2902565.4 [1.2, 1.05] || Feathers: 3 || Esprit: 40 || Crit Rate: 18.4 || DH Rate: 40.0
 ------Results-----
-Time Ran : 25.96
-Potency : 440153.5145
-Potency per Second : 16955.066043913714
-Feathers Remaining: 0
-Esprit Remaining: 50
-GCDs Used: 5
-Feathers used: 1
-Flourished Fans: 1
-Saber Dances Used: 2
-Combos Dropped: 0
+Time Ran : 300
+Potency : 2902565.3779999996
+Potency per Second : 9675.217926666664
+Feathers Remaining: 3
+Esprit Remaining: 40
+GCDs Used: 91
+Feathers used: 20
+Flourished Fans: 12
+Saber Dances Used: 19
+Combos Dropped: 3
 Flourish Procs Dropped : 0
 Feathers Dropped : 0
-Esprit Cap : 0
+Esprit Cap : 5

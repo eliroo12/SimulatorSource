@@ -408,12 +408,14 @@ class sim:
                 block = self.ast.sim(self.clock)
                 self.astime = block[0]
                 astkey = block[1]
-                if astkey == 'Divination 6':
-                    self.astbuffs['Divination'].specialactivate(self.clock, True)
+                if astkey == '6':
+                    self.astbuffs['Divination'].specialactivate(self.clock, 6)
                     self.schedule.addtime(self.astbuffs['Divination'].activation)
-                elif astkey == 'Divination 3':
-                    self.astbuffs['Divination'].specialactivate(self.clock, False)
+                elif astkey == '4':
+                    self.astbuffs['Divination'].specialactivate(self.clock, 4)
                     self.schedule.addtime(self.astbuffs['Divination'].activation)
+                elif astkey == '2':
+                    self.astbuffs['Divination'].specialactivate(self.clock, 2)
                 elif not astkey == 'None':
                     self.astbuffs[astkey].activate(self.clock)
                     self.schedule.addtime(self.astbuffs[astkey].activation)

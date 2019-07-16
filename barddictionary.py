@@ -134,26 +134,28 @@ def genparty(jobs):
     return dict
 
 def genpbuffs(party, tetherbuff,dncpart):
-
-    goodcard = buff('Bole', 15, 0, 1.06, 0,'pot')
+    goodcard = buff('Bole', 15, 0, 1.06, 0, 'pot')
     badcard = buff('Balance', 15, 0, 1.03, 0, 'pot')
     notmycard = buff('Not my Card', 15, 0, 1.00, 0, 'pot')
     bigcard = buff('Lady', 15, 0, 1.08, 0, 'pot')
-    divination = buff('Divination', 15, 0, 1.06, 180,'pot')
-    trick = buff('Trick Attack', 10, 9.82, 1.1, 60,'pot')
+    divination = buff('Divination', 15, 0, 1.06, 180, 'pot')
+    trick = buff('Trick Attack', 10, 9.82, 1.1, 60, 'pot')
     trick.activationdelay = .8
-    tether = buff("Dragon Sight", 20, 1.4, 1.05, 120,'pot')
-    devotion = buff("Devotion", 15, 15.0, 1.05, 180,'pot')
-    brotherhood = buff("Brotherhood", 14, 10.5, 1.05, 90,'pot')
-    embolden = buff("Embolden", 20, 10, 1.1, 120,'pot')
+    tether = buff("Dragon Sight", 20, 3.1, 1.05, 120, 'pot')
+    devotion = buff("Devotion", 15, 6.5, 1.05, 180, 'pot')
+    brotherhood = buff("Brotherhood", 14, 8, 1.05, 90, 'pot')
+    embolden = buff("Embolden", 20, 12.3, 1.1, 120, 'pot')
     embolden.falloff = True
 
-    technical = buff('Technical Finish', 15, 10.4, 1.05, 120,'pot')
-    sabercrit = buff('Saber Dance CRIT',15,7.8,30,120,'ch')
-    saberdh = buff('Saber Dance DH',15,7.8,30,120,'dh')
-    litany = buff("Battle Litany", 20, 3.1, 10, 180,'ch')
-    chain = buff("Chain Stratagem", 15, 3.1, 10, 120,'ch')
+    battlevoice = buff('Battle Voice', 20, 3.4, 20, 180, 'dh')
+
+    litany = buff("Battle Litany", 20, 1.9, 10, 180, 'ch')
+    chain = buff("Chain Stratagem", 15, 9.4, 10, 120, 'ch')
     chain.activationdelay = .8
+
+    technical = buff('Technical Finish', 15, 7, 1.05, 120,'pot')
+    sabercrit = buff('Saber Dance CRIT',15,8.7,30,120,'ch')
+    saberdh = buff('Saber Dance DH',15,8.7,30,120,'dh')
     buffs = []
     for i in party.keys():
         if i == 'NIN':
