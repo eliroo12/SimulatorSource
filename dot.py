@@ -59,7 +59,7 @@ class dot:
         else:
             dexstat = dex
 
-        Damage = math.floor(pot * ((WD + math.floor(340 * JobMod / 1000)) * (wepdelay / 3)) * (100 + math.floor((dexstat - 340) * 165 / 340)) / 100)
+        Damage = math.floor(pot * ((WD + math.floor(340 * JobMod / 1000)) * (100 + math.floor((dexstat - 340) * 165 / 340)) / 100))
         Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 340) / 3300)) / 1000)
         Damage = math.floor(Damage * (1000 + math.floor(130 * (ss - 380) / 3300)) / 1000)
         Damage = math.floor(Damage * (1000 + math.floor(100 * (380 - 380) / 3300)) / 1000 / 100)
@@ -88,5 +88,31 @@ class dot:
     def dropoff(self,clock):
         self.active = False
         return str(clock)+ ': '+self.name+' Falls off'
+
+
+
+
+dex = 3916
+det = 2753
+ss = 1412
+pot = 1200
+WD = 117
+JobMod = 115
+wepdelay = 3.02
+dexstat = dex
+
+
+
+Damage = math.floor(pot * ((WD + math.floor(340 * JobMod / 1000)) * (wepdelay / 3)) * (100 + math.floor((dexstat - 340) * 165 / 340)) / 100)
+Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 340) / 3300)) / 1000)
+Damage = math.floor(Damage * (1000 + math.floor(130 * (ss - 380) / 3300)) / 1000)
+Damage = math.floor(Damage * (1000 + math.floor(100 * (380 - 380) / 3300)) / 1000 / 100)
+Damage = Damage *1.2
+
+
+print("Upper Range: "+ str(Damage*1.05))
+print("Average Damage:"+str(Damage))
+print("Lower Range: "+ str(Damage*.95))
+
 
 

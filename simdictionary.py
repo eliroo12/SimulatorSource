@@ -6,15 +6,15 @@ from job import job
 def genabil(wepdelay, GCDrecast):
 
     autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 100, 0, 0)
-    cascade = ability('Cascade', 'GCD', 'ST', GCDrecast, 200, 0,  0)
-    fountain = ability('Fountain', 'GCD', 'ST', GCDrecast, 100, 0, 250)
+    cascade = ability('Cascade', 'GCD', 'ST', GCDrecast, 250, 0,  0)
+    fountain = ability('Fountain', 'GCD', 'ST', GCDrecast, 100, 0, 300)
     reversecascade = ability('Reverse Cascade', 'GCD', 'ST', GCDrecast, 300, 0, 0)
     fountainfall = ability('Fountainfall', 'GCD', 'ST', GCDrecast, 350, 0, 0)
 
     windmill = ability('Windmill', 'GCD', 'AE', GCDrecast, 150, 0,  0)
     bladeshower = ability('Bladeshower', 'GCD', 'AE', GCDrecast, 100, 0, 200)
-    risingwindmill = ability('Rising Windmill', 'GCD', 'AE', GCDrecast, 250, 0, 0)
-    bloodshower = ability('Bloodshower', 'GCD', 'AE', GCDrecast, 300, 0, 0)
+    risingwindmill = ability('Rising Windmill', 'GCD', 'AE', GCDrecast, 300, 0, 0)
+    bloodshower = ability('Bloodshower', 'GCD', 'AE', GCDrecast, 350, 0, 0)
 
     fandance1 = ability('Fan Dance I', 'OGCD', 'ST', 1, 150, 0, 0)
     fandance2 = ability('Fan Dance II', 'OGCD', 'AE', 1, 100, 0, 0)

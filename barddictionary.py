@@ -8,7 +8,7 @@ def genabil(wepdelay, GCDrecast):
 
     autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 100, 0, 0)
     burst = ability('Burst Shot','GCD','ST',GCDrecast,230,0,0)
-    ra = ability('Refulgent Arrow', 'GCD', 'ST', GCDrecast, 340, 0, 0)
+    ra = ability('Refulgent Arrow', 'GCD', 'ST', GCDrecast, 330, 0, 0)
     ij = ability('Iron Jaws', 'GCD', 'ST', GCDrecast, 100, 0, 0)
     cb = ability('Caustic Bite', 'GCD', 'ST', GCDrecast, 150, 0, 0)
     sb = ability('Stormbite', 'GCD', 'ST', GCDrecast, 100, 0, 0)
@@ -16,7 +16,7 @@ def genabil(wepdelay, GCDrecast):
 
     bl = ability('Bloodletter', 'oGCD', 'ST', 15, 150, 0, 0)
     pp = ability('Pitch Perfect', 'GCD', 'ST', 3, 100, 0, 0)
-    sw = ability('Sidewinder', 'oGCD', 'ST', 60, 260, 0, 0)
+    sw = ability('Sidewinder', 'oGCD', 'ST', 60, 300, 0, 0)
     ea = ability('Empyreal Arrow', 'oGCD', 'ST', 15, 230, 0, 0)
 
     wm = ability('Minuet', 'oGCD', 'ST', 80, 100, 0, 0)
@@ -39,8 +39,8 @@ def genabil(wepdelay, GCDrecast):
     return dict
 
 def gendots():
-    cb = dot('Caustic Bite', 50, 30)
-    sb = dot('Stormbite', 60, 30)
+    cb = dot('Caustic Bite', 40, 30)
+    sb = dot('Stormbite', 50, 30)
 
     table = [cb,sb]
 

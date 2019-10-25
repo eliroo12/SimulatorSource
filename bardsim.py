@@ -480,8 +480,8 @@ class sim:
                     if self.createlog:
                         logging.info(string)
                 if self.buffs['Potion'].getactive(self.clock):
-                    if dex * self.buffs['Potion'].potency > 310:
-                        dex = dex + 310
+                    if dex * self.buffs['Potion'].potency > 339:
+                        dex = dex + 339
                     else:
                         dex = dex + (dex * self.buffs['Potion'].potency)
                 elif self.buffs['Potion'].active:

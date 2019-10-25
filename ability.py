@@ -119,7 +119,7 @@ class ability:
         return Damage * (random.randrange(95, 105) / 100)
 
     def apexpotency(self,time,cdhstats,potmod,stats,combo,sv):
-        self.potency = math.floor(sv*5)
+        self.potency = math.floor(sv*6)
         return self.getpotency(time, cdhstats, potmod, stats, combo)
 
     def pitchpotency(self,time,cdhstats,potmod,stats,combo,rep):

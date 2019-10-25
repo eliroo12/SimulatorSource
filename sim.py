@@ -10,12 +10,14 @@ import random
 import asyncio
 import copy
 
-class sim:
-        #stat table build out = WD,Wepdelay,Dex,Critrate,Critdamage,Directrate,Det,skillspeed,gcd
-                    #int,     int,  table, table, table,   dict,   dict,    dict,   bool, bool,   bool
-    def __init__(self,number,length, open, fight, stats, abilities, party, pbuffs, buffs, potion, astpriority, log):
 
-        logging.basicConfig(filename='DNC_Sim_Log'+str(number),filemode='w',format='%(message)s',level=logging.INFO)
+class sim:
+    # stat table build out = WD,Wepdelay,Dex,Critrate,Critdamage,Directrate,Det,skillspeed,gcd
+    # int,     int,  table, table, table,   dict,   dict,    dict,   bool, bool,   bool
+    def __init__(self, number, length, open, fight, stats, abilities, party, pbuffs, buffs, potion, astpriority, log):
+
+        logging.basicConfig(filename='DNC_Sim_Log' + str(number), filemode='w', format='%(message)s',
+                            level=logging.INFO)
         self.length = length
         self.opener = open
         self.fight = fight
@@ -28,8 +30,8 @@ class sim:
         self.potion = potion
         self.gcd = stats[8]
         self.defaultstats = stats
-        self.cdhstats= [stats[3],stats[4],stats[5],1.25]
-        self.damagestats = [stats[0],stats[1],stats[2],stats[6],stats[7]]
+        self.cdhstats = [stats[3], stats[4], stats[5], 1.25]
+        self.damagestats = [stats[0], stats[1], stats[2], stats[6], stats[7]]
         self.abilitydelay = .7
 
         self.esprit = 0
@@ -55,11 +57,11 @@ class sim:
         self.forceSdrift = False
 
         if 'AST' in self.party.keys():
-            self.ast = astmodule(number,astpriority,self.fight,False)
+            self.ast = astmodule(number, astpriority, self.fight, False)
             goodcard = buff('Bole', 15, 0, 1.06, 0, 'pot')
             bigcard = buff('Lady', 15, 0, 1.08, 0, 'pot')
             divination = buff('Divination', 15, 0, 1.06, 180, 'pot')
-            self.astbuff = [goodcard,bigcard,divination]
+            self.astbuff = [goodcard, bigcard, divination]
             self.astbuffs = {}
             for i in self.astbuff:
                 self.astbuffs[i.name] = i
@@ -67,121 +69,121 @@ class sim:
 
     def buildopentable(self):
 
-            actiontable = []
-            clock = 0
-            nextgcd = 0
-            nextaction = 0
+        actiontable = []
+        clock = 0
+        nextgcd = 0
+        nextaction = 0
 
-            for i in self.opener:
-                clock = round(clock, 2)
-                if i.split()[0] == 'Hold':
-                    actiontable.append(action(19, 'Hold', clock))
-                    clock = clock + float(i.split()[1])
-                elif i.split()[0] == 'Pretech':
-                    self.abilities['Technical Step'].putonCD(round(0-5.5,2))
-                elif i.split()[0] == 'Prepot':
-                    self.prepullpot = True
-                    self.prepulltime = round(0 - float(i.split()[1]), 2)
-                elif i.split()[0] == 'TechDrift':
-                    self.forceTdrift = True
-                elif i.split()[0] == 'StandDrift':
-                    self.forceSdrift = True
-                elif i.split()[0] == 'Technical':
-                    if nextgcd > clock:
-                        clock = round(nextgcd, 2)
-                    if nextaction > clock:
-                        clock = round(nextaction, 2)
-                    if i.split()[1] == 'Step':
-                        actiontable.append(action(1, 'Technical Step', clock))
-                        clock = round(clock + 1.5, 2)
-                        counter = 0
-                        while counter < 4:
-                            counter = counter + 1
-                            actiontable.append(action(4, 'Step', clock))
-                            clock = round(clock + 1, 2)
-                        actiontable.append(action(0, 'Technical Finish', clock))
-                        nextgcd = round(clock + 1.5, 2)
-                        nextaction = round(clock + self.abilitydelay, 2)
-                        clock = round(clock + self.abilitydelay, 2)
-                    elif i.split()[1] == 'Finish':
-                        actiontable.append(action(0, 'Technical Finish', clock))
-                        nextgcd = round(clock + 1.5, 2)
-                        nextaction = round(clock + self.abilitydelay, 2)
-                        clock = round(clock + self.abilitydelay, 2)
-                elif i.split()[0] == 'Standard':
-                    if nextgcd > clock:
-                        clock = round(nextgcd, 2)
-                    if nextaction > clock:
-                        clock = round(nextaction, 2)
-                    if i.split()[1] == 'Step':
-                        actiontable.append(action(3, 'Standard Step', clock))
-                        clock = round(clock + 1.5, 2)
-                        counter = 0
-                        while counter < 2:
-                            counter = counter + 1
-                            actiontable.append(action(4, 'Step', clock))
-                            clock = round(clock + 1.0, 2)
-                        actiontable.append(action(2, 'Standard Finish', clock))
-                        nextgcd = round(clock + 1.5, 2)
-                        nextaction = round(clock + self.abilitydelay, 2)
-                        clock = round(clock + self.abilitydelay, 2)
-                    elif i.split()[1] == 'Finish':
-                        actiontable.append(action(2, 'Standard Finish', clock))
-                        nextgcd = round(clock + 1.5, 2)
-                        nextaction = round(clock + self.abilitydelay, 2)
-                        clock = round(clock + self.abilitydelay, 2)
-                elif i.split()[0] == 'Potion':
-                    actiontable.append(action(19, 'Potion', clock))
-                    nextaction = round(clock + 1.5, 2)
+        for i in self.opener:
+            clock = round(clock, 2)
+            if i.split()[0] == 'Hold':
+                actiontable.append(action(19, 'Hold', clock))
+                clock = clock + float(i.split()[1])
+            elif i.split()[0] == 'Pretech':
+                self.abilities['Technical Step'].putonCD(round(0 - 5.5, 2))
+            elif i.split()[0] == 'Prepot':
+                self.prepullpot = True
+                self.prepulltime = round(0 - float(i.split()[1]), 2)
+            elif i.split()[0] == 'TechDrift':
+                self.forceTdrift = True
+            elif i.split()[0] == 'StandDrift':
+                self.forceSdrift = True
+            elif i.split()[0] == 'Technical':
+                if nextgcd > clock:
+                    clock = round(nextgcd, 2)
+                if nextaction > clock:
+                    clock = round(nextaction, 2)
+                if i.split()[1] == 'Step':
+                    actiontable.append(action(1, 'Technical Step', clock))
                     clock = round(clock + 1.5, 2)
-                elif i.split()[0] == 'AutoGCD':
-                    if nextgcd > clock:
-                        clock = round(nextgcd, 2)
-                    if nextaction > clock:
-                        clock = round(nextaction, 2)
-                    actiontable.append(action(19, 'AutoGCD', clock))
-                    nextgcd = round(clock + self.gcd, 2)
-                    nextaction = round(clock + self.abilitydelay, 2)
-                    clock = round(clock + self.abilitydelay, 2)
-                elif i.split()[0] == 'ReverseProc':  # Special selection for opener to drop combo for proc if obtained
-                    if nextgcd > clock:
-                        clock = round(nextgcd, 2)
-                    if nextaction > clock:
-                        clock = round(nextaction, 2)
-                    actiontable.append(action(19, 'ReverseProc', clock))
-                    nextgcd = round(clock + self.gcd, 2)
-                    nextaction = round(clock + self.abilitydelay, 2)
-                    clock = round(clock + self.abilitydelay, 2)
-                elif i.split()[0] == 'AutoOGCD':
-                    limit = int(i.split()[1])
                     counter = 0
-                    while limit > counter:
+                    while counter < 4:
                         counter = counter + 1
-                        if nextaction > clock:
-                            clock = round(nextaction, 2)
-                        actiontable.append(action(19, 'AutoOGCD', clock))
-                        nextaction = round(clock + self.abilitydelay, 2)
-                else:
-                    identify = 0
-                    for u in self.abilities.values():
-                        if u.name == i:
-                            if u.abiltype == 'GCD':
-                                if nextgcd > clock:
-                                    clock = round(nextgcd, 2)
-                                if nextaction > clock:
-                                    clock = round(nextaction, 2)
-                                actiontable.append(action(identify, u.name, clock))
-                                nextgcd = round(clock + self.gcd, 2)
-                                nextaction = round(clock + self.abilitydelay, 2)
-                                clock = round(clock + self.abilitydelay, 2)
-                            else:
-                                if nextaction > clock:
-                                    clock = round(nextaction, 2)
-                                actiontable.append(action(identify, u.name, clock))
-                                nextaction = round(clock + self.abilitydelay, 2)
-                                clock = round(clock + self.abilitydelay, 2)
-                        identify = identify + 1
-            self.action = actiontable
+                        actiontable.append(action(4, 'Step', clock))
+                        clock = round(clock + 1, 2)
+                    actiontable.append(action(0, 'Technical Finish', clock))
+                    nextgcd = round(clock + 1.5, 2)
+                    nextaction = round(clock + self.abilitydelay, 2)
+                    clock = round(clock + self.abilitydelay, 2)
+                elif i.split()[1] == 'Finish':
+                    actiontable.append(action(0, 'Technical Finish', clock))
+                    nextgcd = round(clock + 1.5, 2)
+                    nextaction = round(clock + self.abilitydelay, 2)
+                    clock = round(clock + self.abilitydelay, 2)
+            elif i.split()[0] == 'Standard':
+                if nextgcd > clock:
+                    clock = round(nextgcd, 2)
+                if nextaction > clock:
+                    clock = round(nextaction, 2)
+                if i.split()[1] == 'Step':
+                    actiontable.append(action(3, 'Standard Step', clock))
+                    clock = round(clock + 1.5, 2)
+                    counter = 0
+                    while counter < 2:
+                        counter = counter + 1
+                        actiontable.append(action(4, 'Step', clock))
+                        clock = round(clock + 1.0, 2)
+                    actiontable.append(action(2, 'Standard Finish', clock))
+                    nextgcd = round(clock + 1.5, 2)
+                    nextaction = round(clock + self.abilitydelay, 2)
+                    clock = round(clock + self.abilitydelay, 2)
+                elif i.split()[1] == 'Finish':
+                    actiontable.append(action(2, 'Standard Finish', clock))
+                    nextgcd = round(clock + 1.5, 2)
+                    nextaction = round(clock + self.abilitydelay, 2)
+                    clock = round(clock + self.abilitydelay, 2)
+            elif i.split()[0] == 'Potion':
+                actiontable.append(action(19, 'Potion', clock))
+                nextaction = round(clock + 1.5, 2)
+                clock = round(clock + 1.5, 2)
+            elif i.split()[0] == 'AutoGCD':
+                if nextgcd > clock:
+                    clock = round(nextgcd, 2)
+                if nextaction > clock:
+                    clock = round(nextaction, 2)
+                actiontable.append(action(19, 'AutoGCD', clock))
+                nextgcd = round(clock + self.gcd, 2)
+                nextaction = round(clock + self.abilitydelay, 2)
+                clock = round(clock + self.abilitydelay, 2)
+            elif i.split()[0] == 'ReverseProc':  # Special selection for opener to drop combo for proc if obtained
+                if nextgcd > clock:
+                    clock = round(nextgcd, 2)
+                if nextaction > clock:
+                    clock = round(nextaction, 2)
+                actiontable.append(action(19, 'ReverseProc', clock))
+                nextgcd = round(clock + self.gcd, 2)
+                nextaction = round(clock + self.abilitydelay, 2)
+                clock = round(clock + self.abilitydelay, 2)
+            elif i.split()[0] == 'AutoOGCD':
+                limit = int(i.split()[1])
+                counter = 0
+                while limit > counter:
+                    counter = counter + 1
+                    if nextaction > clock:
+                        clock = round(nextaction, 2)
+                    actiontable.append(action(19, 'AutoOGCD', clock))
+                    nextaction = round(clock + self.abilitydelay, 2)
+            else:
+                identify = 0
+                for u in self.abilities.values():
+                    if u.name == i:
+                        if u.abiltype == 'GCD':
+                            if nextgcd > clock:
+                                clock = round(nextgcd, 2)
+                            if nextaction > clock:
+                                clock = round(nextaction, 2)
+                            actiontable.append(action(identify, u.name, clock))
+                            nextgcd = round(clock + self.gcd, 2)
+                            nextaction = round(clock + self.abilitydelay, 2)
+                            clock = round(clock + self.abilitydelay, 2)
+                        else:
+                            if nextaction > clock:
+                                clock = round(nextaction, 2)
+                            actiontable.append(action(identify, u.name, clock))
+                            nextaction = round(clock + self.abilitydelay, 2)
+                            clock = round(clock + self.abilitydelay, 2)
+                    identify = identify + 1
+        self.action = actiontable
 
     def getfeathers(self):
         if self.feathers >= 4:
@@ -192,7 +194,7 @@ class sim:
             self.feathers = self.feathers + 1
 
     def buildesprit(self, rate):
-        rand = random.randint(1,10001)
+        rand = random.randint(1, 10001)
         if (rand < 10000 * rate):
             if self.esprit >= 100:
                 self.espritcap = self.espritcap + 1
@@ -227,22 +229,21 @@ class sim:
             sets.add(i.nextgcd)
         for i in self.action:
             sets.add(i.actiontime)
-        ###AST Logic Here later###        
+        ###AST Logic Here later###
         if self.gettimetable:
             for i in range(self.length):
                 sets.add(i)
         self.schedule = scheduler(sets)
-            
-    def buildpotency(self,pot):
+
+    def buildpotency(self, pot):
         if self.createlog:
             logging.info(pot[1])
         self.potency = self.potency + pot[0]
-            
+
     async def sim(self):
-        
+
         self.buildopentable()
         self.buildschedule()
-
 
         dex = self.stats[2]
         critrate = self.stats[3]
@@ -250,8 +251,7 @@ class sim:
         direct = self.stats[5]
         det = self.stats[6]
         sks = self.stats[7]
-        
-        
+
         delayedpos = 0
         delayeddance = 0
         delay = False
@@ -314,18 +314,16 @@ class sim:
         self.abilities['Fan Dance I'].nextuse = 1
         self.abilities['Fan Dance III'].nextuse = 1
 
-
         if self.prepullpot:
             self.abilities['Potion'].putonCD(self.prepulltime)
             self.buffs['Potion'].activate(self.prepulltime)
             if self.buffs['Potion'].activation < 0:
                 string = self.buffs['Potion'].switchon(self.buffs['Potion'].activation)
-                self.schedule.addtime(self.buffs['Potion'].endtime +.01)
+                self.schedule.addtime(self.buffs['Potion'].endtime + .01)
                 if self.createlog:
                     logging.info(string)
             else:
                 self.schedule.addtime(self.buffs['Potion'].activation)
-
 
         #### Sim Start ###
         delaystart = round(self.fight[delayedpos][0], 2)
@@ -338,7 +336,7 @@ class sim:
             if self.clock == delaystart:
                 nextgcd = round(delayend, 2)
                 nextaction = round(delayend, 2)
-                nextauto = round(delayend,2)
+                nextauto = round(delayend, 2)
                 for i in self.party.values():
                     i.nextauto = round(delayend, 2)
                 delayeddance = round(delayend - 14, 2)
@@ -373,7 +371,6 @@ class sim:
                     delaystart = 1000000
                     delayend = 10000001
 
-            
             ## Set Defaults
             potmod = [1.20, 1.05]
             automod = [1.05]
@@ -385,7 +382,7 @@ class sim:
             sks = self.stats[7]
 
             devilhold = False
-            
+
             # Activate potion value if its available
             if self.buffs['Potion'].available:
                 if self.buffs['Potion'].ready and self.buffs['Potion'].activation == self.clock:
@@ -393,8 +390,8 @@ class sim:
                     if self.createlog:
                         logging.info(string)
                 if self.buffs['Potion'].getactive(self.clock):
-                    if dex * self.buffs['Potion'].potency > 312:
-                        dex = dex + 312
+                    if dex * self.buffs['Potion'].potency > 339:
+                        dex = dex + 339
                     else:
                         dex = dex + (dex * self.buffs['Potion'].potency)
                 elif self.buffs['Potion'].active:
@@ -402,7 +399,7 @@ class sim:
                     if self.createlog:
                         logging.info(string)
                     dex = self.stats[2]
-                    
+
             # Run Ast Module then see whic buffs are one
             if self.astime == self.clock:
                 block = self.ast.sim(self.clock)
@@ -427,7 +424,7 @@ class sim:
                         string = i.switchon(self.clock)
                         if self.createlog:
                             logging.info(string)
-                        self.schedule.addtime(round(i.endtime+.01, 2))
+                        self.schedule.addtime(round(i.endtime + .01, 2))
                     elif not i.getactive(self.clock) and i.active:
                         string = i.dropbuff(self.clock)
                         if self.createlog:
@@ -436,14 +433,11 @@ class sim:
                         potmod.append(i.getpotency(self.clock))
                         automod.append(i.getpotency(self.clock))
 
-
-
-
-            
             for i in self.pbuffs.values():
                 if i.available:
                     if delayedpos < len(self.fight):
-                        if i.starttime + (i.duration - 2) > delaystart or (delay and i.starttime < delayend) and i.starttime <= delayend + i.default:
+                        if i.starttime + (i.duration - 2) > delaystart or (
+                                delay and i.starttime < delayend) and i.starttime <= delayend + i.default:
                             if buffdelay:
                                 i.starttime = round(delayend + i.default, 2)
                                 self.schedule.addtime(i.starttime)
@@ -454,7 +448,7 @@ class sim:
                         string = i.switchon(self.clock)
                         if self.createlog:
                             logging.info(string)
-                        self.schedule.addtime(round(i.endtime + .01,2))
+                        self.schedule.addtime(round(i.endtime + .01, 2))
                         self.schedule.addtime(i.starttime)
                     if not i.ready and i.starttime == self.clock:
                         i.activate(self.clock)
@@ -466,18 +460,18 @@ class sim:
                         elif i.type == 'ch':
                             critrate = round(critrate + i.getpotency(self.clock), 2)
                         elif i.type == 'dh':
-                            direct = round(direct + i.getpotency(self.clock),2)
+                            direct = round(direct + i.getpotency(self.clock), 2)
                     elif i.available and not i.getactive(self.clock) and i.active:
                         string = i.dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
-                        
+
             for i in self.buffs.values():
                 if i.ready and i.activation == self.clock:
                     string = i.switchon(self.clock)
                     if self.createlog:
                         logging.info(string)
-                    self.schedule.addtime(round(i.endtime+.01, 2))
+                    self.schedule.addtime(round(i.endtime + .01, 2))
                     self.schedule.addtime(i.starttime)
 
             if self.buffs['Technical Finish'].getactive(self.clock):
@@ -521,7 +515,8 @@ class sim:
             elif self.buffs['Potion'].getactive(self.clock):
                 buffwindow = True
                 lastbuffwindow = self.clock
-            elif 'DRG' in self.party.keys() and 'BRD' in self.party.keys() and self.pbuffs['Battle Voice'].getactive(self.clock) and self.pbuffs['Battle Litany'].getactive(self.clock):
+            elif 'DRG' in self.party.keys() and 'BRD' in self.party.keys() and self.pbuffs['Battle Voice'].getactive(
+                    self.clock) and self.pbuffs['Battle Litany'].getactive(self.clock):
                 buffwindow = True
                 lastbuffwindow = self.clock
             else:
@@ -571,7 +566,8 @@ class sim:
                 foundnextbuffwindow = True
                 if self.abilities['Devilment'].nextuse < nextbuffwindow:
                     nextbuffwindow = self.abilities['Devilment'].nextuse
-            elif 'DRG' in self.party.keys() and 'BRD' in self.party.keys() and self.pbuffs['Battle Voice'].starttime - self.clock < 15:
+            elif 'DRG' in self.party.keys() and 'BRD' in self.party.keys() and self.pbuffs[
+                'Battle Voice'].starttime - self.clock < 15:
                 foundnextbuffwindow = True
                 if self.pbuffs['Battle Voice'].starttime < nextbuffwindow:
                     nextbuffwindow = self.pbuffs['Battle Voice'].starttime
@@ -580,7 +576,7 @@ class sim:
                 nextbuffwindow = 0
             # Build tables for pass through
             CDHStats = [critrate, critdam, direct, 1.25]
-            DMGStats = [self.stats[0],self.stats[1],dex,self.stats[6],self.stats[7]]
+            DMGStats = [self.stats[0], self.stats[1], dex, self.stats[6], self.stats[7]]
 
             # Handle Esprit
             # Handle party GCDs and Esprit
@@ -595,7 +591,9 @@ class sim:
             # Handle Auto
             if self.clock == nextauto:
                 if not delay:
-                    self.buildpotency(self.abilities['Auto Attack'].getpotency(self.clock, CDHStats, automod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                    self.buildpotency(self.abilities['Auto Attack'].getpotency(self.clock, CDHStats, automod, DMGStats,
+                                                                               self.buffs['Combo'].getactive(
+                                                                                   self.clock)))
                 nextauto = round(self.clock + self.abilities['Auto Attack'].cooldown, 2)
                 self.schedule.addtime(nextauto)
             # Handle Global Tick
@@ -613,9 +611,10 @@ class sim:
             if delay:
 
                 if (delayeddance - self.clock > 10 or (
-                        self.abilities['Standard Step'].nextuse > delayend and self.abilities['Technical Step'].nextuse > delayend)) and self.abilities['Improvisation'].available(
-                        self.clock) and not self.buffs['Improvisation'].getactive(
-                        self.clock) and not technicaldancing and not standarddancing and self.esprit < 60:
+                        self.abilities['Standard Step'].nextuse > delayend and self.abilities[
+                    'Technical Step'].nextuse > delayend)) and self.abilities['Improvisation'].available(
+                    self.clock) and not self.buffs['Improvisation'].getactive(
+                    self.clock) and not technicaldancing and not standarddancing and self.esprit < 60:
                     if self.createlog:
                         logging.info(str(self.clock) + ' : You begin Improvisation')
                     self.abilities['Improvisation'].putonCD(self.clock)
@@ -642,14 +641,18 @@ class sim:
                 if self.action[posinopen].actionable(self.clock):
                     currentaction = self.action[posinopen]
                     if self.action[posinopen].name == 'Technical Finish':
-                        self.buildpotency(self.abilities['Technical Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Technical Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                         self.buffs['Technical Finish'].activate(self.clock)
                         self.schedule.addtime(self.buffs['Technical Finish'].activation)
                         nextgcd = round(self.clock + 1.5, 2)
                         if not saberfirst:
                             technicalfirst = True
                     elif self.action[posinopen].name == 'Standard Finish':
-                        self.buildpotency(self.abilities['Standard Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Standard Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                         nextgcd = round(self.clock + 1.5, 2)
                         if self.abilities['Standard Step'].available(self.clock):
                             self.abilities['Standard Step'].putonCD(round(0 - 14.7, 2))
@@ -677,8 +680,11 @@ class sim:
                         self.abilities['Potion'].putonCD(self.clock)
                         self.buffs['Potion'].activate(self.clock)
                         self.schedule.addtime(self.buffs['Potion'].activation)
-                    elif currentaction.name == 'ReverseProc' and self.buffs['Flourishing Cascade'].getactive(self.clock):
-                        self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                    elif currentaction.name == 'ReverseProc' and self.buffs['Flourishing Cascade'].getactive(
+                            self.clock):
+                        self.buildpotency(
+                            self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                         gcd = gcd + 1
                         string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                         if self.createlog:
@@ -701,86 +707,120 @@ class sim:
                         nextgcd = round(self.clock + self.gcd, 2)
                         if self.buffs['Technical Finish'].getactive(
                                 self.clock) and self.esprit > 80:  # If we Technical is out and we have 90+ Esprit, Go now
-                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             saberdancess = saberdancess + 1
                             self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                             gcd = gcd + 1
-                        elif self.buffs['Flourishing Fountain'].getactive(self.clock):  # Check to see if Flourish Fountain is close to dropping
-                            self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Fountain'].getactive(
+                                self.clock):  # Check to see if Flourish Fountain is close to dropping
+                            self.buildpotency(
+                                self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Flourishing Cascade'].getactive(self.clock):  # Check if Reverse Cascade is close to dropping
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Cascade'].getactive(
+                                self.clock):  # Check if Reverse Cascade is close to dropping
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Flourishing Bladeshower'].getactive(self.clock):  # Check if Bloodshower is close to fall
-                            self.buildpotency(self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Bladeshower'].getactive(
+                                self.clock):  # Check if Bloodshower is close to fall
+                            self.buildpotency(
+                                self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
-                        elif self.buffs['Flourishing Windmill'].getactive(self.clock): # Check if Windmill is close to fall
-                            self.buildpotency(self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Windmill'].getactive(
+                                self.clock):  # Check if Windmill is close to fall
+                            self.buildpotency(
+                                self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
-                        elif self.buffs['Technical Finish'].getactive(self.clock) and self.esprit >= 50:  # I want to use self.abilities['Saber Dance'] in the buff window
-                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Technical Finish'].getactive(
+                                self.clock) and self.esprit >= 50:  # I want to use self.abilities['Saber Dance'] in the buff window
+                            self.buildpotency(
+                                self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             saberdancess = saberdancess + 1
                             gcd = gcd + 1
                             self.esprit = self.esprit - self.abilities['Saber Dance'].cost
-                        elif self.buffs['Combo'].getactive(self.clock) and not self.buffs['Flourishing Fountain'].getactive(self.clock) and self.buffs['Combo'].closetodrop(
+                        elif self.buffs['Combo'].getactive(self.clock) and not self.buffs[
+                            'Flourishing Fountain'].getactive(self.clock) and self.buffs['Combo'].closetodrop(
                                 self.clock,
                                 self.gcd):  # First We check to see if we are in combo and don't have Flourished Fountain
-                            self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                      self.buffs['Combo'].getactive(self.clock)))
                             self.buffs['Combo'].dropbuff(self.clock)
                             usedfountain = True
                             gcd = gcd + 1
                             if self.checkproc():
                                 self.buffs['Flourishing Fountain'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Flourishing Fountain'].activation)
-                        elif self.buffs['Flourishing Fountain'].getactive(self.clock):  # Check to see if Flourish Fountain is up
-                            self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Fountain'].getactive(
+                                self.clock):  # Check to see if Flourish Fountain is up
+                            self.buildpotency(
+                                self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
                         elif self.buffs['Flourishing Cascade'].getactive(self.clock):  # Check if Reverse Cascade is up
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
                         elif self.buffs['Flourishing Bladeshower'].getactive(self.clock):  # Check if Bloodshower is up
-                            self.buildpotency(self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                         elif self.buffs['Flourishing Windmill'].getactive(self.clock):  # Check if Windmill is up
-                            self.buildpotency(self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                         elif self.esprit > 80:
-                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             saberdancess = saberdancess + 1
                             gcd = gcd + 1
                             self.esprit = self.esprit - self.abilities['Saber Dance'].cost
-                        elif self.buffs['Combo'].getactive(self.clock):  # If we are in combo we are doing self.abilities['Fountain'] here
-                            self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Combo'].getactive(
+                                self.clock):  # If we are in combo we are doing self.abilities['Fountain'] here
+                            self.buildpotency(
+                                self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                      self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             usedfountain = True
                             self.buffs['Combo'].dropbuff(self.clock)
@@ -788,7 +828,9 @@ class sim:
                                 self.buffs['Flourishing Fountain'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Flourishing Fountain'].activation)
                         else:  # If all else fails we go into Cascade combo
-                            self.buildpotency(self.abilities['Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                     self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.buffs['Combo'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Combo'].activation)
@@ -803,7 +845,8 @@ class sim:
                         # if we are in the buffwindow and have feathers and can use FD1 use FD1
                         # If we have 4 feathers and FD1 is up use FD1
                         # push the oGCD further if we have more feathers. at a 2.4 gcd we can get two in
-                        if self.abilities['Flourish'].available(self.clock) and self.countprocs() == 0 and not self.buffs['Flourishing Fan'].getactive(
+                        if self.abilities['Flourish'].available(self.clock) and self.countprocs() == 0 and not \
+                        self.buffs['Flourishing Fan'].getactive(
                                 self.clock):
                             if self.createlog:
                                 logging.info(str(self.clock) + ' : You use Flourish!')
@@ -814,21 +857,28 @@ class sim:
                             self.buffs['Flourishing Fan'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Flourishing Cascade'].activation)
                             self.abilities['Flourish'].putonCD(self.clock)
-                        elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities['Fan Dance III'].available(self.clock):
-                            self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities[
+                            'Fan Dance III'].available(self.clock):
+                            self.buildpotency(
+                                self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                           self.buffs['Combo'].getactive(self.clock)))
                             flourishedfans = flourishedfans + 1
                             string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                         elif buffwindow and self.feathers > 0 and self.abilities['Fan Dance I'].available(self.clock):
-                            self.buildpotency(self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             self.feathers = self.feathers - 1
                             feathersused = feathersused + 1
                             if self.checkproc():
                                 self.buffs['Flourishing Fan'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Flourishing Fan'].activation)
                         elif self.feathers > 3 and self.abilities['Fan Dance I'].available(self.clock):
-                            self.buildpotency(self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             feathersused = feathersused + 1
                             self.feathers = self.feathers - 1
                             if self.checkproc():
@@ -852,7 +902,9 @@ class sim:
                             logging.info(str(self.clock) + ' : You begin Standard Step')
                         self.abilities['Standard Step'].putonCD(self.clock)
                     elif currentaction.name == 'Fountain':
-                        self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                                self.buffs['Combo'].getactive(
+                                                                                    self.clock)))
                         gcd = gcd + 1
                         usedfountain = True
                         self.buffs['Combo'].dropbuff(self.clock)
@@ -861,7 +913,9 @@ class sim:
                             self.schedule.addtime(self.buffs['Flourishing Fountain'].activation)
                         self.buildesprit(self.rate)
                     elif currentaction.name == 'Cascade':
-                        self.buildpotency(self.abilities['Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(self.abilities['Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                               self.buffs['Combo'].getactive(
+                                                                                   self.clock)))
                         gcd = gcd + 1
                         self.buffs['Combo'].activate(self.clock)
                         self.schedule.addtime(self.buffs['Combo'].activation)
@@ -871,7 +925,9 @@ class sim:
                         self.buildesprit(self.rate)
                     elif currentaction.name == 'Fan Dance I':
                         if self.feathers > 0:
-                            self.buildpotency(self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             feathersused = feathersused + 1
                             self.feathers = self.feathers - 1
                         if self.checkproc():
@@ -879,13 +935,17 @@ class sim:
                             self.schedule.addtime(self.buffs['Flourishing Fountain'].activation)
                     elif currentaction.name == 'Fan Dance III':
                         if self.buffs['Flourishing Fan'].getactive(self.clock):
-                            self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                           self.buffs['Combo'].getactive(self.clock)))
                             flourishedfans = flourishedfans + 1
                             string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                     elif currentaction.name == 'Fountainfall':
-                        self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                      self.buffs['Combo'].getactive(self.clock)))
                         gcd = gcd + 1
                         string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                         if self.createlog:
@@ -894,7 +954,9 @@ class sim:
                         self.getfeathers()
                         nextgcd = round(self.clock + self.gcd, 2)
                     elif currentaction.name == 'Reverse Cascade':
-                        self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                         gcd = gcd + 1
                         string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                         if self.createlog:
@@ -903,7 +965,9 @@ class sim:
                         self.getfeathers()
                         nextgcd = round(self.clock + self.gcd, 2)
                     elif currentaction.name == 'Bloodshower':
-                        self.buildpotency(self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                     self.buffs['Combo'].getactive(self.clock)))
                         gcd = gcd + 1
                         string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                         if self.createlog:
@@ -912,7 +976,9 @@ class sim:
                         self.getfeathers()
                         nextgcd = round(self.clock + self.gcd, 2)
                     elif currentaction.name == 'Rising Windmill':
-                        self.buildpotency(self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                         gcd = gcd + 1
                         string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                         if self.createlog:
@@ -921,11 +987,11 @@ class sim:
                         self.getfeathers()
                         nextgcd = round(self.clock + self.gcd, 2)
                     elif currentaction.name == 'Step':
-                        nextgcd = round(self.clock+1,2)
+                        nextgcd = round(self.clock + 1, 2)
                     elif currentaction.name == 'Standard Step':
-                        nextgcd = round(self.clock+1.5,2)
+                        nextgcd = round(self.clock + 1.5, 2)
                     elif currentaction.name == 'Technical Step':
-                        nextgcd = round(self.clock+1.5,2)
+                        nextgcd = round(self.clock + 1.5, 2)
                     posinopen = posinopen + 1
                     if posinopen >= len(self.action):
                         if self.createlog:
@@ -943,13 +1009,15 @@ class sim:
                                 if currentaction.name.split()[1] == 'Finish':
                                     foundlastGCD = True
                                     nextgcd = round(self.clock + 1.5, 2)
-                            elif currentaction.name == 'AutoGCD' or self.abilities[currentaction.name].abiltype == 'GCD':
+                            elif currentaction.name == 'AutoGCD' or self.abilities[
+                                currentaction.name].abiltype == 'GCD':
                                 if not foundlastaction:
                                     foundlastaction = True
                                     nextaction = round(self.clock + self.abilitydelay, 2)
                                 foundlastGCD = True
                                 nextgcd = round(self.clock + self.gcd, 2)
-                            elif currentaction.name == 'AutoOGCD' or self.abilities[currentaction.name].abiltype == 'OGCD':
+                            elif currentaction.name == 'AutoOGCD' or self.abilities[
+                                currentaction.name].abiltype == 'OGCD':
                                 if not foundlastaction:
                                     foundlastaction = True
                                     nextaction = round(self.clock + self.abilitydelay, 2)
@@ -993,12 +1061,19 @@ class sim:
                             nextgcd = round(self.clock + 1, 2)
                         elif not delay:
                             if technicaldancing:
-                                self.buildpotency(self.abilities['Technical Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                                self.buildpotency(
+                                    self.abilities['Technical Finish'].getpotency(self.clock, CDHStats, potmod,
+                                                                                  DMGStats,
+                                                                                  self.buffs['Combo'].getactive(
+                                                                                      self.clock)))
                                 technicaldancing = False
                                 self.buffs['Technical Finish'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Technical Finish'].activation)
                             else:
-                                self.buildpotency(self.abilities['Standard Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                                self.buildpotency(
+                                    self.abilities['Standard Finish'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                                 self.buffs['Combo'].getactive(
+                                                                                     self.clock)))
                                 standarddancing = False
                             nextgcd = round(self.clock + 1.5, 2)
                             nextaction = round(self.clock + self.abilitydelay, 2)
@@ -1010,7 +1085,8 @@ class sim:
                                 nextgcd = round(self.clock + 1.5, 2)
                                 nextaction = round(self.clock + 1.5, 2)
                     elif self.abilities['Technical Step'].available(self.clock) and (
-                            (saberfirst and self.buffs['Devilment'].getactive(self.clock)) or technicalfirst) and delaystart - self.clock > 22:
+                            (saberfirst and self.buffs['Devilment'].getactive(
+                                self.clock)) or technicalfirst) and delaystart - self.clock > 22:
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You begin Technical Step')
                         nextgcd = round(self.clock + 1.5, 2)
@@ -1029,7 +1105,8 @@ class sim:
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
                     elif self.abilities['Standard Step'].available(
-                            self.clock) and self.abilities['Technical Step'].nextuse > self.clock + 6.5 and delaystart - self.clock > 5:
+                            self.clock) and self.abilities[
+                        'Technical Step'].nextuse > self.clock + 6.5 and delaystart - self.clock > 5:
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You begin Standard Step')
                         nextgcd = round(self.clock + 1.5, 2)
@@ -1042,9 +1119,12 @@ class sim:
                         self.buildesprit(self.rate)
                         nextgcd = round(self.clock + self.gcd, 2)
                         nextaction = round(self.clock + self.abilitydelay, 2)
-                        if self.esprit > 40 and delayend - delaystart > 20 and delaystart < self.clock + self.gcd and self.abilities['Improvisation'].available(
-                                self.clock):
-                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        if self.esprit > 40 and delayend - delaystart > 20 and delaystart < self.clock + self.gcd and \
+                                self.abilities['Improvisation'].available(
+                                        self.clock):
+                            self.buildpotency(
+                                self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             saberdancess = saberdancess + 1
                             gcd = gcd + 1
                             self.esprit = self.esprit - self.abilities['Saber Dance'].cost
@@ -1060,53 +1140,73 @@ class sim:
                             self.esprit = self.esprit - self.abilities['Saber Dance'].cost
                             self.buildesprit(self.rate)
                         elif (dancenumber >= 1 and self.buffs['Flourishing Fountain'].getactive(
-                                self.clock) and actualnextdance <= nextgcd) or (self.buffs['Flourishing Fountain'].getactive(
-                                self.clock) and nextdancetype == 'Technical' and actualnextdance <= nextgcd and self.buffs['Flourishing Fountain'].returnduration(
-                                self.clock) < self.gcd + 7):
-                            self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                                self.clock) and actualnextdance <= nextgcd) or (
+                                self.buffs['Flourishing Fountain'].getactive(
+                                    self.clock) and nextdancetype == 'Technical' and actualnextdance <= nextgcd and
+                                self.buffs['Flourishing Fountain'].returnduration(
+                                    self.clock) < self.gcd + 7):
+                            self.buildpotency(
+                                self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
                         elif (dancenumber >= 1 and self.buffs['Flourishing Cascade'].getactive(
-                                self.clock) and actualnextdance <= nextgcd) or (self.buffs['Flourishing Cascade'].getactive(
-                                self.clock) and nextdancetype == 'Technical' and actualnextdance <= nextgcd and self.buffs['Flourishing Cascade'].returnduration(
-                                self.clock) < self.gcd + 7):
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                                self.clock) and actualnextdance <= nextgcd) or (
+                                self.buffs['Flourishing Cascade'].getactive(
+                                    self.clock) and nextdancetype == 'Technical' and actualnextdance <= nextgcd and
+                                self.buffs['Flourishing Cascade'].returnduration(
+                                    self.clock) < self.gcd + 7):
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Flourishing Fountain'].getactive(self.clock) and self.buffs['Flourishing Fountain'].closetodrop(self.clock,
-                                                                                                self.gcd):  # Check to see if Flourish Fountain is close to dropping
-                            self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Fountain'].getactive(self.clock) and self.buffs[
+                            'Flourishing Fountain'].closetodrop(self.clock,
+                                                                self.gcd):  # Check to see if Flourish Fountain is close to dropping
+                            self.buildpotency(
+                                self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Flourishing Cascade'].getactive(self.clock) and self.buffs['Flourishing Cascade'].closetodrop(self.clock,
-                                                                                              self.gcd):  # Check if Reverse Cascade is close to dropping
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Bladeshower'].getactive(self.clock) and self.buffs[
+                            'Flourishing Bladeshower'].closetodrop(self.clock,
+                                                               self.gcd):  # Check if Reverse Cascade is close to dropping
+                            self.buildpotency(
+                                self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
-                            string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
+                            string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Flourishing Cascade'].getactive(self.clock) and self.buffs['Flourishing Fountain'].getactive(
+                        elif self.buffs['Flourishing Cascade'].getactive(self.clock) and self.buffs[
+                            'Flourishing Fountain'].getactive(
                                 self.clock) and dancenumber > 0 and foundnextbuffwindow:
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Combo'].getactive(self.clock) and not self.buffs['Flourishing Fountain'].getactive(self.clock) and self.buffs['Combo'].closetodrop(
+                        elif self.buffs['Combo'].getactive(self.clock) and not self.buffs[
+                            'Flourishing Fountain'].getactive(self.clock) and self.buffs['Combo'].closetodrop(
                                 self.clock,
                                 self.gcd):  # First We check to see if we are in combo and don't have Flourished Fountain
-                            self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                      self.buffs['Combo'].getactive(self.clock)))
                             usedfountain = True
                             string = self.buffs['Combo'].dropbuff(self.clock)
                             if self.createlog:
@@ -1115,38 +1215,51 @@ class sim:
                             if self.checkproc():
                                 self.buffs['Flourishing Fountain'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Flourishing Fountain'].activation)
-                        elif self.buffs['Flourishing Cascade'].getactive(self.clock) and self.buffs['Flourishing Cascade'].closetodrop(self.clock,
-                                                                                              procgcd):  # Check if Bloodshower is close to fall
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            gcd = gcd + 1
-                            self.getfeathers()
-                            string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
-                            if self.createlog:
-                                logging.info(string)
-                        elif self.buffs['Flourishing Bladeshower'].getactive(self.clock) and self.buffs['Flourishing Bladeshower'].closetodrop(self.clock,
-                                                                                                      procgcd):  # Check if Bloodshower is close to fall
-                            self.buildpotency(self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Bladeshower'].getactive(self.clock) and self.buffs[
+                            'Flourishing Bladeshower'].closetodrop(self.clock,
+                                                                   procgcd):  # Check if Bloodshower is close to fall
+                            self.buildpotency(
+                                self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
-                        elif buffwindow and self.esprit >= 50:  # I want to use self.abilities['Saber Dance'] in the buff window
-                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            saberdancess = saberdancess + 1
+                        elif self.buffs['Flourishing Cascade'].getactive(self.clock) and self.buffs[
+                            'Flourishing Cascade'].closetodrop(self.clock,
+                                                               procgcd):  # Check if Bloodshower is close to fall
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
-                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
-                            self.buildesprit(self.rate)
-                        elif self.buffs['Flourishing Windmill'].getactive(self.clock) and self.buffs['Flourishing Windmill'].closetodrop(self.clock,
-                                                                                                procgcd):  # Check if Windmill is close to fall
-                            self.buildpotency(self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.getfeathers()
+                            string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
+                            if self.createlog:
+                                logging.info(string)
+                        elif self.buffs['Flourishing Windmill'].getactive(self.clock) and self.buffs[
+                            'Flourishing Windmill'].closetodrop(self.clock,
+                                                                procgcd):  # Check if Windmill is close to fall
+                            self.buildpotency(
+                                self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
+                        elif buffwindow and self.esprit >= 50:  # I want to use self.abilities['Saber Dance'] in the buff window
+                            self.buildpotency(
+                                self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
+                            saberdancess = saberdancess + 1
+                            gcd = gcd + 1
+                            self.esprit = self.esprit - self.abilities['Saber Dance'].cost
+                            self.buildesprit(self.rate)
                         elif self.esprit > 80:
-                            self.buildpotency(self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Saber Dance'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             saberdancess = saberdancess + 1
                             gcd = gcd + 1
                             self.esprit = self.esprit - self.abilities['Saber Dance'].cost
@@ -1154,63 +1267,86 @@ class sim:
 
                         elif buffwindow and self.buffs['Flourishing Fountain'].getactive(
                                 self.clock):  # Check to see if Flourish Fountain is up
-                            self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif buffwindow and self.buffs['Flourishing Cascade'].getactive(self.clock):  # Check if Reverse Cascade is up
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
-                            gcd = gcd + 1
-                            string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
-                            if self.createlog:
-                                logging.info(string)
-                            self.getfeathers()
-                        elif buffwindow and self.buffs['Flourishing Bladeshower'].getactive(self.clock):  # Check if Bloodshower is up
-                            self.buildpotency(self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif buffwindow and self.buffs['Flourishing Bladeshower'].getactive(
+                                self.clock):  # Check if Bloodshower is up
+                            self.buildpotency(
+                                self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
-                        elif buffwindow and self.buffs['Flourishing Windmill'].getactive(self.clock):  # Check if Windmill is up
-                            self.buildpotency(self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif buffwindow and self.buffs['Flourishing Cascade'].getactive(
+                                self.clock):  # Check if Reverse Cascade is up
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
+                            gcd = gcd + 1
+                            string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
+                            if self.createlog:
+                                logging.info(string)
+                            self.getfeathers()
+                        elif buffwindow and self.buffs['Flourishing Windmill'].getactive(
+                                self.clock):  # Check if Windmill is up
+                            self.buildpotency(
+                                self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                         elif self.buffs['Flourishing Windmill'].getactive(self.clock):  # Check if Windmill is up
-                            self.buildpotency(self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Rising Windmill'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Windmill'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                         elif self.buffs['Flourishing Bladeshower'].getactive(self.clock):  # Check if Bloodshower is up
-                            self.buildpotency(self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Bloodshower'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                         self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.getfeathers()
                             string = self.buffs['Flourishing Bladeshower'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                         elif self.buffs['Flourishing Cascade'].getactive(self.clock):  # Check if Reverse Cascade is up
-                            self.buildpotency(self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Reverse Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                             self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Cascade'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Flourishing Fountain'].getactive(self.clock):  # Check to see if Flourish Fountain is up
-                            self.buildpotency(self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Flourishing Fountain'].getactive(
+                                self.clock):  # Check to see if Flourish Fountain is up
+                            self.buildpotency(
+                                self.abilities['Fountainfall'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                          self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             string = self.buffs['Flourishing Fountain'].dropbuff(self.clock)
                             if self.createlog:
                                 logging.info(string)
                             self.getfeathers()
-                        elif self.buffs['Combo'].getactive(self.clock):  # If we are in combo we are doing self.abilities['Fountain'] here
-                            self.buildpotency(self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        elif self.buffs['Combo'].getactive(
+                                self.clock):  # If we are in combo we are doing self.abilities['Fountain'] here
+                            self.buildpotency(
+                                self.abilities['Fountain'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                      self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             usedfountain = True
                             string = self.buffs['Combo'].dropbuff(self.clock)
@@ -1220,7 +1356,9 @@ class sim:
                                 self.buffs['Flourishing Fountain'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Flourishing Fountain'].activation)
                         else:  # If all else fails we go into Cascade combo
-                            self.buildpotency(self.abilities['Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                            self.buildpotency(
+                                self.abilities['Cascade'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                     self.buffs['Combo'].getactive(self.clock)))
                             gcd = gcd + 1
                             self.buffs['Combo'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Combo'].activation)
@@ -1228,11 +1366,18 @@ class sim:
                                 self.buffs['Flourishing Cascade'].activate(self.clock)
                                 self.schedule.addtime(self.buffs['Flourishing Cascade'].activation)
 
-                    if technicalhold and self.abilities['Technical Step'].nextuse < round(nextgcd + self.gcd, 2) and not (self.abilities['Technical Step'].nextuse == nextgcd) and not standarddancing  and delaystart - self.abilities['Technical Step'].nextuse > 22:  #
+                    if technicalhold and self.abilities['Technical Step'].nextuse < round(nextgcd + self.gcd,
+                                                                                          2) and not (self.abilities[
+                                                                                                          'Technical Step'].nextuse == nextgcd) and not standarddancing and delaystart - \
+                            self.abilities['Technical Step'].nextuse > 22:  #
                         if not nextgcd > round(self.abilities['Technical Step'].nextuse, 2):
                             nextgcd = round(self.abilities['Technical Step'].nextuse, 2)
 
-                    elif standardhold and self.abilities['Standard Step'].nextuse < round(nextgcd + self.gcd, 2) and (self.abilities['Technical Step'].nextuse - nextgcd) > (6.5 + self.gcd) and not technicaldancing and not round(self.abilities['Standard Step'].nextuse, 2) == nextgcd  and delaystart - self.abilities['Standard Step'].nextuse > 5.2:
+                    elif standardhold and self.abilities['Standard Step'].nextuse < round(nextgcd + self.gcd, 2) and (
+                            self.abilities['Technical Step'].nextuse - nextgcd) > (
+                            6.5 + self.gcd) and not technicaldancing and not round(
+                            self.abilities['Standard Step'].nextuse, 2) == nextgcd and delaystart - self.abilities[
+                        'Standard Step'].nextuse > 5.2:
                         if not nextgcd > round(self.abilities['Standard Step'].nextuse, 2):
                             nextgcd = round(self.abilities['Standard Step'].nextuse, 2)
                     #             # If anything changes, post an updated
@@ -1262,7 +1407,9 @@ class sim:
                         self.abilities['Devilment'].putonCD(self.clock)
                         abilityused = True
                         devilhold = False
-                    elif self.abilities['Devilment'].available(self.clock) and round(nextgcd - self.abilitydelay,2) <= self.clock and self.abilities['Technical Step'].nextuse <= nextgcd:
+                    elif self.abilities['Devilment'].available(self.clock) and round(nextgcd - self.abilitydelay,
+                                                                                     2) <= self.clock and \
+                            self.abilities['Technical Step'].nextuse <= nextgcd:
                         if self.createlog:
                             logging.info(str(self.clock) + " : You use Devilment!")
                         self.buffs['Devilment'].activate(self.clock)
@@ -1271,14 +1418,21 @@ class sim:
                         abilityused = True
                         devilhold = False
                         nextaction = round(self.abilities['Technical Step'].nextuse, 2)
-                    elif saberfirst and self.abilities['Devilment'].available(round(nextgcd-self.abilitydelay,2)) and  self.abilities['Technical Step'].nextuse <= nextgcd: # Wait for Second oGCD window for Devilment
+                    elif saberfirst and self.abilities['Devilment'].available(round(nextgcd - self.abilitydelay, 2)) and \
+                            self.abilities[
+                                'Technical Step'].nextuse <= nextgcd:  # Wait for Second oGCD window for Devilment
                         abilityused = False
                         devilhold = True
                         nextaction = round(nextgcd - self.abilitydelay, 2)
-                    elif self.abilities['Devilment'].available(round(self.clock+self.abilitydelay,2)) and technicalhold and self.abilities['Technical Step'] == nextgcd:
+                    elif self.abilities['Devilment'].available(
+                            round(self.clock + self.abilitydelay, 2)) and technicalhold and self.abilities[
+                        'Technical Step'] == nextgcd:
                         nextaction = round(nextgcd - 1, 2)
                     elif self.abilities['Flourish'].available(self.clock) and (self.countprocs() == 0) and not (
-                    self.buffs['Flourishing Fan'].getactive(self.clock)) and not (nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),2) > nextdance) and dancenumber < 2 and not (buffwindow and self.esprit >= 50):
+                            self.buffs['Flourishing Fan'].getactive(self.clock)) and not (
+                            nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),
+                                                                   2) > nextdance) and dancenumber < 2 and not (
+                            buffwindow and self.esprit >= 50):
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use Flourish!')
                         self.buffs['Flourishing Cascade'].activate(self.clock)
@@ -1289,7 +1443,8 @@ class sim:
                         self.schedule.addtime(self.buffs['Flourishing Cascade'].activation)
                         self.abilities['Flourish'].putonCD(self.clock)
                         abilityused = True
-                    elif self.potion and self.abilities['Potion'].available(self.clock) and (nextgcd - nextaction) > 1.5 and (
+                    elif self.potion and self.abilities['Potion'].available(self.clock) and (
+                            nextgcd - nextaction) > 1.5 and (
                             self.abilities['Devilment'].getrecast(self.clock) < 15):
                         if self.createlog:
                             logging.info(str(self.clock) + ' : You use a potion!')
@@ -1298,55 +1453,74 @@ class sim:
                         self.abilities['Potion'].putonCD(self.clock)
                         nextaction = round(self.clock + .7, 2)
                         abilityused = True
-                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities['Fan Dance III'].available(self.clock) and (
+                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities[
+                        'Fan Dance III'].available(self.clock) and (
                             dancenumber > 0 or self.abilities['Flourish'].available(
-                            self.clock)):  # Use it right away so we don't risk losing proc
-                        self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.clock)):  # Use it right away so we don't risk losing proc
+                        self.buildpotency(
+                            self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                       self.buffs['Combo'].getactive(self.clock)))
                         flourishedfans = flourishedfans + 1
                         string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
                         abilityused = True
-                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities['Fan Dance III'].available(self.clock) and self.buffs['Flourishing Fan'].closetodrop(
+                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities[
+                        'Fan Dance III'].available(self.clock) and self.buffs['Flourishing Fan'].closetodrop(
                             self.clock, self.gcd):  # Use it if it drops in a GCD
-                        self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                       self.buffs['Combo'].getactive(self.clock)))
                         flourishedfans = flourishedfans + 1
                         string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
                         abilityused = True
-                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities['Fan Dance III'].available(
+                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.abilities[
+                        'Fan Dance III'].available(
                             self.clock) and nextbuffwindow > 13.5:  # Use it if there isn't a buff window coming
-                        self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                       self.buffs['Combo'].getactive(self.clock)))
                         flourishedfans = flourishedfans + 1
                         string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
                         abilityused = True
-                    elif self.buffs['Flourishing Fan'].getactive(self.clock) and self.feathers > 3:  # Use it if we have 4 feathers
-                        self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                    elif self.buffs['Flourishing Fan'].getactive(
+                            self.clock) and self.feathers > 3:  # Use it if we have 4 feathers
+                        self.buildpotency(
+                            self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                       self.buffs['Combo'].getactive(self.clock)))
                         flourishedfans = flourishedfans + 1
                         string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
                         abilityused = True
                     elif buffwindow and self.buffs['Flourishing Fan'].getactive(self.clock):
-                        self.buildpotency(self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Fan Dance III'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                       self.buffs['Combo'].getactive(self.clock)))
                         flourishedfans = flourishedfans + 1
                         string = self.buffs['Flourishing Fan'].dropbuff(self.clock)
                         if self.createlog:
                             logging.info(string)
                         abilityused = True
                     elif buffwindow and self.feathers > 0 and self.abilities['Fan Dance I'].available(self.clock):
-                        self.buildpotency(self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                        self.buildpotency(
+                            self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                     self.buffs['Combo'].getactive(self.clock)))
                         feathersused = feathersused + 1
                         self.feathers = self.feathers - 1
                         abilityused = True
                         if self.checkproc():
                             self.buffs['Flourishing Fan'].activate(self.clock)
                             self.schedule.addtime(self.buffs['Flourishing Fan'].activation)
-                    elif self.feathers > 3 and not (self.buffs['Flourishing Fan'].getactive(self.clock)) and self.abilities['Fan Dance I'].available(self.clock):
-                        self.buildpotency(self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats, self.buffs['Combo'].getactive(self.clock)))
+                    elif self.feathers > 3 and not (self.buffs['Flourishing Fan'].getactive(self.clock)) and \
+                            self.abilities['Fan Dance I'].available(self.clock):
+                        self.buildpotency(
+                            self.abilities['Fan Dance I'].getpotency(self.clock, CDHStats, potmod, DMGStats,
+                                                                     self.buffs['Combo'].getactive(self.clock)))
                         feathersused = feathersused + 1
                         self.feathers = self.feathers - 1
                         abilityused = True
@@ -1355,26 +1529,38 @@ class sim:
                             self.schedule.addtime(self.buffs['Flourishing Fan'].activation)
                     if abilityused:  # Process new action time
                         nextaction = round(self.clock + self.abilitydelay, 2)
-                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Devilment'].available(nextgcd):
+                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Devilment'].available(
+                                nextgcd):
                             nextaction = round(nextgcd, 2)  # I want to avoid clipping
                     elif not devilhold:
-                        if not (technicaldancing or standarddancing) and saberfirst and technicalhold and self.abilities['Devilment'].nextuse < nextgcd:
-                            nextaction = round(self.abilities['Devilment'].nextuse,2)
-                        elif not (technicaldancing or standarddancing) and self.abilities['Flourish'].nextuse < nextgcd - self.abilitydelay and (self.countprocs() == 0) and not (self.buffs['Flourishing Fan'].getactive(self.clock)) and not (nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),2) > nextdance) and dancenumber < 2 and not (buffwindow and self.esprit >= 50):
-                            nextaction = round(self.abilities['Flourish'].nextuse,2)
-                        elif not (technicaldancing or standarddancing) and self.abilities['Potion'].nextuse < nextgcd - 1.5 and self.abilities['Devilment'].getrecast(self.clock) < 15:
-                            nextaction = round(self.abilities['Potion'].nextuse,2)
-                        elif not (technicaldancing or standarddancing) and buffwindow and self.feathers > 0 and self.abilities['Fan Dance I'].nextuse <= round(nextgcd - self.abilitydelay,2) and not (self.buffs['Flourishing Fan'].getactive(self.clock) or self.buffs['Flourishing Fan'].activation > self.clock):
-                            nextaction = round(self.abilities['Fan Dance I'].nextuse,2)
+                        if not (technicaldancing or standarddancing) and saberfirst and technicalhold and \
+                                self.abilities['Devilment'].nextuse < nextgcd:
+                            nextaction = round(self.abilities['Devilment'].nextuse, 2)
+                        elif not (technicaldancing or standarddancing) and self.abilities[
+                            'Flourish'].nextuse < nextgcd - self.abilitydelay and (self.countprocs() == 0) and not (
+                        self.buffs['Flourishing Fan'].getactive(self.clock)) and not (
+                                nextdancetype == 'Technical' and round(nextgcd + (self.gcd * 4),
+                                                                       2) > nextdance) and dancenumber < 2 and not (
+                                buffwindow and self.esprit >= 50):
+                            nextaction = round(self.abilities['Flourish'].nextuse, 2)
+                        elif not (technicaldancing or standarddancing) and self.abilities[
+                            'Potion'].nextuse < nextgcd - 1.5 and self.abilities['Devilment'].getrecast(
+                                self.clock) < 15:
+                            nextaction = round(self.abilities['Potion'].nextuse, 2)
+                        elif not (technicaldancing or standarddancing) and buffwindow and self.feathers > 0 and \
+                                self.abilities['Fan Dance I'].nextuse <= round(nextgcd - self.abilitydelay, 2) and not (
+                                self.buffs['Flourishing Fan'].getactive(self.clock) or self.buffs[
+                            'Flourishing Fan'].activation > self.clock):
+                            nextaction = round(self.abilities['Fan Dance I'].nextuse, 2)
                         else:
                             nextaction = round(nextgcd, 2)
-                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Devilment'].available(nextgcd):
+                        if nextaction + self.abilitydelay > nextgcd and not self.abilities['Devilment'].available(
+                                nextgcd):
                             nextaction = round(nextgcd, 2)  # I want to avoid clipping
                         # Define the times we will want to act next
                         # 1. When FD1 is back up and we will not CLIP
                         # 2. If Flourish comes back within the next GCD and we want to use it
                         # 3. IF potion comes back within the next GCD and we want to use it
-
 
                 # check to see if its within any GCD use at my current self.clock position
                 # check to make sure its not happening in the next GCD
@@ -1384,13 +1570,14 @@ class sim:
                 # Make sure I have enough time to Devilment? How do I check that
             if self.gettimetable and self.clock == self.viewtime:
                 if self.clock > 0:
-                    self.timetable.append(self.potency/self.clock)
+                    self.timetable.append(self.potency / self.clock)
                 else:
                     self.timetable.append(self.potency)
                 self.viewtime = self.viewtime + 1
             if (oldpot != self.potency) or (oldesprit != self.esprit) or (oldfeathers != self.feathers):
                 if self.createlog:
-                    logging.info(str(self.clock) + ' : Potency: ' + str(round(self.potency, 1))+' '+ str(potmod) + ' || Feathers: ' + str(
+                    logging.info(str(self.clock) + ' : Potency: ' + str(round(self.potency, 1)) + ' ' + str(
+                        potmod) + ' || Feathers: ' + str(
                         self.feathers) + ' || Esprit: ' + str(self.esprit) + ' || Crit Rate: ' + str(
                         CDHStats[0]) + ' || DH Rate: ' + str(CDHStats[2]))
                 oldpot = self.potency
@@ -1419,9 +1606,9 @@ class sim:
             logging.info('Feathers Dropped : ' + str(self.feathersdropped))
             logging.info('Esprit Cap : ' + str(self.espritcap))
 
-        #print(gcd)
+        # print(gcd)
         totalesprit = saberdancess * 50 + self.esprit
-        return round(self.potency/self.length, 4)
+        return round(self.potency / self.length, 4)
 
 
 
