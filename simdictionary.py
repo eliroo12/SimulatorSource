@@ -134,7 +134,7 @@ def genpbuffs(party, tetherbuff):
     notmycard = buff('Not my Card', 15, 0, 1.00, 0, 'pot')
     bigcard = buff('Lady', 15, 0, 1.08, 0, 'pot')
     divination = buff('Divination', 15, 0, 1.06, 180,'pot')
-    trick = buff('Trick Attack', 15, 6.9, 1.05, 60,'pot')
+    trick = buff('Trick Attack', 15.8, 8.09, 1.05, 60,'pot')
     trick.activationdelay = .01
     tether = buff("Dragon Sight", 20, 3.1, 1.05, 120,'pot')
     devotion = buff("Devotion", 15, 6.5, 1.05, 180,'pot')
@@ -194,7 +194,7 @@ def genbuffs():
     potionbuff = buff('Potion', 30, 0, .1, 0,'None')
 
     devil = buff('Devilment', 20, 0, 20, 0,'cdh')
-    technical = buff('Technical Finish', 20, 0, 1.05, 0,'pot')
+    technical = buff('Technical Finish', 20.5, 0, 1.05, 0,'pot')
     combo = buff('Combo', 15, 0, 0, 0,'None')
     improvbuff = buff('Improvisation', 15, 0, 3, 0,'None')
 
@@ -203,6 +203,7 @@ def genbuffs():
 
     dict = {}
     for i in table:
+        i.activationdelay = .01
         dict[i.name] = i
     return dict
 
