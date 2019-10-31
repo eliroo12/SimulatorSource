@@ -134,7 +134,7 @@ def genpbuffs(party, tetherbuff):
     notmycard = buff('Not my Card', 15, 0, 1.00, 0, 'pot')
     bigcard = buff('Lady', 15, 0, 1.08, 0, 'pot')
     divination = buff('Divination', 15, 0, 1.06, 180,'pot')
-    trick = buff('Trick Attack', 15.8, 8.09, 1.05, 60,'pot')
+    trick = buff('Trick Attack', 15.8, 8.59, 1.05, 60,'pot')
     trick.activationdelay = .01
     tether = buff("Dragon Sight", 20, 3.1, 1.05, 120,'pot')
     devotion = buff("Devotion", 15, 6.5, 1.05, 180,'pot')
