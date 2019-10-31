@@ -84,25 +84,25 @@ def genast():
     return [abildict, buffdict, deck]
 
 def genjobs():
-    nin = job('NIN', 'DPS', True, 2.4, .7, .2, True)
-    drg = job('DRG', 'DPS', True, 2.4, .7, .2, False)
+    nin = job('NIN', 'DPS', False, 2.4, .7, .2, False)
+    drg = job('DRG', 'DPS', False, 2.4, .7, .2, False)
     mnk = job('MNK', 'DPS', False, 2.4, .7, .2, False)
-    sam = job('SAM', 'DPS', False, 2.4, .7, .2, False)
+    sam = job('SAM', 'DPS', True, 2.4, .7, .2, True)
 
     brd = job('BRD', 'DPS', False, 2.4, 0, .2, False)
-    mch = job('MCH', 'DPS', False, 2.4, 0, .2, False)
+    mch = job('MCH', 'DPS', True, 2.4, 0, .2, False)
 
-    rdm = job('RDM', 'DPS', True, 2.4, 0, .2, False)
+    rdm = job('RDM', 'DPS', False, 2.4, 0, .2, False)
     smn = job('SMN', 'DPS', False, 2.4, 0, .2, False)
-    blm = job('BLM', 'DPS', False, 2.4, 0, .2, False)
+    blm = job('BLM', 'DPS', True, 2.4, 0, .2, False)
 
-    sch = job('SCH', 'HEAL', True, 2.4, 0, .2, False)
-    ast = job('AST', 'HEAL', True, 2.4, 0, .2, False)
-    whm = job('WHM', 'HEAL', False, 2.4, 0, .2, False)
+    sch = job('SCH', 'HEAL', False, 2.4, 0, .2, False)
+    ast = job('AST', 'HEAL', False, 2.4, 0, .2, False)
+    whm = job('WHM', 'HEAL', True, 2.4, 0, .2, False)
 
     gnb = job('GNB', 'TANK', True, 2.4, 0, .2, False)
     war = job('WAR', 'TANK', True, 2.4, 0, .2, False)
-    drk = job('DRK', 'TANK', False, 2.4, 0, .2, False)
+    drk = job('DRK', 'TANK', True, 2.4, 0, .2, False)
     pld = job('PLD', 'TANK', False, 2.4, 0, .2, False)
 
 
@@ -134,8 +134,8 @@ def genpbuffs(party, tetherbuff):
     notmycard = buff('Not my Card', 15, 0, 1.00, 0, 'pot')
     bigcard = buff('Lady', 15, 0, 1.08, 0, 'pot')
     divination = buff('Divination', 15, 0, 1.06, 180,'pot')
-    trick = buff('Trick Attack', 10, 9.82, 1.1, 60,'pot')
-    trick.activationdelay = .8
+    trick = buff('Trick Attack', 15, 6.9, 1.05, 60,'pot')
+    trick.activationdelay = .01
     tether = buff("Dragon Sight", 20, 3.1, 1.05, 120,'pot')
     devotion = buff("Devotion", 15, 6.5, 1.05, 180,'pot')
     brotherhood = buff("Brotherhood", 14, 8, 1.05, 90,'pot')
@@ -143,6 +143,12 @@ def genpbuffs(party, tetherbuff):
     embolden.falloff = True
 
     battlevoice = buff('Battle Voice', 20, 3.4, 20, 180,'dh')
+    wanderers = buff('Minuet',29.99,1.2,2,80,'ch')
+    wanderers.activationdelay = .01
+    ballad = buff('Ballad',29.99,31.2,1.01,80,'pot')
+    ballad.activationdelay = .01
+    paeon = buff('Paeon',19.99,61.2,3,80,'dh')
+    paeon.activationdelay = .01
 
     litany = buff("Battle Litany", 20, 1.9, 10, 180,'ch')
     chain = buff("Chain Stratagem", 15, 9.4, 10, 120,'ch')
@@ -163,6 +169,9 @@ def genpbuffs(party, tetherbuff):
             buffs.append(devotion)
         if i == 'BRD':
             buffs.append(battlevoice)
+            buffs.append(wanderers)
+            buffs.append(ballad)
+            buffs.append(paeon)
         if i == 'SCH':
             buffs.append(chain)
 

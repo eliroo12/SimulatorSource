@@ -1,10 +1,10 @@
-# -*- mode: python -*-
+# -*- mode: python ; coding: utf-8 -*-
 
 block_cipher = None
 
 
 a = Analysis(['BalanceSims.py'],
-             pathex=['C:\\Users\\DJ\\Code\\DancerSim'],
+             pathex=['C:\\Users\\djwil\\Documents\\GitHub\\SimulatorSource'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -28,5 +28,6 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
+          upx_exclude=[],
           runtime_tmpdir=None,
           console=True )
