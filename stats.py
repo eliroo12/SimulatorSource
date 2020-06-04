@@ -18,4 +18,4 @@ def determinegcd(ss):
 
 def determinedet(deter):
 
-    return round(((math.floor(130*(deter-380)/3300+1000)/1000)-1)*100,2)
+    return round(((math.floor(130*(deter-340)/3300+1000)/1000)-1)*100,2)

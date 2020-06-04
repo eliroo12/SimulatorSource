@@ -5,7 +5,7 @@ from job import job
 
 def genabil(wepdelay, GCDrecast):
 
-    autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 100, 0, 0)
+    autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 110, 0, 0)
     cascade = ability('Cascade', 'GCD', 'ST', GCDrecast, 250, 0,  0)
     fountain = ability('Fountain', 'GCD', 'ST', GCDrecast, 100, 0, 300)
     reversecascade = ability('Reverse Cascade', 'GCD', 'ST', GCDrecast, 300, 0, 0)

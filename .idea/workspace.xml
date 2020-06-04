@@ -84,7 +84,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="barddictionary" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="DNCSim" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DNCSimv2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -96,7 +96,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/barddictionary.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DNCSim.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -170,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DNCSim" />
         <item itemvalue="Python.tkagg" />
         <item itemvalue="Python.cascade" />
         <item itemvalue="Python.dot" />
         <item itemvalue="Python.BRDgui" />
-        <item itemvalue="Python.barddictionary" />
       </list>
     </recent_temporary>
   </component>
@@ -325,16 +325,6 @@
           <url>file://$PROJECT_DIR$/simdictionary.py</url>
           <line>40</line>
           <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sim.py</url>
-          <line>476</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sim.py</url>
-          <line>468</line>
-          <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/sim.py</url>
